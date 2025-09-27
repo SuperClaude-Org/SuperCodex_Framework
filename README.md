@@ -1,4 +1,5 @@
-# SuperCodex v4.0.10 🚀
+> 🚧 Work in progress: preparing SuperCodex v4.0.0
+# SuperCodex v4.0.0 🚀
 <a href="https://github.com/SuperClaude-Org/SuperClaude_Framework" target="_blank">
   <img src="https://img.shields.io/badge/Try-SuperClaude_Framework-brightgreen" alt="Try SuperClaude Framework"/>
 </a>
@@ -8,13 +9,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://img.shields.io/pypi/v/SuperCodex.svg)](https://pypi.org/project/SuperCodex/)
-[![Version](https://img.shields.io/badge/version-4.0.10-blue.svg)](https://github.com/SuperClaude-Org/SuperCodex_Framework)
+[![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](https://github.com/SuperClaude-Org/SuperCodex_Framework)
 [![GitHub issues](https://img.shields.io/github/issues/SuperClaude-Org/SuperCodex_Framework)](https://github.com/SuperClaude-Org/SuperCodex_Framework/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/SuperClaude-Org/SuperCodex_Framework/blob/master/CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SuperClaude-Org/SuperCodex_Framework)](https://github.com/SuperClaude-Org/SuperCodex_Framework/graphs/contributors)
 
 
-SuperCodex is a meta-programming configuration framework that enhances Codex CLI with structured development capabilities. It provides 18 slash commands in TOML format, 13 specialized AI agents with Persona Mode, behavioral instructions, and workflow automation for systematic software development.
+SuperCodex is a meta-programming configuration framework that enhances Codex CLI with structured development capabilities. It provides 18 Markdown-based slash prompts, 13 specialized AI agents with Persona Mode, behavioral instructions, and workflow automation for systematic software development.
 
 ## Quick Start
 
@@ -62,7 +63,7 @@ pip install SuperCodex
 
 SuperCodex transforms Codex CLI into a structured development platform by providing:
 
-- **18 Slash Commands**: TOML-based commands for systematic workflow automation (/sg:analyze, /sg:implement, etc.)
+- **18 Slash Prompts**: Markdown prompts for systematic workflow automation (/sg:analyze, /sg:implement, etc.)
 - **Persona Mode**: 13 specialized AI agents that embody specific roles (system-architect, security-engineer, etc.)
 - **Behavioral Instructions**: Core principles and rules for consistent development practices
 - **Workflow Automation**: Systematic approaches to analysis, implementation, and optimization
@@ -78,7 +79,7 @@ Unlike traditional tools, SuperCodex uses **Persona Mode** where Codex CLI embod
 - [Installation Guide](Docs/Getting-Started/installation.md)
 
 ### User Guides
-- [Commands Reference](Docs/User-Guide/commands.md) - 18 TOML-based slash commands
+- [Prompts Reference](Docs/User-Guide/commands.md) - 18 Markdown-based slash prompts
 - [Agents Guide](Docs/User-Guide/agents.md) - 13 specialized AI personas
 - [Behavioral Modes](Docs/User-Guide/modes.md) - Context-aware operation modes
 - [Flags Guide](Docs/User-Guide/flags.md) - Command flags and options
@@ -99,7 +100,7 @@ Unlike traditional tools, SuperCodex uses **Persona Mode** where Codex CLI embod
 
 **Current Priorities:**
 - 📝 Documentation improvements and usage examples
-- 🎯 TOML command workflow patterns and best practices
+- 🎯 Prompt workflow patterns and best practices
 - 🤖 New AI agent personas for specialized domains
 - 🧪 Testing and validation for Codex CLI integration
 - 🌐 Translation and internationalization
