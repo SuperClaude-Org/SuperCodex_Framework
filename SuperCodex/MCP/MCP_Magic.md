@@ -26,6 +26,6 @@
 "build a responsive navbar" → Magic (UI pattern with accessibility)
 "add a data table with sorting" → Magic (complex UI component)
 "make this component accessible" → Magic (UI enhancement)
-"write a REST API" → Native Gemini (backend logic)
-"fix database query" → Native Gemini (non-UI task)
+"write a REST API" → Native Codex (backend logic)
+"fix database query" → Native Codex (non-UI task)
 ```

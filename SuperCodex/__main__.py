@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-SuperGemini Framework Management Hub
-Unified entry point for all SuperGemini operations
+SuperCodex Framework Management Hub
+Unified entry point for all SuperCodex operations
 
 Usage:
-    SuperGemini install [options]
-    SuperGemini update [options]
-    SuperGemini uninstall [options]
-    SuperGemini backup [options]
-    SuperGemini --help
+    SuperCodex install [options]
+    SuperCodex update [options]
+    SuperCodex uninstall [options]
+    SuperCodex backup [options]
+    SuperCodex --help
 """
 
 import sys
@@ -66,7 +66,7 @@ try:
 except ImportError:
     # Provide minimal fallback functions and constants if imports fail
     from pathlib import Path
-    DEFAULT_INSTALL_DIR = Path.home() / ".gemini"
+    DEFAULT_INSTALL_DIR = Path.home() / ".codex"
     
     class Colors:
         RED = YELLOW = GREEN = CYAN = RESET = ""
@@ -109,19 +109,19 @@ def create_parser():
     global_parser = create_global_parser()
 
     parser = argparse.ArgumentParser(
-        prog="SuperGemini",
-        description="SuperGemini Framework Management Hub - Unified CLI",
+        prog="SuperCodex",
+        description="SuperCodex Framework Management Hub - Unified CLI",
         epilog="""
 Examples:
-  SuperGemini install --dry-run
-  SuperGemini update --verbose
-  SuperGemini backup --create
+  SuperCodex install --dry-run
+  SuperCodex update --verbose
+  SuperCodex backup --create
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=[global_parser]
     )
 
-    parser.add_argument("--version", action="version", version=f"SuperGemini {__version__}")
+    parser.add_argument("--version", action="version", version=f"SuperCodex {__version__}")
 
     subparsers = parser.add_subparsers(
         dest="operation",
@@ -144,21 +144,21 @@ def setup_global_environment(args: argparse.Namespace):
 
     # Define log directory unless it's a dry run
     log_dir = args.install_dir / "logs" if not args.dry_run else None
-    setup_logging("supergemini_hub", log_dir=log_dir, console_level=level)
+    setup_logging("supercodex_hub", log_dir=log_dir, console_level=level)
 
     # Log startup context
     logger = get_logger()
     if logger:
-        logger.debug(f"SuperGemini called with operation: {getattr(args, 'operation', 'None')}")
+        logger.debug(f"SuperCodex called with operation: {getattr(args, 'operation', 'None')}")
         logger.debug(f"Arguments: {vars(args)}")
 
 
 def get_operation_modules() -> Dict[str, str]:
     """Return supported operations and their descriptions"""
     return {
-        "install": "Install SuperGemini framework components",
-        "update": "Update existing SuperGemini installation",
-        "uninstall": "Remove SuperGemini installation",
+        "install": "Install SuperCodex framework components",
+        "update": "Update existing SuperCodex installation",
+        "uninstall": "Remove SuperCodex installation",
         "backup": "Backup and restore operations"
     }
 
@@ -229,7 +229,7 @@ def main() -> int:
         # No operation provided? Show help manually unless in quiet mode
         if not args.operation:
             if not args.quiet:
-                display_header(f"SuperGemini Framework v{__version__}", "Unified CLI for all operations")
+                display_header(f"SuperCodex Framework v{__version__}", "Unified CLI for all operations")
                 print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")

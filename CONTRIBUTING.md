@@ -1,8 +1,8 @@
-# Contributing to SuperGemini Framework
+# Contributing to SuperCodex Framework
 
-SuperGemini Framework transforms Gemini CLI into a structured development platform through behavioral instruction injection and intelligent workflow orchestration. We welcome contributions that enhance the framework's capabilities, improve documentation, and expand the ecosystem of specialized agents and MCP server integrations.
+SuperCodex Framework transforms Codex CLI into a structured development platform through behavioral instruction injection and intelligent workflow orchestration. We welcome contributions that enhance the framework's capabilities, improve documentation, and expand the ecosystem of specialized agents and MCP server integrations.
 
-**Project Mission**: Enable systematic software development workflows with automated expert coordination, quality gates, and session persistence for Gemini CLI users.
+**Project Mission**: Enable systematic software development workflows with automated expert coordination, quality gates, and session persistence for Codex CLI users.
 
 **Community Approach**: Open development with focus on practical utility, educational value, and professional development workflows. All contributions undergo review to ensure alignment with framework principles and quality standards.
 
@@ -11,13 +11,13 @@ SuperGemini Framework transforms Gemini CLI into a structured development platfo
 ### 🐛 Bug Reports
 **Before Reporting:**
 - Search existing issues to avoid duplicates
-- Test with latest SuperGemini version
+- Test with latest SuperCodex version
 - Verify issue isn't covered in [Troubleshooting Guide](Docs/Reference/troubleshooting.md)
 
 **Required Information:**
-- SuperGemini version: `SuperGemini --version`
+- SuperCodex version: `SuperCodex --version`
 - Operating system and version
-- Gemini CLI version: `gemini --version`
+- Codex CLI version: `codex --version`
 - Python version: `python3 --version`
 - Exact steps to reproduce the issue
 - Expected vs actual behavior
@@ -27,15 +27,15 @@ SuperGemini Framework transforms Gemini CLI into a structured development platfo
 **Good Bug Report Example:**
 ```
 **Environment:**
-- SuperGemini: 4.0.3
+- SuperCodex: 4.0.3
 - OS: Ubuntu 22.04
-- Gemini CLI: 1.5.2
+- Codex CLI: 1.5.2
 - Python: 3.9.7
 
 **Issue:** `/sg:implement` command fails with ModuleNotFoundError
 
 **Steps to Reproduce:**
-1. Run `SuperGemini install --components core`
+1. Run `SuperCodex install --components core`
 2. Execute `/sg:implement "user login"`
 3. Error appears: ModuleNotFoundError: No module named 'requests'
 
@@ -52,7 +52,7 @@ SuperGemini Framework transforms Gemini CLI into a structured development platfo
 
 ### 💡 Feature Requests
 **Feature Evaluation Criteria:**
-- Aligns with SuperGemini's systematic development workflow mission
+- Aligns with SuperCodex's systematic development workflow mission
 - Provides clear utility for software development tasks
 - Integrates well with existing command/agent/mode architecture
 - Maintains framework simplicity and discoverability
@@ -236,7 +236,7 @@ All community interactions should embody professional software development stand
 
 ### Stay Focused
 **Project Focus:**
-SuperGemini Framework enhances Gemini CLI for systematic software development workflows. Contributions should align with this core mission.
+SuperCodex Framework enhances Codex CLI for systematic software development workflows. Contributions should align with this core mission.
 
 **In Scope:**
 - Software development workflow automation
@@ -336,21 +336,21 @@ SuperGemini Framework enhances Gemini CLI for systematic software development wo
 Before seeking support, please:
 1. Check existing documentation and troubleshooting guides
 2. Search GitHub issues for similar problems
-3. Verify you're using the latest SuperGemini version
+3. Verify you're using the latest SuperCodex version
 4. Test with minimal reproduction case
 
 ### Common Questions
 
 **Development Environment Issues:**
 
-**Q: "SuperGemini install fails with permission errors"**
-A: Use `pip install --user SuperGemini` or create virtual environment. See [Installation Guide](Getting-Started/installation.md) for details.
+**Q: "SuperCodex install fails with permission errors"**
+A: Use `pip install --user SuperCodex` or create virtual environment. See [Installation Guide](Getting-Started/installation.md) for details.
 
 **Q: "Commands not recognized after installation"**
-A: Restart Gemini CLI session. Verify installation with `SuperGemini install --list-components`. Check ~/.gemini directory exists.
+A: Restart Codex CLI session. Verify installation with `SuperCodex install --list-components`. Check ~/.codex directory exists.
 
 **Q: "MCP servers not connecting"**
-A: Check Node.js installation for MCP servers. Verify ~/.gemini/.gemini.json configuration. Try `SuperGemini install --components mcp --force`.
+A: Check Node.js installation for MCP servers. Verify ~/.codex/.codex.json configuration. Try `SuperCodex install --components mcp --force`.
 
 **Code Development:**
 
@@ -378,10 +378,10 @@ A: Profile before optimizing. Focus on common workflows. Maintain cross-platform
 
 **MIT License Agreement:**
 
-By contributing to SuperGemini Framework, you agree that your contributions will be licensed under the same MIT License that covers the project. This ensures the framework remains open and accessible for educational and commercial use.
+By contributing to SuperCodex Framework, you agree that your contributions will be licensed under the same MIT License that covers the project. This ensures the framework remains open and accessible for educational and commercial use.
 
 **Contribution Terms:**
-- All contributions become part of the SuperGemini Framework under MIT License
+- All contributions become part of the SuperCodex Framework under MIT License
 - Contributors retain copyright to their original work
 - No contributor license agreement (CLA) required for simple contributions
 - Complex contributions may require explicit license confirmation
@@ -399,16 +399,16 @@ By contributing to SuperGemini Framework, you agree that your contributions will
 - Document any patent or licensing considerations
 
 **Commercial Usage:**
-The MIT License explicitly allows commercial use of SuperGemini Framework, including contributions. This supports the project's goal of enabling professional software development workflows.
+The MIT License explicitly allows commercial use of SuperCodex Framework, including contributions. This supports the project's goal of enabling professional software development workflows.
 
 ## 🙏 Acknowledgments
 
 **Project Contributors:**
 
-SuperGemini Framework benefits from community contributions across documentation, code development, testing, and user experience improvements. 
+SuperCodex Framework benefits from community contributions across documentation, code development, testing, and user experience improvements. 
 
 **Recognition:**
-- [GitHub Contributors Graph](https://github.com/SuperClaude-Org/SuperGemini_Framework/graphs/contributors) - Complete contributor list
+- [GitHub Contributors Graph](https://github.com/SuperClaude-Org/SuperCodex_Framework/graphs/contributors) - Complete contributor list
 - Release notes acknowledge significant contributions
 - Documentation contributors credited in relevant guides
 - Community discussions highlight helpful patterns and solutions
@@ -432,7 +432,7 @@ SuperGemini Framework benefits from community contributions across documentation
 - Community members sharing workflows and best practices
 
 **Growth:**
-The SuperGemini Framework community continues growing through shared commitment to systematic software development and AI-assisted workflows. Every contribution, from typo fixes to major features, strengthens the framework for all users.
+The SuperCodex Framework community continues growing through shared commitment to systematic software development and AI-assisted workflows. Every contribution, from typo fixes to major features, strengthens the framework for all users.
 
 **Join Us:**
 Whether you're fixing documentation, adding features, or sharing usage patterns, your contributions help build better software development tools for the entire community.

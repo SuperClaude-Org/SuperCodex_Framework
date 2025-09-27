@@ -1,5 +1,5 @@
 """
-System validation for SuperGemini installation requirements
+System validation for SuperCodex installation requirements
 """
 
 import subprocess
@@ -167,24 +167,24 @@ class Validator:
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
     
-    def check_gemini_cli(self, min_version: Optional[str] = None) -> Tuple[bool, str]:
+    def check_codex_cli(self, min_version: Optional[str] = None) -> Tuple[bool, str]:
         """
-        Check Gemini CLI installation and version
+        Check Codex CLI installation and version
         
         Args:
-            min_version: Minimum required Gemini CLI version (optional)
+            min_version: Minimum required Codex CLI version (optional)
             
         Returns:
             Tuple of (success: bool, message: str)
         """
-        cache_key = f"gemini_cli_{min_version}"
+        cache_key = f"codex_cli_{min_version}"
         if cache_key in self.validation_cache:
             return self.validation_cache[cache_key]
         
         try:
-            # Check if gemini is installed - use shell=True on Windows for better PATH resolution
+            # Check if codex is installed - use shell=True on Windows for better PATH resolution
             result = subprocess.run(
-                ['gemini', '--version'],
+                ['codex', '--version'],
                 capture_output=True,
                 text=True,
                 timeout=10,
@@ -192,8 +192,8 @@ class Validator:
             )
             
             if result.returncode != 0:
-                help_msg = self.get_installation_help("gemini_cli")
-                result_tuple = (False, f"Gemini CLI not found in PATH{help_msg}")
+                help_msg = self.get_installation_help("codex_cli")
+                result_tuple = (False, f"Codex CLI not found in PATH{help_msg}")
                 self.validation_cache[cache_key] = result_tuple
                 return result_tuple
             
@@ -202,7 +202,7 @@ class Validator:
             version_match = re.search(r'(\d+\.\d+\.\d+)', version_output)
             
             if not version_match:
-                result_tuple = (True, "Gemini CLI found (version format unknown)")
+                result_tuple = (True, "Codex CLI found (version format unknown)")
                 self.validation_cache[cache_key] = result_tuple
                 return result_tuple
             
@@ -210,25 +210,25 @@ class Validator:
             
             # Check minimum version if specified
             if min_version and version.parse(current_version) < version.parse(min_version):
-                result_tuple = (False, f"Gemini CLI {min_version}+ required, found {current_version}")
+                result_tuple = (False, f"Codex CLI {min_version}+ required, found {current_version}")
                 self.validation_cache[cache_key] = result_tuple
                 return result_tuple
             
-            result_tuple = (True, f"Gemini CLI {current_version} found")
+            result_tuple = (True, f"Codex CLI {current_version} found")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
             
         except subprocess.TimeoutExpired:
-            result_tuple = (False, "Gemini CLI version check timed out")
+            result_tuple = (False, "Codex CLI version check timed out")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
         except FileNotFoundError:
-            help_msg = self.get_installation_help("gemini_cli")
-            result_tuple = (False, f"Gemini CLI not found in PATH{help_msg}")
+            help_msg = self.get_installation_help("codex_cli")
+            result_tuple = (False, f"Codex CLI not found in PATH{help_msg}")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
         except Exception as e:
-            result_tuple = (False, f"Could not check Gemini CLI: {e}")
+            result_tuple = (False, f"Could not check Codex CLI: {e}")
             self.validation_cache[cache_key] = result_tuple
             return result_tuple
     
@@ -496,11 +496,11 @@ class Validator:
         if node_success:
             info["node_message"] = node_msg
         
-        # Add Gemini CLI info if available
-        gemini_success, gemini_msg = self.check_gemini_cli()
-        info["gemini_cli_available"] = gemini_success
-        if gemini_success:
-            info["gemini_cli_message"] = gemini_msg
+        # Add Codex CLI info if available
+        codex_success, codex_msg = self.check_codex_cli()
+        info["codex_cli_available"] = codex_success
+        if codex_success:
+            info["codex_cli_message"] = codex_msg
         
         # Add disk space info
         try:
@@ -609,15 +609,15 @@ class Validator:
             diagnostics["issues"].append("Node.js not found or version issue")
             diagnostics["recommendations"].append(self.get_installation_help("node"))
         
-        # Check Gemini CLI
-        gemini_success, gemini_msg = self.check_gemini_cli()
-        diagnostics["checks"]["gemini_cli"] = {
-            "status": "pass" if gemini_success else "fail",
-            "message": gemini_msg
+        # Check Codex CLI
+        codex_success, codex_msg = self.check_codex_cli()
+        diagnostics["checks"]["codex_cli"] = {
+            "status": "pass" if codex_success else "fail",
+            "message": codex_msg
         }
-        if not gemini_success:
-            diagnostics["issues"].append("Gemini CLI not found")
-            diagnostics["recommendations"].append(self.get_installation_help("gemini_cli"))
+        if not codex_success:
+            diagnostics["issues"].append("Codex CLI not found")
+            diagnostics["recommendations"].append(self.get_installation_help("codex_cli"))
         
         # Check disk space
         disk_success, disk_msg = self.check_disk_space(Path.home())
@@ -643,7 +643,7 @@ class Validator:
             (["python3", "python"], "Python (python3 or python)"),
             (["node"], "Node.js"),
             (["npm"], "npm"),
-            (["gemini"], "Gemini CLI")
+            (["codex"], "Codex CLI")
         ]
         
         for tool_alternatives, display_name in tool_checks:

@@ -1,8 +1,8 @@
-# Testing & Debugging SuperGemini Framework
+# Testing & Debugging SuperCodex Framework
 
-This guide provides comprehensive testing and debugging strategies for SuperGemini Framework development. Whether you're contributing components, fixing bugs, or optimizing performance, these techniques will help you build robust, reliable code.
+This guide provides comprehensive testing and debugging strategies for SuperCodex Framework development. Whether you're contributing components, fixing bugs, or optimizing performance, these techniques will help you build robust, reliable code.
 
-**Developer-Focused Approach**: Testing and debugging strategies specifically designed for the meta-framework architecture, component system, and intelligent orchestration patterns unique to SuperGemini.
+**Developer-Focused Approach**: Testing and debugging strategies specifically designed for the meta-framework architecture, component system, and intelligent orchestration patterns unique to SuperCodex.
 
 ## Table of Contents
 
@@ -11,7 +11,7 @@ This guide provides comprehensive testing and debugging strategies for SuperGemi
 1. [Quick Start Testing Tutorial](#quick-start-testing-tutorial) - Get started with basic testing
 2. [Testing Environment Setup](#testing-environment-setup) - Comprehensive test configuration
 3. [Testing Framework](#testing-framework) - Development testing procedures and standards
-4. [Debugging SuperGemini Components](#debugging-superclaude-components) - Component-specific debugging
+4. [Debugging SuperCodex Components](#debugging-superclaude-components) - Component-specific debugging
 5. [Performance Testing & Optimization](#performance-testing--optimization) - Benchmarking and profiling
 6. [Security Testing](#security-testing) - Security validation and vulnerability testing
 7. [Integration Testing](#integration-testing) - End-to-end workflow validation
@@ -59,13 +59,13 @@ import os
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-# Import SuperGemini components
+# Import SuperCodex components
 from setup.components.base import BaseComponent
 from setup.core.registry import ComponentRegistry
 from setup.services.session_manager import SessionManager
 
 class TestBasicSetup:
-    """Basic SuperGemini component testing example"""
+    """Basic SuperCodex component testing example"""
     
     def setup_method(self):
         """Set up test environment before each test"""
@@ -88,12 +88,12 @@ class TestBasicSetup:
         
         # Assertions with clear validation
         assert result.success, f"Installation failed: {result.error}"
-        assert (self.test_dir / 'GEMINI.md').exists(), "GEMINI.md not created"
+        assert (self.test_dir / 'CODEX.md').exists(), "CODEX.md not created"
         
         # Verify content structure
-        gemini_content = (self.test_dir / 'GEMINI.md').read_text()
-        assert '@FLAGS.md' in gemini_content, "FLAGS.md not referenced"
-        assert '@RULES.md' in gemini_content, "RULES.md not referenced"
+        codex_content = (self.test_dir / 'CODEX.md').read_text()
+        assert '@FLAGS.md' in codex_content, "FLAGS.md not referenced"
+        assert '@RULES.md' in codex_content, "RULES.md not referenced"
 ```
 
 ### 3. Run Your Tests
@@ -469,7 +469,7 @@ import os
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-# SuperGemini imports
+# SuperCodex imports
 from setup.components.base import BaseComponent
 from setup.components.core import CoreComponent
 from setup.core.registry import ComponentRegistry
@@ -509,16 +509,16 @@ class TestComponentSystem:
         
         # Comprehensive assertions
         assert result.success, f"Installation failed: {getattr(result, 'error', 'Unknown error')}"
-        assert (self.test_dir / 'GEMINI.md').exists(), "GEMINI.md not created"
+        assert (self.test_dir / 'CODEX.md').exists(), "CODEX.md not created"
         
         # Verify registry state
         installed_components = self.registry.list_installed()
         assert 'core' in installed_components, f"Core not in registry: {installed_components}"
         
         # Verify file contents
-        gemini_content = (self.test_dir / 'GEMINI.md').read_text()
-        assert '@FLAGS.md' in gemini_content, "FLAGS.md reference missing"
-        assert '@RULES.md' in gemini_content, "RULES.md reference missing"
+        codex_content = (self.test_dir / 'CODEX.md').read_text()
+        assert '@FLAGS.md' in codex_content, "FLAGS.md reference missing"
+        assert '@RULES.md' in codex_content, "RULES.md reference missing"
         
     def test_component_validation(self):
         """Test component validation before installation"""
@@ -534,7 +534,7 @@ class TestComponentSystem:
         assert hasattr(component, 'install'), "Component missing install method"
 ```
 
-## Debugging SuperGemini Components
+## Debugging SuperCodex Components
 
 > **🏗️ Architecture Context**: Understanding component architecture is essential for effective debugging. Review [Technical Architecture Guide](technical-architecture.md) for system architecture details.
 
@@ -692,20 +692,20 @@ export SUPERCLAUDE_DEBUG_COORDINATION=true
 export SUPERCLAUDE_LOG_LEVEL=debug
 
 # Create log directory if it doesn't exist
-mkdir -p ~/.gemini/logs
+mkdir -p ~/.codex/logs
 
 # Run with agent tracing (corrected command)
 python -m setup.main install --debug-agents --dry-run --verbose
 
-# Alternative: Use SuperGemini CLI if installed
-SuperGemini install core --debug --trace-agents --dry-run
+# Alternative: Use SuperCodex CLI if installed
+SuperCodex install core --debug --trace-agents --dry-run
 
 # Monitor agent activation in real-time
-tail -f ~/.gemini/logs/superclaude-debug.log | grep -E "(AGENT|COORDINATION)"
+tail -f ~/.codex/logs/superclaude-debug.log | grep -E "(AGENT|COORDINATION)"
 
 # Check specific agent logs
-ls ~/.gemini/logs/agent-*.log
-tail -f ~/.gemini/logs/agent-activation.log
+ls ~/.codex/logs/agent-*.log
+tail -f ~/.codex/logs/agent-activation.log
 
 # Debug agent selection with Python
 python -c "
@@ -935,8 +935,8 @@ export SUPERCLAUDE_DEBUG_MODE_TRANSITIONS=true
 export SUPERCLAUDE_LOG_LEVEL=debug
 
 # Create debugging environment
-mkdir -p ~/.gemini/logs
-mkdir -p ~/.gemini/debug
+mkdir -p ~/.codex/logs
+mkdir -p ~/.codex/debug
 
 # Inspect current mode state
 python -c "
@@ -976,17 +976,17 @@ debug_state = {
     'test_selection': selected_modes
 }
 
-with open(os.path.expanduser('~/.gemini/debug/mode_state.json'), 'w') as f:
+with open(os.path.expanduser('~/.codex/debug/mode_state.json'), 'w') as f:
     json.dump(debug_state, f, indent=2)
     
-print('Debug state saved to ~/.gemini/debug/mode_state.json')
+print('Debug state saved to ~/.codex/debug/mode_state.json')
 "
 
 # Monitor mode transitions in real-time
-tail -f ~/.gemini/logs/superclaude-debug.log | grep -E "(MODE|TRANSITION)"
+tail -f ~/.codex/logs/superclaude-debug.log | grep -E "(MODE|TRANSITION)"
 
 # Check mode-specific logs
-ls ~/.gemini/logs/mode-*.log
+ls ~/.codex/logs/mode-*.log
 
 # Debug mode configuration
 python -c "
@@ -1115,7 +1115,7 @@ class MCPDebugger:
         default_config = self.server_configs.get(server_name, {})
         
         # Check user configuration
-        claude_config_path = Path.home() / '.gemini.json'
+        claude_config_path = Path.home() / '.codex.json'
         user_config = {}
         
         if claude_config_path.exists():
@@ -1242,7 +1242,7 @@ class MCPDebugger:
         else:
             health_status['overall'] = 'inactive'
             health_status['issues'].append('Server not in active connections')
-            health_status['recommendations'].append(f'Try: SuperGemini install {server_name}')
+            health_status['recommendations'].append(f'Try: SuperCodex install {server_name}')
             
         return health_status
         
@@ -1290,7 +1290,7 @@ def debug_all_mcp_servers():
         result = debugger.debug_server_connection(server_name)
         
         # Save debug results
-        debug_file = Path.home() / '.gemini' / 'debug' / f'mcp_{server_name}_debug.json'
+        debug_file = Path.home() / '.codex' / 'debug' / f'mcp_{server_name}_debug.json'
         debug_file.parent.mkdir(parents=True, exist_ok=True)
         
         with open(debug_file, 'w') as f:
@@ -1317,7 +1317,7 @@ export SUPERCLAUDE_TRACE_MCP=true
 export SUPERCLAUDE_MCP_LOG_LEVEL=debug
 
 # Create MCP log directory
-mkdir -p ~/.gemini/logs/mcp
+mkdir -p ~/.codex/logs/mcp
 
 # Trace MCP requests and responses (fixed commands)
 python -m setup.main debug --mcp-trace --verbose
@@ -1346,11 +1346,11 @@ except Exception as e:
 "
 
 # Monitor MCP communication in real-time
-tail -f ~/.gemini/logs/superclaude-debug.log | grep -E "(MCP|REQUEST|RESPONSE)"
+tail -f ~/.codex/logs/superclaude-debug.log | grep -E "(MCP|REQUEST|RESPONSE)"
 
 # Check individual MCP server logs
-ls ~/.gemini/logs/mcp-*.log
-tail -f ~/.gemini/logs/mcp-context7.log
+ls ~/.codex/logs/mcp-*.log
+tail -f ~/.codex/logs/mcp-context7.log
 
 # Debug specific MCP server issues
 python -c "
@@ -1367,17 +1367,17 @@ debugger.debug_all_mcp_servers()
 **Issue: Component Installation Fails**
 ```bash
 # Problem: Permission denied or file conflicts
-ERROR: Permission denied: '/home/user/.gemini/GEMINI.md'
+ERROR: Permission denied: '/home/user/.codex/CODEX.md'
 
 # Diagnosis
-ls -la ~/.gemini/
+ls -la ~/.codex/
 whoami
 groups
 
 # Solution
-sudo chown -R $USER:$USER ~/.gemini
-chmod 755 ~/.gemini
-chmod 644 ~/.gemini/*.md
+sudo chown -R $USER:$USER ~/.codex
+chmod 755 ~/.codex
+chmod 644 ~/.codex/*.md
 
 # Verification
 python -c "
@@ -1386,7 +1386,7 @@ from setup.core.installation import InstallOptions
 from pathlib import Path
 
 component = CoreComponent()
-install_dir = Path.home() / '.gemini'
+install_dir = Path.home() / '.codex'
 options = InstallOptions(install_dir=install_dir, force=True)
 result = component.install(options)
 print(f'Installation result: {result.success}')
@@ -1405,7 +1405,7 @@ python -c "
 from setup.mcp.debugging import MCPDebugger
 debugger = MCPDebugger()
 result = debugger.debug_server_connection('context7')
-print('Debug complete. Check ~/.gemini/debug/mcp_context7_debug.json')
+print('Debug complete. Check ~/.codex/debug/mcp_context7_debug.json')
 "
 
 # Common fixes
@@ -1426,7 +1426,7 @@ which npx
 netstat -tlnp | grep :300[1-6]
 
 # 5. Reset MCP configuration
-SuperGemini install mcp --force --reset
+SuperCodex install mcp --force --reset
 ```
 
 **Issue: Agent System Not Activating**
@@ -1452,14 +1452,14 @@ print(f'Coordination: {pattern}')
 
 # Common solutions
 # 1. Check trigger keywords
-cat ~/.gemini/AGENT_SecurityEngineer.md | grep -i "trigger"
+cat ~/.codex/AGENT_SecurityEngineer.md | grep -i "trigger"
 
 # 2. Update agent triggers
-# Edit ~/.gemini/AGENT_SecurityEngineer.md
+# Edit ~/.codex/AGENT_SecurityEngineer.md
 # Add keywords: auth, authentication, secure, login
 
 # 3. Clear agent cache
-rm -f ~/.gemini/cache/agent_*.cache
+rm -f ~/.codex/cache/agent_*.cache
 
 # 4. Verify agent installation
 python -c "
@@ -1549,15 +1549,15 @@ except Exception as e:
 
 # Common fixes
 # 1. Check permissions
-chmod 755 ~/.gemini/sessions/
-chmod 644 ~/.gemini/sessions/*.json
+chmod 755 ~/.codex/sessions/
+chmod 644 ~/.codex/sessions/*.json
 
 # 2. Clear corrupted sessions
-rm ~/.gemini/sessions/corrupted_session_*.json
+rm ~/.codex/sessions/corrupted_session_*.json
 
 # 3. Reset session storage
-mv ~/.gemini/sessions ~/.gemini/sessions_backup
-mkdir -p ~/.gemini/sessions
+mv ~/.codex/sessions ~/.codex/sessions_backup
+mkdir -p ~/.codex/sessions
 ```
 
 ### Performance and Memory Issues
@@ -1597,7 +1597,7 @@ def diagnose_memory_issues():
     for obj_type, count in top_objects:
         print(f"  {obj_type}: {count}")
     
-    # Check SuperGemini specific memory usage
+    # Check SuperCodex specific memory usage
     try:
         session_manager = SessionManager()
         active_sessions = session_manager.get_active_sessions()
@@ -1608,7 +1608,7 @@ def diagnose_memory_issues():
         print(f"Loaded Components: {len(loaded_components)}")
         
     except Exception as e:
-        print(f"SuperGemini memory check failed: {e}")
+        print(f"SuperCodex memory check failed: {e}")
     
     # Memory leak detection
     gc.set_debug(gc.DEBUG_LEAK)
@@ -1637,7 +1637,7 @@ from setup.mcp.debugging import MCPDebugger
 
 class ComprehensiveDebugger:
     def __init__(self):
-        self.debug_dir = Path.home() / '.gemini' / 'debug'
+        self.debug_dir = Path.home() / '.codex' / 'debug'
         self.debug_dir.mkdir(parents=True, exist_ok=True)
         
         self.agent_debugger = AgentDebugger()
@@ -1762,15 +1762,15 @@ class ComprehensiveDebugger:
         # Agent system recommendations
         agent_health = diagnosis_results['components']['agents']['overall_health']
         if agent_health != 'healthy':
-            recommendations.append("Reinstall agent components: SuperGemini install agents --force")
-            recommendations.append("Check agent trigger keywords in ~/.gemini/AGENT_*.md files")
+            recommendations.append("Reinstall agent components: SuperCodex install agents --force")
+            recommendations.append("Check agent trigger keywords in ~/.codex/AGENT_*.md files")
             
         # MCP system recommendations
         mcp_health = diagnosis_results['components']['mcp']['overall_health']
         if mcp_health != 'healthy':
             recommendations.append("Check Node.js version: node --version (requires 16+)")
-            recommendations.append("Reinstall MCP servers: SuperGemini install mcp --force")
-            recommendations.append("Check MCP server logs: ~/.gemini/logs/mcp-*.log")
+            recommendations.append("Reinstall MCP servers: SuperCodex install mcp --force")
+            recommendations.append("Check MCP server logs: ~/.codex/logs/mcp-*.log")
             
         # General recommendations
         if not recommendations:
@@ -2046,7 +2046,7 @@ def debug_session_example():
     result = debugger.debug_session_state('current-session')
     
     # Save debug results
-    debug_file = Path.home() / '.gemini' / 'debug' / 'session_debug.json'
+    debug_file = Path.home() / '.codex' / 'debug' / 'session_debug.json'
     debug_file.parent.mkdir(parents=True, exist_ok=True)
     
     with open(debug_file, 'w') as f:
@@ -2068,8 +2068,8 @@ export SUPERCLAUDE_DEBUG_SESSION_LIFECYCLE=true
 export SUPERCLAUDE_LOG_LEVEL=debug
 
 # Create session debug environment
-mkdir -p ~/.gemini/debug/sessions
-mkdir -p ~/.gemini/logs
+mkdir -p ~/.codex/debug/sessions
+mkdir -p ~/.codex/logs
 
 # Trace session operations with enhanced debugging
 python -c "
@@ -2141,24 +2141,24 @@ except Exception as e:
 
 # Check session storage and metadata
 echo -e "\n📂 Session Storage Analysis:"
-ls -la ~/.gemini/sessions/ 2>/dev/null || echo "Session directory not found"
+ls -la ~/.codex/sessions/ 2>/dev/null || echo "Session directory not found"
 
 # Check for session metadata
-if [ -f ~/.gemini/sessions/session-metadata.json ]; then
+if [ -f ~/.codex/sessions/session-metadata.json ]; then
     echo -e "\n📄 Session Metadata:"
-    cat ~/.gemini/sessions/session-metadata.json | python -m json.tool
+    cat ~/.codex/sessions/session-metadata.json | python -m json.tool
 else
     echo "No session metadata file found"
 fi
 
 # Check session logs
 echo -e "\n📋 Session Logs:"
-ls -la ~/.gemini/logs/*session*.log 2>/dev/null || echo "No session logs found"
+ls -la ~/.codex/logs/*session*.log 2>/dev/null || echo "No session logs found"
 
 # Monitor session activity in real-time
 echo -e "\n🔍 Monitoring Session Activity:"
 echo "Run this in a separate terminal:"
-echo "tail -f ~/.gemini/logs/superclaude-debug.log | grep -E '(SESSION|MEMORY|CONTEXT)'"
+echo "tail -f ~/.codex/logs/superclaude-debug.log | grep -E '(SESSION|MEMORY|CONTEXT)'"
 ```
 
 **Memory Debugging:**
@@ -2204,9 +2204,9 @@ class MemoryDebugger:
         print(f"  Process memory: {process_memory['rss_mb']:.1f} MB RSS, {process_memory['vms_mb']:.1f} MB VMS")
         memory_report['process'] = process_memory
         
-        # SuperGemini specific memory
+        # SuperCodex specific memory
         sc_memory = self._get_superclaude_memory()
-        print(f"  SuperGemini components: {sc_memory['total_mb']:.1f} MB")
+        print(f"  SuperCodex components: {sc_memory['total_mb']:.1f} MB")
         memory_report['superclaude'] = sc_memory
         
         # Session memory breakdown
@@ -2259,7 +2259,7 @@ class MemoryDebugger:
             return {'error': str(e)}
             
     def _get_superclaude_memory(self) -> Dict[str, Any]:
-        """Get SuperGemini specific memory usage"""
+        """Get SuperCodex specific memory usage"""
         try:
             total_size = 0
             component_sizes = {}
@@ -2553,10 +2553,10 @@ class TestComponentIntegration:
         assert test_config.install_dir.exists()
         
         # Verify core functionality
-        gemini_md = test_config.install_dir / 'GEMINI.md'
-        assert gemini_md.exists()
+        codex_md = test_config.install_dir / 'CODEX.md'
+        assert codex_md.exists()
         
-        content = gemini_md.read_text()
+        content = codex_md.read_text()
         assert '@FLAGS.md' in content
         assert '@RULES.md' in content
         
@@ -2567,7 +2567,7 @@ class TestComponentIntegration:
         result = mcp_component.install(self.test_dir)
         
         # Verify MCP configuration
-        mcp_config = self.test_dir / '.gemini.json'
+        mcp_config = self.test_dir / '.codex.json'
         assert mcp_config.exists()
         
         config_data = json.loads(mcp_config.read_text())
@@ -2615,12 +2615,12 @@ class AgentSystem:
 
 **🎯 Skill Level: Advanced**
 
-Systematic chaos engineering framework for testing SuperGemini Framework resilience and fault tolerance:
+Systematic chaos engineering framework for testing SuperCodex Framework resilience and fault tolerance:
 
 ### Chaos Engineering Framework
 
 **Chaos Testing Philosophy:**
-SuperGemini Framework operates in complex environments with multiple failure modes. Chaos engineering proactively tests system resilience by intentionally introducing controlled failures.
+SuperCodex Framework operates in complex environments with multiple failure modes. Chaos engineering proactively tests system resilience by intentionally introducing controlled failures.
 
 ```python
 # chaos/framework/chaos_engine.py
@@ -2819,8 +2819,8 @@ from hypothesis import given, strategies as st, settings, example
 from hypothesis.stateful import RuleBasedStateMachine, rule, invariant
 import pytest
 
-class SuperGeminiPropertyTests:
-    """Property-based tests for SuperGemini Framework invariants"""
+class SuperCodexPropertyTests:
+    """Property-based tests for SuperCodex Framework invariants"""
     
     @given(component_ids=st.lists(
         st.sampled_from(['core', 'mcp', 'agents', 'modes']),
@@ -3401,10 +3401,10 @@ class TestCrossPlatformIntegration:
     def test_installation_cross_platform(self, platform):
         """Test installation across different platforms"""
         if platform == "windows":
-            expected_executable = "SuperGemini.exe"
+            expected_executable = "SuperCodex.exe"
             path_separator = "\"
         else:
-            expected_executable = "SuperGemini"
+            expected_executable = "SuperCodex"
             path_separator = "/"
         
         # Platform-specific installation
@@ -3429,22 +3429,22 @@ class TestCrossPlatformIntegration:
 
 ### Built-in Debugging Tools
 
-**SuperGemini Debug Command:**
+**SuperCodex Debug Command:**
 ```bash
 # Comprehensive system diagnostics
-SuperGemini debug --comprehensive
+SuperCodex debug --comprehensive
 
 # Component-specific debugging
-SuperGemini debug --components agents,mcp
+SuperCodex debug --components agents,mcp
 
 # Performance debugging
-SuperGemini debug --performance --memory
+SuperCodex debug --performance --memory
 
 # Session debugging
-SuperGemini debug --sessions --verbose
+SuperCodex debug --sessions --verbose
 
 # MCP server debugging
-SuperGemini debug --mcp-servers --trace
+SuperCodex debug --mcp-servers --trace
 ```
 
 **Debug Environment Variables:**
@@ -3575,7 +3575,7 @@ report = debugger.generate_debug_report()
 **Log Analysis Tools:**
 ```python
 class LogAnalyzer:
-    """Analyze SuperGemini logs for issues and patterns"""
+    """Analyze SuperCodex logs for issues and patterns"""
     
     def analyze_installation_logs(self, log_file):
         """Analyze installation logs for failures"""
@@ -3620,8 +3620,8 @@ class LogAnalyzer:
 
 # Usage
 analyzer = LogAnalyzer()
-issues = analyzer.analyze_installation_logs('~/.gemini/logs/installation.log')
-metrics = analyzer.extract_performance_metrics('~/.gemini/logs/performance.log')
+issues = analyzer.analyze_installation_logs('~/.codex/logs/installation.log')
+metrics = analyzer.extract_performance_metrics('~/.codex/logs/performance.log')
 ```
 
 ## Common Development Issues
@@ -3634,14 +3634,14 @@ metrics = analyzer.extract_performance_metrics('~/.gemini/logs/performance.log')
 ERROR: Component 'mcp' requires 'core' but it's not installed
 
 # Solution: Install in dependency order
-SuperGemini install --components core mcp --resolve-dependencies
+SuperCodex install --components core mcp --resolve-dependencies
 
 # Issue: Permission denied during installation
-ERROR: Permission denied: '/home/user/.gemini/GEMINI.md'
+ERROR: Permission denied: '/home/user/.codex/CODEX.md'
 
 # Solution: Fix permissions
-sudo chown -R $USER ~/.gemini
-chmod 755 ~/.gemini
+sudo chown -R $USER ~/.codex
+chmod 755 ~/.codex
 ```
 
 **MCP Server Connection Issues:**
@@ -3654,33 +3654,33 @@ node --version  # Should be 16+
 which context7  # Verify installation path
 
 # Solution: Reinstall MCP servers
-SuperGemini install --components mcp --force
+SuperCodex install --components mcp --force
 npm install -g @context7/mcp-server
 ```
 
 **Configuration Conflicts:**
 ```python
-# Issue: GEMINI.md import conflicts
-ERROR: Circular import detected: GEMINI.md -> FLAGS.md -> GEMINI.md
+# Issue: CODEX.md import conflicts
+ERROR: Circular import detected: CODEX.md -> FLAGS.md -> CODEX.md
 
 # Debug: Check import structure
 def debug_import_structure():
-    with open('~/.gemini/GEMINI.md', 'r') as f:
+    with open('~/.codex/CODEX.md', 'r') as f:
         content = f.read()
         imports = re.findall(r'@(\w+\.md)', content)
         print(f"Imports detected: {imports}")
         
     # Check for circular references
     for import_file in imports:
-        import_path = Path('~/.gemini') / import_file
+        import_path = Path('~/.codex') / import_file
         if import_path.exists():
             with open(import_path, 'r') as f:
                 nested_imports = re.findall(r'@(\w+\.md)', f.read())
-                if 'GEMINI.md' in nested_imports:
-                    print(f"Warning: Circular import: {import_file} -> GEMINI.md")
+                if 'CODEX.md' in nested_imports:
+                    print(f"Warning: Circular import: {import_file} -> CODEX.md")
 
 # Solution: Remove circular imports
-# Edit problematic files to remove @GEMINI.md references
+# Edit problematic files to remove @CODEX.md references
 ```
 
 ### Component Development Issues
@@ -3823,7 +3823,7 @@ print(f"Response expectation: {classifier.SEVERITY_LEVELS[severity]['response_ti
 **Development Support Workflow:**
 ```bash
 # Step 1: Self-diagnosis
-SuperGemini debug --comprehensive > debug-report.txt
+SuperCodex debug --comprehensive > debug-report.txt
 
 # Step 2: Check common issues
 python -c "
@@ -3835,12 +3835,12 @@ for solution in solutions:
 "
 
 # Step 3: Community support
-# Search existing issues: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
-# Join discussions: https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions
+# Search existing issues: https://github.com/SuperCodex-Org/SuperCodex_Framework/issues
+# Join discussions: https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions
 
 # Step 4: Create detailed issue report
 # Include:
-# - SuperGemini version: SuperGemini --version
+# - SuperCodex version: SuperCodex --version
 # - System info: uname -a
 # - Python version: python --version  
 # - Debug report: debug-report.txt
@@ -3861,7 +3861,7 @@ import memory_profiler
 from pytest import benchmark
 
 class TestPerformance:
-    """Performance testing suite for SuperGemini components"""
+    """Performance testing suite for SuperCodex components"""
     
     @memory_profiler.profile
     def test_memory_usage_component_installation(self):
@@ -3925,7 +3925,7 @@ def test_concurrent_installations():
 **Security Test Categories:**
 ```python
 class SecurityTestSuite:
-    """Comprehensive security testing for SuperGemini components"""
+    """Comprehensive security testing for SuperCodex components"""
     
     def test_input_validation(self):
         """Test input sanitization and validation"""
@@ -3963,7 +3963,7 @@ class SecurityTestSuite:
 pip install bandit safety pip-audit
 
 # Run security scans
-python -m bandit -r setup/ SuperGemini/
+python -m bandit -r setup/ SuperCodex/
 python -m safety check
 python -m pip-audit
 
@@ -3985,7 +3985,7 @@ class TestSystemIntegration:
     def test_complete_development_workflow(self):
         """Test complete development workflow end-to-end"""
         # 1. Initialize system
-        system = SuperGeminiFramework()
+        system = SuperCodexFramework()
         system.initialize()
         
         # 2. Install components
@@ -4325,7 +4325,7 @@ else:
 class HumanReviewGuidelines:
     REVIEW_CHECKLIST = {
         'architecture': [
-            'Does the component follow SuperGemini patterns?',
+            'Does the component follow SuperCodex patterns?',
             'Is the component properly integrated with the registry?',
             'Are dependencies clearly defined and minimal?',
             'Does it follow the single responsibility principle?'
@@ -4598,7 +4598,7 @@ from pathlib import Path
 
 @pytest.fixture(scope="session")
 def test_environment():
-    """Set up test environment for SuperGemini testing"""
+    """Set up test environment for SuperCodex testing"""
     test_dir = Path(tempfile.mkdtemp(prefix="superclaude_test_"))
     
     # Setup test configuration
@@ -4633,7 +4633,7 @@ def mock_mcp_servers():
 **CI/CD Integration:**
 ```yaml
 # .github/workflows/test.yml
-name: SuperGemini Tests
+name: SuperCodex Tests
 
 on: [push, pull_request]
 
@@ -4671,8 +4671,8 @@ jobs:
 ### Community Resources
 
 **Development Community:**
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Technical discussions
-- [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) - Bug reports and feature requests
+- [GitHub Discussions](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions) - Technical discussions
+- [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues) - Bug reports and feature requests
 - [Contributing Guidelines](../CONTRIBUTING.md) - Contribution process
 
 **Learning Resources:**
@@ -4683,7 +4683,7 @@ jobs:
 **Advanced Topics:**
 - [Session Management](../User-Guide/session-management.md) - Persistent workflows
 - [Flags Guide](../User-Guide/flags.md) - Behavioral control
-- [Technical Roadmap](https://github.com/SuperGemini-Org/SuperGemini_Framework/projects) - Future development
+- [Technical Roadmap](https://github.com/SuperCodex-Org/SuperCodex_Framework/projects) - Future development
 
 ---
 
@@ -4694,11 +4694,11 @@ For testing and debugging assistance, join our community discussions or create a
 
 ## Testing Glossary
 
-**For Screen Readers**: This glossary contains alphabetically ordered testing and debugging terms specific to SuperGemini Framework development. Each term includes practical definitions and framework-specific context.
+**For Screen Readers**: This glossary contains alphabetically ordered testing and debugging terms specific to SuperCodex Framework development. Each term includes practical definitions and framework-specific context.
 
 ### A
 
-**Agent Testing**: Specialized testing procedures for validating AI agent behavior, activation triggers, coordination patterns, and collaborative synthesis within the SuperGemini orchestration system.
+**Agent Testing**: Specialized testing procedures for validating AI agent behavior, activation triggers, coordination patterns, and collaborative synthesis within the SuperCodex orchestration system.
 
 **Automated Quality Gates**: Continuous validation checkpoints that automatically verify code quality, security compliance, performance standards, and architectural consistency throughout development workflows.
 
@@ -4712,9 +4712,9 @@ For testing and debugging assistance, join our community discussions or create a
 
 ### C
 
-**Component Integration Testing**: Testing methodology that validates the interaction between SuperGemini components including agents, MCP servers, behavioral modes, and core framework elements.
+**Component Integration Testing**: Testing methodology that validates the interaction between SuperCodex components including agents, MCP servers, behavioral modes, and core framework elements.
 
-**Configuration Testing**: Validation procedures for testing configuration file loading, instruction injection, and behavioral programming patterns unique to SuperGemini's meta-framework approach.
+**Configuration Testing**: Validation procedures for testing configuration file loading, instruction injection, and behavioral programming patterns unique to SuperCodex's meta-framework approach.
 
 **Coverage Analysis**: Measurement of test completeness including code coverage, feature coverage, and integration scenario coverage for comprehensive quality validation.
 
@@ -4726,7 +4726,7 @@ For testing and debugging assistance, join our community discussions or create a
 
 ### E
 
-**End-to-End Testing**: Comprehensive testing that validates complete user workflows from input through detection, routing, orchestration, and execution within SuperGemini Framework.
+**End-to-End Testing**: Comprehensive testing that validates complete user workflows from input through detection, routing, orchestration, and execution within SuperCodex Framework.
 
 **Error Recovery Testing**: Validation procedures for testing fault tolerance, graceful degradation, and recovery mechanisms when components fail or connections are lost.
 
@@ -4734,11 +4734,11 @@ For testing and debugging assistance, join our community discussions or create a
 
 **Framework Testing**: Specialized testing methodologies for meta-framework components including instruction injection, behavioral programming, and configuration-driven behavior modification.
 
-**Functional Testing**: Testing approach that validates component functionality, feature implementation, and user workflow completion within the SuperGemini ecosystem.
+**Functional Testing**: Testing approach that validates component functionality, feature implementation, and user workflow completion within the SuperCodex ecosystem.
 
 ### I
 
-**Integration Testing**: Testing methodology that validates the interaction between SuperGemini components and external systems including Gemini Code, MCP servers, and development tools.
+**Integration Testing**: Testing methodology that validates the interaction between SuperCodex components and external systems including Codex Code, MCP servers, and development tools.
 
 **Installation Testing**: Verification procedures for testing component installation, dependency resolution, configuration setup, and environment validation across different platforms.
 
@@ -4768,7 +4768,7 @@ For testing and debugging assistance, join our community discussions or create a
 
 **Security Testing**: Comprehensive security validation including vulnerability testing, sandboxing verification, input validation testing, and threat modeling for framework components.
 
-**System Testing**: End-to-end validation of complete SuperGemini Framework functionality including detection engines, orchestration layers, and execution frameworks.
+**System Testing**: End-to-end validation of complete SuperCodex Framework functionality including detection engines, orchestration layers, and execution frameworks.
 
 ### U
 
@@ -4791,7 +4791,7 @@ For testing and debugging assistance, join our community discussions or create a
 4. **Practice**: Work through provided code examples and test cases
 
 **Intermediate Testing Skills**:
-1. **Component Testing**: [Debugging SuperGemini Components](#debugging-superclaude-components) for component-specific testing
+1. **Component Testing**: [Debugging SuperCodex Components](#debugging-superclaude-components) for component-specific testing
 2. **Integration Testing**: [Integration Testing](#integration-testing) for workflow validation
 3. **Quality Gates**: [Quality Validation](#quality-validation) for comprehensive testing frameworks
 4. **Performance**: Basic [Performance Testing & Optimization](#performance-testing--optimization)

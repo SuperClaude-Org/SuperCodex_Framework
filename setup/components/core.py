@@ -1,5 +1,5 @@
 """
-Core component for SuperGemini framework files installation
+Core component for SuperCodex framework files installation
 """
 
 from typing import Dict, List, Tuple, Optional, Any
@@ -7,10 +7,10 @@ from pathlib import Path
 import shutil
 
 from ..core.base import Component
-from ..services.gemini_md import GEMINIMdService
+from ..services.codex_md import CODEXMdService
 
 class CoreComponent(Component):
-    """Core SuperGemini framework files component"""
+    """Core SuperCodex framework files component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize core component"""
@@ -22,22 +22,22 @@ class CoreComponent(Component):
         return {
             "name": "core",
             "version": __version__,
-            "description": "SuperGemini framework documentation and core files",
+            "description": "SuperCodex framework documentation and core files",
             "category": "core"
         }
     
     def get_metadata_modifications(self) -> Dict[str, Any]:
-        """Get metadata modifications for SuperGemini"""
+        """Get metadata modifications for SuperCodex"""
         from .. import __version__
         return {
             "framework": {
                 "version": __version__,
-                "name": "SuperGemini",
-                "description": "AI-enhanced development framework for Gemini CLI",
+                "name": "SuperCodex",
+                "description": "AI-enhanced development framework for Codex CLI",
                 "installation_type": "global",
                 "components": ["core"]
             },
-            "supergemini": {
+            "supercodex": {
                 "enabled": True,
                 "version": __version__,
                 "profile": "default",
@@ -47,7 +47,7 @@ class CoreComponent(Component):
     
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install core component"""
-        self.logger.info("Installing SuperGemini core framework files...")
+        self.logger.info("Installing SuperCodex core framework files...")
 
         return super()._install(config);
 
@@ -68,9 +68,9 @@ class CoreComponent(Component):
 
             self.logger.info("Updated metadata with core component registration")
             
-            # Migrate any existing SuperGemini data from settings.json
-            if self.settings_manager.migrate_supergemini_data():
-                self.logger.info("Migrated existing SuperGemini data from settings.json")
+            # Migrate any existing SuperCodex data from settings.json
+            if self.settings_manager.migrate_supercodex_data():
+                self.logger.info("Migrated existing SuperCodex data from settings.json")
         except Exception as e:
             self.logger.error(f"Failed to update metadata: {e}")
             return False
@@ -82,13 +82,13 @@ class CoreComponent(Component):
             if not self.file_manager.ensure_directory(dir_path):
                 self.logger.warning(f"Could not create directory: {dir_path}")
         
-        # Update GEMINI.md with core framework imports
+        # Update CODEX.md with core framework imports
         try:
-            manager = GEMINIMdService(self.install_dir)
+            manager = CODEXMdService(self.install_dir)
             manager.add_imports(self.component_files, category="Core Framework")
-            self.logger.info("Updated GEMINI.md with core framework imports")
+            self.logger.info("Updated CODEX.md with core framework imports")
         except Exception as e:
-            self.logger.warning(f"Failed to update GEMINI.md with core framework imports: {e}")
+            self.logger.warning(f"Failed to update CODEX.md with core framework imports: {e}")
             # Don't fail the whole installation for this
 
         return True
@@ -97,7 +97,7 @@ class CoreComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall core component"""
         try:
-            self.logger.info("Uninstalling SuperGemini core component...")
+            self.logger.info("Uninstalling SuperCodex core component...")
             
             # Remove framework files
             removed_count = 0
@@ -138,7 +138,7 @@ class CoreComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update core component"""
         try:
-            self.logger.info("Updating SuperGemini core component...")
+            self.logger.info("Updating SuperCodex core component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("core")
@@ -228,10 +228,10 @@ class CoreComponent(Component):
     
     def _get_source_dir(self):
         """Get source directory for framework files"""
-        # Assume we're in SuperGemini/setup/components/core.py
-        # and framework files are in SuperGemini/SuperGemini/Core/
+        # Assume we're in SuperCodex/setup/components/core.py
+        # and framework files are in SuperCodex/SuperCodex/Core/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperGemini" / "Core"
+        return project_root / "SuperCodex" / "Core"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""

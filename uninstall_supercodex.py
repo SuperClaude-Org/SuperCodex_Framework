@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SuperGemini Uninstall Script
+SuperCodex Uninstall Script
 Standalone uninstall script that doesn't rely on complex imports
 """
 
@@ -10,29 +10,29 @@ import sys
 from pathlib import Path
 
 
-def uninstall_supergemini(install_dir=None, verbose=False):
-    """Uninstall SuperGemini framework"""
+def uninstall_supercodex(install_dir=None, verbose=False):
+    """Uninstall SuperCodex framework"""
     
-    # Default to ~/.gemini directory
+    # Default to ~/.codex directory
     if install_dir is None:
-        install_dir = Path.home() / '.gemini'
+        install_dir = Path.home() / '.codex'
     else:
         install_dir = Path(install_dir)
     
     # Check if directory exists
     if not install_dir.exists():
-        print(f"⚠️ No SuperGemini installation found at {install_dir}")
+        print(f"⚠️ No SuperCodex installation found at {install_dir}")
         return 0
     
-    # Safety check - ensure it's the Gemini directory
-    if install_dir.name != '.gemini':
-        response = input(f"❓ Directory {install_dir} doesn't appear to be a standard SuperGemini installation. Continue? (y/N): ")
+    # Safety check - ensure it's the Codex directory
+    if install_dir.name != '.codex':
+        response = input(f"❓ Directory {install_dir} doesn't appear to be a standard SuperCodex installation. Continue? (y/N): ")
         if response.lower() != 'y':
             print("Uninstall cancelled.")
             return 1
     
     # Get metadata if available
-    metadata_file = install_dir / '.supergemini-metadata.json'
+    metadata_file = install_dir / '.supercodex-metadata.json'
     components = {}
     if metadata_file.exists():
         try:
@@ -44,7 +44,7 @@ def uninstall_supergemini(install_dir=None, verbose=False):
     
     # Display what will be removed
     print("\n" + "="*60)
-    print("       SuperGemini Uninstall")
+    print("       SuperCodex Uninstall")
     print("="*60)
     print(f"\n📂 Installation directory: {install_dir}")
     
@@ -74,9 +74,9 @@ def uninstall_supergemini(install_dir=None, verbose=False):
     print(f"\n🗑️  Removing {install_dir}...")
     try:
         shutil.rmtree(install_dir)
-        print("✅ SuperGemini uninstalled successfully!")
+        print("✅ SuperCodex uninstalled successfully!")
         print("\nYou can reinstall anytime using:")
-        print("  pip install -e . && python -m SuperGemini install")
+        print("  pip install -e . && python -m SuperCodex install")
         return 0
     except Exception as e:
         print(f"❌ Error during uninstall: {e}")
@@ -96,7 +96,7 @@ def main():
             break
     
     # Run uninstall
-    return uninstall_supergemini(install_dir, verbose)
+    return uninstall_supercodex(install_dir, verbose)
 
 
 if __name__ == "__main__":

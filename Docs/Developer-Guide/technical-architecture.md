@@ -1,16 +1,16 @@
-# SuperGemini Technical Architecture Guide 🏗️
+# SuperCodex Technical Architecture Guide 🏗️
 
 ## Overview
 
-This technical architecture guide documents SuperGemini Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Gemini Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
+This technical architecture guide documents SuperCodex Framework's V4 orchestrator system - a sophisticated meta-programming framework that transforms Codex Code into a structured development platform through behavioral instruction injection and intelligent component orchestration.
 
-**Target Audience**: Framework developers, system architects, contributors, and advanced users requiring deep technical understanding of SuperGemini's internal architecture and extension patterns.
+**Target Audience**: Framework developers, system architects, contributors, and advanced users requiring deep technical understanding of SuperCodex's internal architecture and extension patterns.
 
-**Architecture Philosophy**: SuperGemini operates as a **meta-framework** that enhances Gemini Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
+**Architecture Philosophy**: SuperCodex operates as a **meta-framework** that enhances Codex Code through configuration-driven behavioral programming, intelligent task routing, and dynamic tool coordination rather than replacing core functionality.
 
 ## Table of Contents
 
-**For Screen Readers**: This document contains 14 main sections covering SuperGemini Framework architecture. Use heading navigation to jump between sections. Complex architectural diagrams are accompanied by detailed text descriptions.
+**For Screen Readers**: This document contains 14 main sections covering SuperCodex Framework architecture. Use heading navigation to jump between sections. Complex architectural diagrams are accompanied by detailed text descriptions.
 
 1. [Architecture Overview](#architecture-overview) - Multi-layered orchestration pattern with visual diagrams
 2. [Detection Engine](#detection-engine) - Intelligent task classification and context analysis
@@ -32,7 +32,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 - [Testing & Debugging Guide](testing-debugging.md) - Testing frameworks and debugging procedures
 
 **Key Terminology**:
-- **Meta-Framework**: Enhancement layer for Gemini Code through instruction injection
+- **Meta-Framework**: Enhancement layer for Codex Code through instruction injection
 - **Agent Orchestration**: Intelligent coordination of specialized AI agents
 - **MCP Integration**: Model Context Protocol server coordination and management
 - **Behavioral Programming**: AI behavior modification through structured configuration files
@@ -43,7 +43,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### System Design Principles
 
-**Meta-Framework Architecture**: SuperGemini enhances Gemini Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
+**Meta-Framework Architecture**: SuperCodex enhances Codex Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
 
 **Configuration-Driven Behavior**: Behavioral programming through structured `.md` files enables AI behavior modification without code changes, providing unprecedented flexibility in AI system customization.
 
@@ -58,7 +58,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 **MCP Servers**: External tool integration layer providing enhanced capabilities
 - 6 core servers: context7, sequential, magic, playwright, morphllm, serena  
-- Protocol-based communication with Gemini Code
+- Protocol-based communication with Codex Code
 - Health monitoring and resource management
 
 **Behavioral Modes**: Meta-cognitive frameworks that modify interaction patterns
@@ -68,10 +68,10 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### System Overview Architecture
 
-**Accessibility Description**: This diagram shows SuperGemini Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Gemini Code base, configuration system, and MCP integration.
+**Accessibility Description**: This diagram shows SuperCodex Framework's five-layer architecture flowing top to bottom. The User Interaction Layer receives natural language inputs, slash commands, and flag modifiers. The Detection & Routing Engine analyzes context, matches patterns, and scores complexity. The Orchestration Layer handles agent selection, MCP activation, and mode control. The Execution Framework manages tasks, quality gates, and session memory. The Foundation Layer contains Codex Code base, configuration system, and MCP integration.
 
 ```
-                        SuperGemini Framework V4 Architecture
+                        SuperCodex Framework V4 Architecture
 
 ┌──────────────────── USER INTERACTION LAYER ────────────────────┐
 │ Natural Language Input  │  Slash Commands    │   Flag Modifiers │
@@ -104,8 +104,8 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 └─────────────────────────┬───────────────────────────────────────┘
                           │
 ┌──────────────────── FOUNDATION LAYER ───────────────────────────┐
-│ ┌─ Gemini Code Base ─┐ ┌─ Config System ──┐ ┌─ MCP Integration ─┐│
-│ │• File operations   │ │• GEMINI.md files │ │• External tools   ││
+│ ┌─ Codex Code Base ─┐ ┌─ Config System ──┐ ┌─ MCP Integration ─┐│
+│ │• File operations   │ │• CODEX.md files │ │• External tools   ││
 │ │• Git integration   │ │• Behavioral rules│ │• Protocol handler ││
 │ │• Native tools      │ │• Agent definitions│ │• Health monitor   ││
 │ └────────────────────┘ └──────────────────┘ └───────────────────┘│
@@ -114,10 +114,10 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 
 ### Agent Coordination Flow Diagram
 
-**Accessibility Description**: This flowchart shows how SuperGemini coordinates multiple agents for complex tasks. It flows top to bottom through four stages: Task Input (example authentication task), Detection Engine (analyzes triggers and complexity), Agent Selection (selects four agents based on complexity and domain), and Coordination Pattern (shows how four agents collaborate with the system-architect as strategic lead, security-engineer as critical reviewer, backend-architect as implementation expert, and performance-engineer as optimization specialist, all feeding into collaborative synthesis).
+**Accessibility Description**: This flowchart shows how SuperCodex coordinates multiple agents for complex tasks. It flows top to bottom through four stages: Task Input (example authentication task), Detection Engine (analyzes triggers and complexity), Agent Selection (selects four agents based on complexity and domain), and Coordination Pattern (shows how four agents collaborate with the system-architect as strategic lead, security-engineer as critical reviewer, backend-architect as implementation expert, and performance-engineer as optimization specialist, all feeding into collaborative synthesis).
 
 ```
-        SuperGemini V4 Agent Coordination Architecture
+        SuperCodex V4 Agent Coordination Architecture
 
 ┌─ TASK INPUT ─────────────────────────────────────────────────────┐
 │ "Implement secure authentication with performance optimization"   │
@@ -179,7 +179,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 ### MCP Integration Architecture
 
 ```
-        SuperGemini MCP Server Integration Architecture
+        SuperCodex MCP Server Integration Architecture
 
 ┌─ CLAUDE CODE CORE ──────────────────────────────────────────────┐
 │ Native Tools: Read, Write, Edit, Bash, LS, Grep, Glob          │
@@ -260,7 +260,7 @@ This technical architecture guide documents SuperGemini Framework's V4 orchestra
 ### Intelligent Task Classification
 
 **Context Analysis Configuration:**
-SuperGemini's detection engine operates through structured markdown configuration files that define trigger patterns and routing logic:
+SuperCodex's detection engine operates through structured markdown configuration files that define trigger patterns and routing logic:
 
 ```markdown
 # Pattern Recognition Configuration (RULES.md)
@@ -659,7 +659,7 @@ class TestingFramework:
 
 **🎯 Skill Level: Intermediate to Advanced**
 
-Systematic performance evaluation framework for SuperGemini Framework components and integrations:
+Systematic performance evaluation framework for SuperCodex Framework components and integrations:
 
 #### Benchmarking Framework Architecture
 
@@ -966,7 +966,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class ScalabilityTester:
-    """Framework for testing SuperGemini Framework scalability"""
+    """Framework for testing SuperCodex Framework scalability"""
     
     def __init__(self, test_name: str):
         self.test_name = test_name
@@ -1012,9 +1012,9 @@ class ScalabilityTester:
     
     async def _create_test_workflow(self, workflow_id: int):
         """Create a representative test workflow"""
-        from setup.core.orchestrator import SuperGeminiOrchestrator
+        from setup.core.orchestrator import SuperCodexOrchestrator
         
-        orchestrator = SuperGeminiOrchestrator()
+        orchestrator = SuperCodexOrchestrator()
         
         # Simulate typical workflow
         test_task = {
@@ -1647,7 +1647,7 @@ class ConfigurationManager:
     def __init__(self):
         self.config_sources = [
             EnvironmentConfigSource(),
-            FileConfigSource('~/.gemini/config.json'),
+            FileConfigSource('~/.codex/config.json'),
             DefaultConfigSource()
         ]
         self.config_cache = ConfigCache()
@@ -1800,7 +1800,7 @@ class BackupManager:
 **Component Extension Framework:**
 ```python
 class BaseComponent:
-    """Base class for all SuperGemini components"""
+    """Base class for all SuperCodex components"""
     
     def get_metadata(self):
         """Return component metadata including dependencies"""
@@ -1856,7 +1856,7 @@ class CustomMCPComponent(BaseComponent):
         
     def install(self, install_dir):
         # Add server to MCP configuration
-        mcp_config_path = install_dir / '.gemini.json'
+        mcp_config_path = install_dir / '.codex.json'
         mcp_config = self._load_mcp_config(mcp_config_path)
         
         mcp_config['mcpServers'][self.server_name] = {
@@ -2018,7 +2018,7 @@ class CustomCommandExtension:
         
     def register_command(self):
         command_registry = CommandRegistry()
-        command_registry.register_command(f'SuperGemini {self.command_name}', {
+        command_registry.register_command(f'SuperCodex {self.command_name}', {
             'handler': self.command_config['handler'],
             'description': self.command_config['description'],
             'flags': self.command_config.get('flags', []),
@@ -2045,9 +2045,9 @@ validate_command = CustomCommandExtension('validate', {
     'handler': 'ValidationCommandHandler',
     'description': 'Multi-layer validation including security, performance, and quality',
     'usage': [
-        'SuperGemini validate codebase/',
-        'SuperGemini validate --focus security auth-system/',
-        'SuperGemini validate --comprehensive --report project/'
+        'SuperCodex validate codebase/',
+        'SuperCodex validate --focus security auth-system/',
+        'SuperCodex validate --comprehensive --report project/'
     ],
     'flags': ['focus', 'comprehensive', 'report', 'fix'],
     'capabilities': ['code_analysis', 'security_scanning', 'performance_testing'],
@@ -2074,7 +2074,7 @@ Complete API reference with request/response examples and integration patterns:
 # API: setup.core.component_manager.ComponentManager
 
 class ComponentManager:
-    """Primary interface for managing SuperGemini Framework components"""
+    """Primary interface for managing SuperCodex Framework components"""
     
     def install_component(self, component_id: str, options: InstallOptions) -> InstallResult:
         """
@@ -2090,7 +2090,7 @@ class ComponentManager:
         Example:
             >>> manager = ComponentManager()
             >>> options = InstallOptions(
-            ...     install_dir=Path("~/.gemini"),
+            ...     install_dir=Path("~/.codex"),
             ...     merge_strategy="smart_merge",
             ...     backup_existing=True,
             ...     validate_dependencies=True
@@ -2309,9 +2309,9 @@ class MCPManager:
 
 **Orchestration API:**
 ```python
-# API: setup.core.orchestrator.SuperGeminiOrchestrator
+# API: setup.core.orchestrator.SuperCodexOrchestrator
 
-class SuperGeminiOrchestrator:
+class SuperCodexOrchestrator:
     """Central orchestration engine for complex multi-component tasks"""
     
     def execute_workflow(self, workflow: WorkflowDefinition) -> WorkflowResult:
@@ -2325,7 +2325,7 @@ class SuperGeminiOrchestrator:
             WorkflowResult with execution status, outputs, and performance metrics
             
         Example:
-            >>> orchestrator = SuperGeminiOrchestrator()
+            >>> orchestrator = SuperCodexOrchestrator()
             >>> workflow = WorkflowDefinition(
             ...     name="secure_api_development",
             ...     description="Design and implement secure REST API",
@@ -2531,8 +2531,8 @@ class MCPResponse:
 ```python
 # Exception classes for API error handling
 
-class SuperGeminiException(Exception):
-    """Base exception for all SuperGemini Framework errors"""
+class SuperCodexException(Exception):
+    """Base exception for all SuperCodex Framework errors"""
     
     def __init__(self, message: str, error_code: str = None, context: Dict = None):
         super().__init__(message)
@@ -2540,16 +2540,16 @@ class SuperGeminiException(Exception):
         self.context = context or {}
         self.timestamp = datetime.now()
 
-class ComponentInstallationError(SuperGeminiException):
+class ComponentInstallationError(SuperCodexException):
     """Raised when component installation fails"""
     
-class AgentCoordinationError(SuperGeminiException):
+class AgentCoordinationError(SuperCodexException):
     """Raised when agent coordination fails"""
     
-class MCPConnectionError(SuperGeminiException):
+class MCPConnectionError(SuperCodexException):
     """Raised when MCP server connection fails"""
     
-class ValidationError(SuperGeminiException):
+class ValidationError(SuperCodexException):
     """Raised when validation criteria are not met"""
 
 # Usage example with error handling
@@ -2565,7 +2565,7 @@ except ComponentInstallationError as e:
     print(f"Installation error [{e.error_code}]: {e}")
     print(f"Context: {e.context}")
     # Handle specific installation errors
-except SuperGeminiException as e:
+except SuperCodexException as e:
     print(f"Framework error: {e}")
     # Handle general framework errors
 except Exception as e:
@@ -2580,13 +2580,13 @@ except Exception as e:
 # Example: Complete integration workflow for custom development
 
 async def implement_secure_feature(feature_description: str, security_requirements: Dict):
-    """Complete example of SuperGemini Framework integration"""
+    """Complete example of SuperCodex Framework integration"""
     
     # Initialize framework components
     component_manager = ComponentManager()
     agent_manager = AgentManager()
     mcp_manager = MCPManager()
-    orchestrator = SuperGeminiOrchestrator()
+    orchestrator = SuperCodexOrchestrator()
     quality_manager = QualityManager()
     
     try:
@@ -2596,7 +2596,7 @@ async def implement_secure_feature(feature_description: str, security_requiremen
             status = component_manager.get_component_status(component)
             if status.state != ComponentState.INSTALLED:
                 install_options = InstallOptions(
-                    install_dir=Path("~/.gemini"),
+                    install_dir=Path("~/.codex"),
                     validate_dependencies=True
                 )
                 result = component_manager.install_component(component, install_options)
@@ -2694,7 +2694,7 @@ async def implement_secure_feature(feature_description: str, security_requiremen
             'recommendations': validation_result.recommendations
         }
         
-    except SuperGeminiException as e:
+    except SuperCodexException as e:
         print(f"Framework error during implementation: {e}")
         return {'success': False, 'error': str(e), 'error_code': e.error_code}
     
@@ -2828,7 +2828,7 @@ class PluginManager:
             return PluginLoadResult.DEPENDENCY_ERROR
 
 class Plugin:
-    """Base class for SuperGemini plugins"""
+    """Base class for SuperCodex plugins"""
     
     def get_manifest(self) -> PluginManifest:
         """Return plugin metadata and capabilities"""
@@ -2974,9 +2974,9 @@ class ErrorRecoveryManager:
 
 ### Technical Innovation Summary
 
-SuperGemini Framework V4 represents a paradigm shift in AI system architecture through its configuration-driven behavioral programming approach. Key technical innovations include:
+SuperCodex Framework V4 represents a paradigm shift in AI system architecture through its configuration-driven behavioral programming approach. Key technical innovations include:
 
-**Meta-Framework Design**: Enhancement of Gemini Code through instruction injection rather than code modification, maintaining full compatibility while adding sophisticated orchestration capabilities.
+**Meta-Framework Design**: Enhancement of Codex Code through instruction injection rather than code modification, maintaining full compatibility while adding sophisticated orchestration capabilities.
 
 **Configuration-Driven Intelligence**: Structured `.md` file system enables dynamic AI behavior modification without code changes, providing unprecedented flexibility in AI system customization and extension.
 
@@ -3013,19 +3013,19 @@ SuperGemini Framework V4 represents a paradigm shift in AI system architecture t
 **Advanced Security**: Enhanced threat detection and response automation
 **Cross-Platform Expansion**: Architecture patterns for other AI development environments
 
-This technical architecture establishes SuperGemini as a production-ready meta-framework for advanced AI system orchestration, providing both immediate utility and a foundation for future innovation in AI development tooling.
+This technical architecture establishes SuperCodex as a production-ready meta-framework for advanced AI system orchestration, providing both immediate utility and a foundation for future innovation in AI development tooling.
 
 ---
 
 ## Architecture Glossary
 
-**For Screen Readers**: This glossary contains alphabetically ordered architectural and technical terms specific to SuperGemini Framework's system design. Each term includes detailed technical definitions and system context.
+**For Screen Readers**: This glossary contains alphabetically ordered architectural and technical terms specific to SuperCodex Framework's system design. Each term includes detailed technical definitions and system context.
 
 ### A
 
 **Agent Coordination Protocol**: The communication and collaboration framework that enables multiple specialized AI agents to work together on complex tasks, including role assignment, authority hierarchies, and consensus mechanisms.
 
-**Architectural Patterns**: Established design patterns used throughout SuperGemini including meta-framework injection, orchestration layers, detection engines, and plugin architectures.
+**Architectural Patterns**: Established design patterns used throughout SuperCodex including meta-framework injection, orchestration layers, detection engines, and plugin architectures.
 
 **Auto-Activation System**: Intelligent trigger system that automatically activates appropriate agents, MCP servers, and behavioral modes based on context analysis and pattern matching.
 
@@ -3061,13 +3061,13 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 ### F
 
-**Foundation Layer**: Base system layer containing Gemini Code integration, configuration management, and MCP protocol handling that provides core capabilities for higher-level orchestration.
+**Foundation Layer**: Base system layer containing Codex Code integration, configuration management, and MCP protocol handling that provides core capabilities for higher-level orchestration.
 
-**Framework Meta-Architecture**: Overall design approach where SuperGemini functions as an enhancement layer for Gemini Code rather than a replacement, maintaining compatibility while adding orchestration.
+**Framework Meta-Architecture**: Overall design approach where SuperCodex functions as an enhancement layer for Codex Code rather than a replacement, maintaining compatibility while adding orchestration.
 
 ### I
 
-**Instruction Injection System**: Core mechanism that inserts behavioral instructions into Gemini Code sessions through configuration file loading, enabling behavior modification without code changes.
+**Instruction Injection System**: Core mechanism that inserts behavioral instructions into Codex Code sessions through configuration file loading, enabling behavior modification without code changes.
 
 **Intelligent Routing**: System that determines optimal agent selection, MCP server activation, and resource allocation based on task analysis, complexity scoring, and availability constraints.
 
@@ -3075,7 +3075,7 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 **MCP Protocol Integration**: Implementation of Model Context Protocol for external tool coordination, including connection management, health monitoring, and error recovery for enhanced capabilities.
 
-**Meta-Framework Design**: Architectural approach where SuperGemini enhances existing AI systems through instruction injection and orchestration rather than replacing core functionality.
+**Meta-Framework Design**: Architectural approach where SuperCodex enhances existing AI systems through instruction injection and orchestration rather than replacing core functionality.
 
 **Multi-Agent Orchestration**: Coordination system that manages simultaneous activation and collaboration of multiple specialized AI agents with defined roles, authorities, and communication patterns.
 
@@ -3111,7 +3111,7 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 **Task Complexity Analysis**: Algorithm that evaluates incoming tasks for difficulty factors including file count, domain complexity, dependency requirements, and implementation scope.
 
-**Tool Coordination Protocol**: System for managing external tool integration, activation priorities, resource allocation, and communication between Gemini Code and MCP servers.
+**Tool Coordination Protocol**: System for managing external tool integration, activation priorities, resource allocation, and communication between Codex Code and MCP servers.
 
 ### U
 
@@ -3119,7 +3119,7 @@ This technical architecture establishes SuperGemini as a production-ready meta-f
 
 ### V
 
-**V4 Architecture**: Current SuperGemini Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, enhanced orchestration capabilities, and production-ready stability.
+**V4 Architecture**: Current SuperCodex Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, enhanced orchestration capabilities, and production-ready stability.
 
 **Validation Framework**: Comprehensive system for ensuring framework reliability including component validation, integration testing, performance benchmarking, and security verification.
 

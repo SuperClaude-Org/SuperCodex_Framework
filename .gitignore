@@ -98,21 +98,21 @@ Pipfile.lock
 # Poetry
 poetry.lock
 
-# Gemini CLI
-.gemini/
-GEMINI.md
+# Codex CLI
+.codex/
+CODEX.md
 
-# SuperGemini specific
+# SuperCodex specific
 .serena/
-.supergemini/
+.supercodex/
 *.backup
 *.bak
-SuperGemini/Agents/
+SuperCodex/Agents/
 AGENTS.md
 
 # Project specific
 Tests/
-GeminiDocs/
+CodexDocs/
 temp/
 tmp/
 .cache/

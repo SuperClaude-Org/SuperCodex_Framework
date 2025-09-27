@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-SuperGemini Framework Command Validation Script
+SuperCodex Framework Command Validation Script
 
-This script validates all documented SuperGemini commands and flags to ensure
+This script validates all documented SuperCodex commands and flags to ensure
 documentation accuracy and system reliability.
 
 Usage:
     python3 validate_commands.py [--quick] [--verbose] [--export-report]
     
 Requirements:
-    - SuperGemini Framework installed
-    - Gemini CLI installed (npm install -g @google/gemini-cli)
+    - SuperCodex Framework installed
+    - Codex CLI installed (npm install -g @google/codex-cli)
     - MCP servers configured (for full validation)
 """
 
@@ -45,8 +45,8 @@ class TestResult:
     execution_time: float = 0.0
     details: Optional[Dict] = None
 
-class SuperGeminiValidator:
-    """Comprehensive validation system for SuperGemini commands and flags."""
+class SuperCodexValidator:
+    """Comprehensive validation system for SuperCodex commands and flags."""
     
     def __init__(self, verbose: bool = False, quick_mode: bool = False):
         self.verbose = verbose
@@ -110,16 +110,16 @@ class SuperGeminiValidator:
 
     def run_command_test(self, command: str, timeout: int = 30) -> Tuple[bool, str, float]:
         """
-        Attempt to run a SuperGemini command in a controlled way.
+        Attempt to run a SuperCodex command in a controlled way.
         
-        Note: This simulates command execution since actual SuperGemini commands
-        require Gemini CLI to be installed and properly configured.
+        Note: This simulates command execution since actual SuperCodex commands
+        require Codex CLI to be installed and properly configured.
         """
         start_time = time.time()
         
         try:
             # For validation purposes, we'll check command syntax and structure
-            # In a real deployment, this would interface with the installed Gemini CLI
+            # In a real deployment, this would interface with the installed Codex CLI
             
             if not command.startswith("/sg:"):
                 return False, "Invalid command format - must start with /sg:", time.time() - start_time
@@ -451,18 +451,18 @@ class SuperGeminiValidator:
         )
         self.results.append(result)
         
-        # Check if we're in SuperGemini project directory
+        # Check if we're in SuperCodex project directory
         current_dir = Path.cwd()
         is_superclaude_project = (
-            (current_dir / "SuperGemini").exists() or
-            (current_dir / "pyproject.toml").exists() and "SuperGemini" in (current_dir / "pyproject.toml").read_text()
+            (current_dir / "SuperCodex").exists() or
+            (current_dir / "pyproject.toml").exists() and "SuperCodex" in (current_dir / "pyproject.toml").read_text()
         )
         
         result = TestResult(
             name="Project Directory",
             category="System Requirements", 
             command="pwd",
-            expected_behavior="In SuperGemini project directory",
+            expected_behavior="In SuperCodex project directory",
             result=ValidationResult.PASS if is_superclaude_project else ValidationResult.WARNING,
             message=f"Current directory: {current_dir}",
             execution_time=0.0
@@ -608,7 +608,7 @@ class SuperGeminiValidator:
 
     def run_all_validations(self) -> None:
         """Execute complete validation suite."""
-        print("🚀 Starting SuperGemini Framework validation...")
+        print("🚀 Starting SuperCodex Framework validation...")
         print(f"📅 Time: {self.start_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"🏃 Mode: {'Quick' if self.quick_mode else 'Comprehensive'}")
         print()
@@ -632,7 +632,7 @@ class SuperGeminiValidator:
 def main():
     """Main execution function."""
     parser = argparse.ArgumentParser(
-        description="Validate SuperGemini Framework commands and flags",
+        description="Validate SuperCodex Framework commands and flags",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -667,7 +667,7 @@ Examples:
     args = parser.parse_args()
     
     # Initialize validator
-    validator = SuperGeminiValidator(
+    validator = SuperCodexValidator(
         verbose=args.verbose,
         quick_mode=args.quick
     )

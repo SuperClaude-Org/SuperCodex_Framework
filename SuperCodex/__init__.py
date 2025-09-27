@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-SuperGemini Framework Management Hub
-Unified entry point for all SuperGemini operations
+SuperCodex Framework Management Hub
+Unified entry point for all SuperCodex operations
 
 Usage:
-    SuperGemini install [options]
-    SuperGemini update [options]
-    SuperGemini uninstall [options]
-    SuperGemini backup [options]
-    SuperGemini --help
+    SuperCodex install [options]
+    SuperCodex update [options]
+    SuperCodex uninstall [options]
+    SuperCodex backup [options]
+    SuperCodex --help
 """
 
 # Import version from SSOT

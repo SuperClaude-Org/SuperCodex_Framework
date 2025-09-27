@@ -7,11 +7,11 @@ if (!pipCmd) {
   process.exit(1);
 }
 
-console.log("🔄 Updating SuperGemini from PyPI...");
-const result = run(pipCmd, ["install", "--upgrade", "SuperGemini"], { stdio: "inherit" });
+console.log("🔄 Updating SuperCodex from PyPI...");
+const result = run(pipCmd, ["install", "--upgrade", "SuperCodex"], { stdio: "inherit" });
 if (result.status !== 0) {
   console.error("❌ Update failed.");
   process.exit(1);
 }
-console.log("✅ SuperGemini updated successfully!");
+console.log("✅ SuperCodex updated successfully!");
                             

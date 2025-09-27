@@ -1,14 +1,14 @@
-# SuperGemini Advanced Workflows Collection
+# SuperCodex Advanced Workflows Collection
 
-**Status**: ✅ **VERIFIED SuperGemini v4.0** - Multi-agent coordination, complex orchestration patterns, and enterprise-scale workflows.
+**Status**: ✅ **VERIFIED SuperCodex v4.0** - Multi-agent coordination, complex orchestration patterns, and enterprise-scale workflows.
 
 **Expert Coordination Guide**: Advanced patterns for complex projects, multi-tool coordination, and sophisticated development workflows.
 
 ## Overview and Usage Guide
 
-**Purpose**: Advanced SuperGemini coordination patterns for complex, multi-step projects requiring sophisticated agent orchestration and tool integration.
+**Purpose**: Advanced SuperCodex coordination patterns for complex, multi-step projects requiring sophisticated agent orchestration and tool integration.
 
-**Target Audience**: Experienced SuperGemini users, enterprise development teams, complex project coordination
+**Target Audience**: Experienced SuperCodex users, enterprise development teams, complex project coordination
 
 **Usage Pattern**: Plan → Coordinate → Execute → Validate → Optimize
 
@@ -91,7 +91,7 @@
 
 /sg:analyze "microservices architecture for e-commerce" --focus architecture --think-hard
 # Expected: Service boundaries, data flow diagrams, technology recommendations
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Phase 2: Core Implementation
 /sg:load "ecommerce-requirements-complete"
@@ -121,11 +121,11 @@
 /sg:test --focus quality --orchestrate
 # Activates: quality-engineer + Playwright MCP + comprehensive testing
 # Expected: Full test suite with E2E, integration, and unit coverage
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 /sg:analyze . --focus performance --think-hard && /sg:implement "performance optimizations" --focus performance --orchestrate
 # Expected: Performance bottleneck identification and optimization
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Enterprise Legacy System Modernization
@@ -134,7 +134,7 @@
 /sg:load legacy-system/ && /sg:analyze . --focus architecture --ultrathink --all-mcp
 # Activates: All analysis capabilities for comprehensive legacy assessment
 # Expected: Complete legacy architecture analysis, technical debt assessment
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 /sg:troubleshoot "performance bottlenecks and scalability issues"
 # Expected: Systematic performance analysis, bottleneck identification
@@ -147,7 +147,7 @@
 /sg:analyze "microservices migration strategy" --focus architecture --think-hard --c7
 # Activates: system-architect + enterprise patterns + migration strategies
 # Expected: Service decomposition plan, migration roadmap, risk assessment
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 /sg:save "modernization-strategy-complete"
 
@@ -186,7 +186,7 @@
 # Understanding and Contributing to Large Projects
 /sg:load open-source-project/ && /sg:analyze . --focus architecture --think-hard --serena
 # Expected: Architecture understanding, contribution patterns, codebase navigation
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 /sg:analyze "feature proposal for community benefit" --focus community
 # Expected: Community-oriented feature planning, RFC preparation
@@ -198,12 +198,12 @@
 
 /sg:test --focus quality --type comprehensive --orchestrate
 # Expected: Complete test coverage, edge case handling, quality validation
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Community Integration and Documentation
 /sg:analyze . --focus architecture --think-hard --c7 --serena
 # Expected: Compatibility analysis, community impact assessment
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 /sg:implement "comprehensive documentation with community guidelines"
 # Expected: Documentation following community standards and contribution guidelines
@@ -254,7 +254,7 @@
 
 /sg:implement "comprehensive performance optimizations" --focus performance --orchestrate --all-mcp
 # Expected: Coordinated optimization across all system layers with impact measurement
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Enterprise-Scale Security Implementation
@@ -380,18 +380,18 @@
 /sg:analyze massive-codebase/ --uc --scope project --orchestrate
 # Activates: Token efficiency mode, intelligent coordination, compressed communication
 # Expected: Comprehensive analysis with 30-50% token reduction while preserving clarity
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Maximum depth analysis for critical systems
 /sg:analyze . --ultrathink --all-mcp --focus architecture
 # Activates: All MCP servers, maximum analysis depth (~32K tokens)
 # Expected: Comprehensive system analysis with all available intelligence
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Orchestrated implementation with all capabilities
 /sg:implement "enterprise application" --orchestrate --all-mcp --focus quality
 # Expected: Full-featured implementation with intelligent coordination
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Safety and Validation for Production
@@ -400,13 +400,13 @@
 /sg:implement "payment processing system" --focus security --think-hard --c7 --serena
 # Activates: Security-focused implementation with official patterns and context
 # Expected: Production-ready implementation with security best practices
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Enterprise-scale system redesign
 /sg:spawn "system architecture redesign" --orchestrate --ultrathink --all-mcp
 # Activates: Maximum coordination and analysis for system-wide changes
 # Expected: Systematic redesign with comprehensive validation and risk assessment
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ## Real-World Advanced Scenarios
@@ -439,7 +439,7 @@
 # Phase 1: Architecture Planning
 /sg:analyze "cross-platform architecture strategies" --focus architecture --think-hard --c7
 # Expected: Multi-platform architecture with shared business logic
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Phase 2: Parallel Development
 /sg:spawn "multi-platform development" --orchestrate --all-mcp
@@ -464,7 +464,7 @@
 # Comprehensive performance analysis
 /sg:analyze . --focus performance --ultrathink --all-mcp
 # Expected: Multi-layer performance analysis with optimization roadmap
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Coordinated optimization implementation
 /sg:implement "performance optimizations across all layers" --focus performance --orchestrate
@@ -473,7 +473,7 @@
 # Impact measurement and validation
 /sg:test --focus performance --type load-testing --orchestrate
 # Expected: Performance testing with before/after comparisons
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Advanced Monitoring and Observability

@@ -1,10 +1,10 @@
-# SuperGemini Framework Developer Guide
+# SuperCodex Framework Developer Guide
 
-A comprehensive documentation suite for SuperGemini Framework development, testing, and architecture.
+A comprehensive documentation suite for SuperCodex Framework development, testing, and architecture.
 
 ## Documentation Overview
 
-This Developer Guide provides complete technical documentation for SuperGemini Framework development, organized into three interconnected documents:
+This Developer Guide provides complete technical documentation for SuperCodex Framework development, organized into three interconnected documents:
 
 ### [Contributing Code Guide](contributing-code.md)
 **Purpose**: Development workflows, contribution guidelines, and coding standards  
@@ -46,7 +46,7 @@ This Developer Guide provides complete technical documentation for SuperGemini F
 ## Key Framework Concepts
 
 ### Meta-Framework Architecture
-SuperGemini operates as an enhancement layer for Gemini Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
+SuperCodex operates as an enhancement layer for Codex Code through instruction injection rather than code modification, maintaining compatibility while adding sophisticated orchestration capabilities.
 
 ### Agent Orchestration
 Intelligent coordination of 13 specialized AI agents through communication protocols, decision hierarchies, and collaborative synthesis patterns.
@@ -101,14 +101,14 @@ Security considerations are embedded throughout all documentation, from developm
 ### Prerequisites
 - Python 3.8+ with development tools
 - Git for version control  
-- Gemini Code installed and working
+- Codex Code installed and working
 - Node.js 16+ for MCP server development
 
 ### Quick Setup
 ```bash
 # Clone and setup development environment
-git clone https://github.com/SuperGemini-Org/SuperGemini_Framework.git
-cd SuperGemini_Framework
+git clone https://github.com/SuperCodex-Org/SuperCodex_Framework.git
+cd SuperCodex_Framework
 
 # Follow setup instructions in Contributing Code Guide
 python -m venv venv
@@ -116,7 +116,7 @@ source venv/bin/activate
 pip install -e ".[dev]"
 
 # Verify installation
-python -m SuperGemini --version
+python -m SuperCodex --version
 ```
 
 ### Development Workflow
@@ -139,7 +139,7 @@ python -m SuperGemini --version
 - **Feature Requests**: Propose enhancements through GitHub issues
 
 ### Community Resources
-- **[GitHub Repository](https://github.com/SuperGemini-Org/SuperGemini_Framework)**: Main development and collaboration hub
+- **[GitHub Repository](https://github.com/SuperCodex-Org/SuperCodex_Framework)**: Main development and collaboration hub
 
 ## Contributing to Documentation
 
@@ -159,6 +159,6 @@ We welcome contributions to improve documentation quality, accuracy, and complet
 
 ---
 
-**SuperGemini Framework**: Building the future of AI-assisted development through intelligent orchestration and behavioral programming.
+**SuperCodex Framework**: Building the future of AI-assisted development through intelligent orchestration and behavioral programming.
 
-For the latest updates and community discussions, visit our [GitHub repository](https://github.com/SuperGemini-Org/SuperGemini_Framework).
+For the latest updates and community discussions, visit our [GitHub repository](https://github.com/SuperCodex-Org/SuperCodex_Framework).

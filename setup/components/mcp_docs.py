@@ -1,12 +1,12 @@
 """
-MCP Documentation component for SuperGemini MCP server documentation
+MCP Documentation component for SuperCodex MCP server documentation
 """
 
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
 from ..core.base import Component
-from ..services.gemini_md import GEMINIMdService
+from ..services.codex_md import CODEXMdService
 
 
 class MCPDocsComponent(Component):
@@ -158,13 +158,13 @@ class MCPDocsComponent(Component):
             })
             self.logger.info("Registered MCP docs component in metadata")
             
-            # Update GEMINI.md with MCP documentation imports
+            # Update CODEX.md with MCP documentation imports
             try:
-                manager = GEMINIMdService(self.install_dir)
+                manager = CODEXMdService(self.install_dir)
                 manager.add_imports(self.component_files, category="MCP Documentation")
-                self.logger.info("Updated GEMINI.md with MCP documentation imports")
+                self.logger.info("Updated CODEX.md with MCP documentation imports")
             except Exception as e:
-                self.logger.warning(f"Failed to update GEMINI.md with MCP documentation imports: {e}")
+                self.logger.warning(f"Failed to update CODEX.md with MCP documentation imports: {e}")
                 # Don't fail the whole installation for this
             
             return True
@@ -220,10 +220,10 @@ class MCPDocsComponent(Component):
     
     def _get_source_dir(self) -> Optional[Path]:
         """Get source directory for MCP documentation files"""
-        # Assume we're in SuperGemini/setup/components/mcp_docs.py
-        # and MCP docs are in SuperGemini/SuperGemini/MCP/
+        # Assume we're in SuperCodex/setup/components/mcp_docs.py
+        # and MCP docs are in SuperCodex/SuperCodex/MCP/
         project_root = Path(__file__).parent.parent.parent
-        mcp_dir = project_root / "SuperGemini" / "MCP"
+        mcp_dir = project_root / "SuperCodex" / "MCP"
         
         # Return None if directory doesn't exist to prevent warning
         if not mcp_dir.exists():

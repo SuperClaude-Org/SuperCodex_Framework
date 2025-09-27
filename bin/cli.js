@@ -16,7 +16,7 @@ if (args[0] === "update") {
   process.exit(0);
 }
 
-// Forward everything to Python SuperGemini
-const result = spawnSync(pythonCmd, ["-m", "SuperGemini", ...args], { stdio: "inherit", shell: true });
+// Forward everything to Python SuperCodex
+const result = spawnSync(pythonCmd, ["-m", "SuperCodex", ...args], { stdio: "inherit", shell: true });
 process.exit(result.status);
     

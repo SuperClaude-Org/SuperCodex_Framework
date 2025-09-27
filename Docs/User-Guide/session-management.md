@@ -1,7 +1,7 @@
-# SuperGemini Session Management Guide
+# SuperCodex Session Management Guide
 
 ## ✅ Verification Status
-- **SuperGemini Version**: v4.0+ Compatible
+- **SuperCodex Version**: v4.0+ Compatible
 - **Last Tested**: 2025-01-16
 - **Test Environment**: Linux/Windows/macOS
 - **Session Commands**: ✅ All Verified
@@ -24,19 +24,19 @@ Before using this guide, verify session commands work:
 # Expected: Shows current session status and progress
 ```
 
-**If tests fail**: Check Serena MCP installation: `SuperGemini status --mcp serena`
+**If tests fail**: Check Serena MCP installation: `SuperCodex status --mcp serena`
 
 ## 🚨 Quick Troubleshooting
 
 ### Common Issues (< 2 minutes)
-- **Session won't load**: Check Serena MCP server connection: `SuperGemini status --mcp serena`
-- **Save fails**: Verify write permissions to `~/.gemini/` directory
+- **Session won't load**: Check Serena MCP server connection: `SuperCodex status --mcp serena`
+- **Save fails**: Verify write permissions to `~/.codex/` directory
 - **Memory issues**: Clear old sessions with `/sg:reflect --type session-cleanup`
 - **Slow loading**: Use `--scope file` for large projects or `--fast` flag
 
 ### Immediate Fixes
-- **Reset session**: Restart Gemini CLI to refresh session system
-- **Clear cache**: Remove `~/.gemini/sessions/` directory if corrupted
+- **Reset session**: Restart Codex CLI to refresh session system
+- **Clear cache**: Remove `~/.codex/sessions/` directory if corrupted
 - **Check dependencies**: Verify Python/uv installation for Serena MCP
 - **Test basic functions**: Try `/sg:load .` and `/sg:save "test"` with simple project
 
@@ -61,18 +61,18 @@ Before using this guide, verify session commands work:
 - Familiarity with development workflows
 
 **Required Setup:**
-- SuperGemini Framework installed ([Installation Guide](../Getting-Started/installation.md))
+- SuperCodex Framework installed ([Installation Guide](../Getting-Started/installation.md))
 - Serena MCP server configured (provides session memory)
 - Active project or codebase to work with
 
 **Verification:**
 Test your setup before starting:
 ```bash
-# Verify SuperGemini is working
-SuperGemini --version
+# Verify SuperCodex is working
+SuperCodex --version
 
 # Check Serena MCP connection
-SuperGemini status --mcp serena
+SuperCodex status --mcp serena
 ```
 
 **Time Investment:**
@@ -84,7 +84,7 @@ SuperGemini status --mcp serena
 
 ### What is a Session?
 
-A **session** is a persistent development conversation that remembers your project, decisions, and progress across interruptions. Unlike standard Gemini conversations that start fresh each time, SuperGemini sessions build cumulative understanding.
+A **session** is a persistent development conversation that remembers your project, decisions, and progress across interruptions. Unlike standard Codex conversations that start fresh each time, SuperCodex sessions build cumulative understanding.
 
 **Key Concepts:**
 
@@ -94,9 +94,9 @@ A **session** is a persistent development conversation that remembers your proje
 
 **Memory**: Long-term storage of insights, patterns, and project knowledge that survives restarts
 
-### Session vs Standard Gemini
+### Session vs Standard Codex
 
-| Standard Gemini | SuperGemini Sessions |
+| Standard Codex | SuperCodex Sessions |
 |-----------------|---------------------|
 | Starts fresh each conversation | Remembers previous work |
 | No project memory | Builds cumulative understanding |
@@ -146,7 +146,7 @@ cd /path/to/your/project
 "What patterns do you see?"
 ```
 
-**Success criteria**: SuperGemini demonstrates understanding of your specific project
+**Success criteria**: SuperCodex demonstrates understanding of your specific project
 
 ### Step 3: Make a Small Change (3 minutes)
 ```bash
@@ -154,7 +154,7 @@ cd /path/to/your/project
 "Add a comment to the main function explaining its purpose"
 ```
 
-**Success criteria**: SuperGemini makes contextual changes that fit your project style
+**Success criteria**: SuperCodex makes contextual changes that fit your project style
 
 ### Step 4: Save Your Session (2 minutes)
 ```bash
@@ -174,7 +174,7 @@ cd /path/to/your/project
 ### Verification Checklist
 
 - [ ] Project loaded successfully (should take <30 seconds for small projects)
-- [ ] SuperGemini demonstrated project understanding (knows file structure and patterns)
+- [ ] SuperCodex demonstrated project understanding (knows file structure and patterns)
 - [ ] Made contextual changes to code (changes fit existing style)
 - [ ] Session saved with clear confirmation (shows session name and details)
 - [ ] Ready to resume work later (can continue from saved state)
@@ -183,13 +183,13 @@ cd /path/to/your/project
 - [ ] Load time under 30 seconds for projects <100 files
 - [ ] Project analysis identifies framework and key patterns
 - [ ] Code changes follow existing project conventions  
-- [ ] Session persistence works across Gemini CLI restarts
+- [ ] Session persistence works across Codex CLI restarts
 
 **Verify:** `/sg:load .` should complete without errors and show project summary  
 **Test:** Session should remember changes when resumed later  
 **Check:** `/sg:reflect` should show accurate progress tracking
 
-**Need Help?**: If any step fails, check your setup by running `SuperGemini status --mcp serena` to verify the Serena MCP server is working correctly.
+**Need Help?**: If any step fails, check your setup by running `SuperCodex status --mcp serena` to verify the Serena MCP server is working correctly.
 
 
 ## Session Commands
@@ -322,7 +322,7 @@ delete_memory(key)       # Clean up old data
 ```
 
 **What Gets Saved:**
-- **Project Understanding**: What SuperGemini learned about your codebase
+- **Project Understanding**: What SuperCodex learned about your codebase
 - **Work Progress**: What you accomplished and what's next
 - **Code Changes**: Files modified and patterns discovered
 - **Decisions Made**: Choices made and reasons behind them
@@ -519,7 +519,7 @@ delete_memory(key)       # Clean up old data
 # Problem: "/sg:load project/ fails with error"
 # Quick Fix: Verify project and dependencies
 ls -la project/                           # Check project exists
-SuperGemini status --mcp serena          # Verify Serena MCP
+SuperCodex status --mcp serena          # Verify Serena MCP
 /sg:load . --refresh                     # Force fresh analysis
 /sg:load . --scope module                # Reduce load scope
 ```
@@ -528,9 +528,9 @@ SuperGemini status --mcp serena          # Verify Serena MCP
 ```bash
 # Problem: "/sg:save fails with permission error"
 # Quick Fix: Check permissions and storage
-ls -la ~/.gemini/                        # Check directory permissions
-chmod -R 755 ~/.gemini/                  # Fix permissions
-df -h ~/.gemini/                         # Check disk space
+ls -la ~/.codex/                        # Check directory permissions
+chmod -R 755 ~/.codex/                  # Fix permissions
+df -h ~/.codex/                         # Check disk space
 /sg:save --compress "test-session"       # Try compressed save
 ```
 
@@ -558,7 +558,7 @@ df -h ~/.gemini/                         # Check disk space
 | Session Error | Meaning | Quick Fix |
 |---------------|---------|-----------|
 | **S001** | Load timeout | Reduce scope with `--scope module` or use `--fast` |
-| **S002** | Save permission denied | Check `chmod -R 755 ~/.gemini/` |
+| **S002** | Save permission denied | Check `chmod -R 755 ~/.codex/` |
 | **S003** | Serena MCP unavailable | Verify `uv run serena --help` works |
 | **S004** | Memory limit exceeded | Use `/sg:save --cleanup` and `--compress` |
 | **S005** | Project structure invalid | Verify you're in a valid project directory |
@@ -570,7 +570,7 @@ df -h ~/.gemini/                         # Check disk space
 
 **Level 1: Quick Fix (< 2 min)**
 - Use the Common Issues section above
-- Try restarting Gemini CLI session
+- Try restarting Codex CLI session
 - Use `--no-mcp` to test without Serena
 
 **Level 2: Detailed Help (5-15 min)**
@@ -578,22 +578,22 @@ df -h ~/.gemini/                         # Check disk space
 # Session-specific diagnostics
 /sg:reflect --type sessions-list         # List all sessions
 /sg:reflect --type memory                # Check memory usage
-cat ~/.gemini/logs/serena.log | tail -50 # Check Serena logs
+cat ~/.codex/logs/serena.log | tail -50 # Check Serena logs
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for session installation problems
 
 **Level 3: Expert Support (30+ min)**
 ```bash
 # Deep session analysis
-SuperGemini diagnose --sessions
-ls -la ~/.gemini/serena/                 # Check Serena state
+SuperCodex diagnose --sessions
+ls -la ~/.codex/serena/                 # Check Serena state
 uv run serena diagnose                   # Serena diagnostics
 # Reset session system completely
 ```
 - See [Diagnostic Reference Guide](../Reference/diagnostic-reference.md) for session performance analysis
 
 **Level 4: Community Support**
-- Report session issues at [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
+- Report session issues at [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues)
 - Include session diagnostics from Level 2
 - Describe session workflow that's failing
 
@@ -603,7 +603,7 @@ After applying session fixes, test with:
 - [ ] `/sg:load .` (should complete without errors for current directory)
 - [ ] `/sg:save "test-session"` (should save successfully)
 - [ ] `/sg:reflect` (should show session status accurately)
-- [ ] Session persistence works across Gemini CLI restarts
+- [ ] Session persistence works across Codex CLI restarts
 - [ ] Memory usage is reasonable for your project size
 
 ## Performance and Security
@@ -744,14 +744,14 @@ All session data is stored locally on your machine using Serena MCP. No data is 
 
 ### Memory Building (Automatic)
 
-As you work with SuperGemini, it automatically learns:
+As you work with SuperCodex, it automatically learns:
 
 **Project Structure:**
 ```bash
 # When you load a project
 /sg:load my-app/
 
-# SuperGemini learns:
+# SuperCodex learns:
 - File organization (components/, utils/, tests/)
 - Framework patterns (React hooks, Express routes)
 - Dependencies and their usage
@@ -765,7 +765,7 @@ As you work with SuperGemini, it automatically learns:
 "Implement JWT authentication"
 "Use PostgreSQL for data persistence"
 
-# SuperGemini remembers:
+# SuperCodex remembers:
 - Why you made these choices
 - How they affect other decisions
 - Related patterns and dependencies
@@ -777,7 +777,7 @@ As you work with SuperGemini, it automatically learns:
 "Fixed the CORS issue by configuring headers"
 "Optimized database queries with indexing"
 
-# SuperGemini learns:
+# SuperCodex learns:
 - Common problem patterns in your project
 - Effective solution strategies
 - Prevention techniques for similar issues
@@ -813,7 +813,7 @@ As you work with SuperGemini, it automatically learns:
 **Consistent Patterns:**
 ```bash
 "Add a new API endpoint for user preferences"
-→ SuperGemini applies:
+→ SuperCodex applies:
    • Your established routing patterns
    • Consistent error handling
    • Existing authentication middleware
@@ -823,7 +823,7 @@ As you work with SuperGemini, it automatically learns:
 **Problem Solving:**
 ```bash
 "The API is responding slowly"
-→ SuperGemini recalls:
+→ SuperCodex recalls:
    • Previous performance optimizations you've done
    • Database indexing patterns you prefer
    • Caching strategies you've implemented
@@ -833,7 +833,7 @@ As you work with SuperGemini, it automatically learns:
 
 **Viewing Memory:**
 ```bash
-# See what SuperGemini remembers about your project
+# See what SuperCodex remembers about your project
 /sg:reflect --type memory
 
 # Check specific areas
@@ -1133,9 +1133,9 @@ As you work with SuperGemini, it automatically learns:
 
 **Session**: A persistent development conversation that remembers your project context, decisions, and progress across interruptions.
 
-**Context**: The accumulated knowledge SuperGemini has about your project, including file structure, patterns, and previous work.
+**Context**: The accumulated knowledge SuperCodex has about your project, including file structure, patterns, and previous work.
 
-**Memory**: Long-term storage of project insights, decisions, and patterns that survives SuperGemini restarts.
+**Memory**: Long-term storage of project insights, decisions, and patterns that survives SuperCodex restarts.
 
 **Checkpoint**: A temporary save point during active work that preserves progress without ending the session.
 
@@ -1157,7 +1157,7 @@ As you work with SuperGemini, it automatically learns:
 
 **Focused Load**: Loading session context with specific emphasis on a particular area or concern.
 
-**Pattern Recognition**: SuperGemini's ability to identify and apply consistent coding patterns and conventions from your project.
+**Pattern Recognition**: SuperCodex's ability to identify and apply consistent coding patterns and conventions from your project.
 
 **Cross-Session Learning**: The accumulation of insights and understanding across multiple work sessions over time.
 
@@ -1193,7 +1193,7 @@ As you work with SuperGemini, it automatically learns:
 **Goal**: Leverage session memory and strategic workflows
 
 **Week 2: Memory Understanding**
-- Observe how SuperGemini remembers your decisions
+- Observe how SuperCodex remembers your decisions
 - Practice: Let sessions build knowledge over several days
 - Learn: `/sg:reflect --type memory` to see what's remembered
 

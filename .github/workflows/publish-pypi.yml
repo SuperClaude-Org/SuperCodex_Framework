@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: ${{ github.event_name == 'release' && 'pypi' || 'testpypi' }}
-      url: ${{ github.event_name == 'release' && 'https://pypi.org/p/SuperGemini' || 'https://test.pypi.org/p/SuperGemini' }}
+      url: ${{ github.event_name == 'release' && 'https://pypi.org/p/SuperCodex' || 'https://test.pypi.org/p/SuperCodex' }}
     
     steps:
     - name: Checkout repository
@@ -51,8 +51,8 @@ jobs:
       run: |
         echo "📦 Checking package structure..."
         ls -la
-        echo "🔍 Checking SuperGemini package..."
-        ls -la SuperGemini/
+        echo "🔍 Checking SuperCodex package..."
+        ls -la SuperCodex/
         echo "🔍 Checking setup package..."
         ls -la setup/
         
@@ -71,8 +71,8 @@ jobs:
         python -c "
         import sys
         sys.path.insert(0, '.')
-        import SuperGemini
-        print(f'✅ SuperGemini package imported successfully')
+        import SuperCodex
+        print(f'✅ SuperCodex package imported successfully')
         "
     
     - name: Clean previous builds
@@ -111,7 +111,7 @@ jobs:
     - name: Create deployment summary
       if: always()
       run: |
-        echo "## 📦 SuperGemini Package Deployment" >> $GITHUB_STEP_SUMMARY
+        echo "## 📦 SuperCodex Package Deployment" >> $GITHUB_STEP_SUMMARY
         echo "| Property | Value |" >> $GITHUB_STEP_SUMMARY
         echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
         echo "| Target | ${{ github.event_name == 'release' && 'PyPI (Production)' || github.event.inputs.target || 'TestPyPI' }} |" >> $GITHUB_STEP_SUMMARY
@@ -122,10 +122,10 @@ jobs:
         
         if [ "${{ github.event_name }}" == "release" ]; then
           echo "🎉 **Production release published to PyPI!**" >> $GITHUB_STEP_SUMMARY
-          echo "Install with: \`pip install SuperGemini\`" >> $GITHUB_STEP_SUMMARY
+          echo "Install with: \`pip install SuperCodex\`" >> $GITHUB_STEP_SUMMARY
         else
           echo "🧪 **Test release published to TestPyPI**" >> $GITHUB_STEP_SUMMARY
-          echo "Test install with: \`pip install --index-url https://test.pypi.org/simple/ SuperGemini\`" >> $GITHUB_STEP_SUMMARY
+          echo "Test install with: \`pip install --index-url https://test.pypi.org/simple/ SuperCodex\`" >> $GITHUB_STEP_SUMMARY
         fi
 
   test-installation:
@@ -150,29 +150,29 @@ jobs:
         # Install from TestPyPI
         pip install --index-url https://test.pypi.org/simple/ \
                    --extra-index-url https://pypi.org/simple/ \
-                   SuperGemini
+                   SuperCodex
         
         # Test basic import
         python -c "
-        import SuperGemini
-        print(f'✅ Successfully imported SuperGemini')
+        import SuperCodex
+        print(f'✅ Successfully imported SuperCodex')
         
         # Test CLI entry points
         import subprocess
         
-        # Test SuperGemini command
+        # Test SuperCodex command
         try:
-            result = subprocess.run(['SuperGemini', '--help'], capture_output=True, text=True, timeout=10)
-            print(f'✅ SuperGemini CLI available')
+            result = subprocess.run(['SuperCodex', '--help'], capture_output=True, text=True, timeout=10)
+            print(f'✅ SuperCodex CLI available')
         except Exception as e:
-            print(f'⚠️  SuperGemini CLI test: {e}')
+            print(f'⚠️  SuperCodex CLI test: {e}')
         
-        # Test supergemini command
+        # Test supercodex command
         try:
-            result = subprocess.run(['supergemini', '--help'], capture_output=True, text=True, timeout=10)
-            print(f'✅ supergemini CLI available')
+            result = subprocess.run(['supercodex', '--help'], capture_output=True, text=True, timeout=10)
+            print(f'✅ supercodex CLI available')
         except Exception as e:
-            print(f'⚠️  supergemini CLI test: {e}')
+            print(f'⚠️  supercodex CLI test: {e}')
             
         # Test sg command
         try:

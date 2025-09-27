@@ -1,6 +1,6 @@
-# SuperGemini PyPI Publishing Scripts
+# SuperCodex PyPI Publishing Scripts
 
-This directory contains scripts for building and publishing SuperGemini to PyPI.
+This directory contains scripts for building and publishing SuperCodex to PyPI.
 
 ## Scripts
 
@@ -107,8 +107,8 @@ Set these in your GitHub repository settings → Secrets and variables → Actio
 
 Before publishing, ensure version consistency across:
 - `pyproject.toml`
-- `SuperGemini/__init__.py`
-- `SuperGemini/__main__.py`
+- `SuperCodex/__init__.py`
+- `SuperCodex/__main__.py`
 - `setup/__init__.py`
 
 The build script validates version consistency automatically.

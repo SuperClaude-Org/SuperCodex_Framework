@@ -1,14 +1,14 @@
-# SuperGemini Basic Examples Collection
+# SuperCodex Basic Examples Collection
 
-**Status**: ✅ **VERIFIED SuperGemini v4.0** - Essential commands, single-agent workflows, and common development tasks.
+**Status**: ✅ **VERIFIED SuperCodex v4.0** - Essential commands, single-agent workflows, and common development tasks.
 
-**Quick Reference Guide**: Copy-paste ready examples for beginners, focused on essential SuperGemini usage patterns and fundamental development workflows.
+**Quick Reference Guide**: Copy-paste ready examples for beginners, focused on essential SuperCodex usage patterns and fundamental development workflows.
 
 ## Overview and Usage Guide
 
-**Purpose**: Essential SuperGemini commands and patterns for everyday development tasks. Start here for your first SuperGemini experience.
+**Purpose**: Essential SuperCodex commands and patterns for everyday development tasks. Start here for your first SuperCodex experience.
 
-**Target Audience**: New users, developers learning SuperGemini fundamentals, quick task execution
+**Target Audience**: New users, developers learning SuperCodex fundamentals, quick task execution
 
 **Usage Pattern**: Copy → Adapt → Execute → Learn from results
 
@@ -81,7 +81,7 @@
 ```bash
 /sg:analyze . --focus quality
 ```
-**Verification**: ✅ Verified SuperGemini v4.0
+**Verification**: ✅ Verified SuperCodex v4.0
 
 #### Command: /sg:analyze (Security Focus)
 **Purpose**: Security-focused code review
@@ -90,7 +90,7 @@
 ```bash
 /sg:analyze src/ --focus security --think
 ```
-**Verification**: ✅ Verified SuperGemini v4.0
+**Verification**: ✅ Verified SuperCodex v4.0
 
 #### Command: /sg:analyze (Performance Focus)
 **Purpose**: Performance bottleneck identification
@@ -99,7 +99,7 @@
 ```bash
 /sg:analyze api/ --focus performance
 ```
-**Verification**: ✅ Verified SuperGemini v4.0
+**Verification**: ✅ Verified SuperCodex v4.0
 
 #### Command: /sg:analyze (Architecture Focus)
 **Purpose**: Architecture assessment for refactoring
@@ -108,7 +108,7 @@
 ```bash
 /sg:analyze . --focus architecture --serena
 ```
-**Verification**: ✅ Verified SuperGemini v4.0
+**Verification**: ✅ Verified SuperCodex v4.0
 
 ## Basic Usage Patterns
 
@@ -172,7 +172,7 @@
 
 # Activates: Serena (project loading) + analyzer + security-engineer + performance-engineer
 # Output: Comprehensive project report with actionable insights
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Variations for different focuses:
 /sg:analyze src/ --focus quality          # Code quality only
@@ -212,7 +212,7 @@
 
 # Activates: security-engineer + backend-architect + Context7
 # Output: Production-ready authentication system
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Variations for different auth needs:
 /sg:implement "OAuth integration with Google and GitHub"
@@ -227,17 +227,17 @@
 # REST API with CRUD operations
 /sg:implement "Express.js REST API for blog posts with validation"
 # Expected: Complete REST API with proper HTTP methods, validation, error handling
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # API documentation generation
 /sg:analyze api/ --focus architecture --c7
 # Expected: Comprehensive API documentation with usage examples
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # API testing setup
 /sg:test --focus api --type integration
 # Expected: Integration test suite for API endpoints
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Frontend Component Development
@@ -246,17 +246,17 @@
 /sg:implement "React user profile component with form validation and image upload"
 # Activates: frontend-architect + Magic MCP + accessibility patterns
 # Expected: Modern React component with hooks, validation, accessibility
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Component testing
 /sg:test src/components/ --focus quality
 # Expected: Component tests with React Testing Library
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Responsive design implementation
 /sg:implement "responsive navigation component with mobile menu"
 # Expected: Mobile-first responsive navigation with accessibility
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Database Integration
@@ -264,17 +264,17 @@
 # Database setup with ORM
 /sg:implement "PostgreSQL integration with Prisma ORM and migrations"
 # Expected: Database schema, ORM setup, migration system
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Database query optimization
 /sg:analyze db/ --focus performance
 # Expected: Query performance analysis and optimization suggestions
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Data validation and security
 /sg:implement "input validation and SQL injection prevention"
 # Expected: Comprehensive input validation and security measures
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ## Basic Troubleshooting Examples
@@ -381,45 +381,45 @@
 ```bash
 # Quick analysis
 /sg:analyze src/ --scope file
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Standard analysis
 /sg:analyze . --think
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Deep analysis
 /sg:analyze . --think-hard --focus architecture
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Focus Area Selection
 ```bash
 # Security-focused analysis
 /sg:analyze . --focus security
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Performance-focused implementation
 /sg:implement "API optimization" --focus performance
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Quality-focused testing
 /sg:test --focus quality
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Tool Integration
 ```bash
 # Use Context7 for official patterns
 /sg:implement "React hooks implementation" --c7
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Use Serena for project memory
 /sg:analyze . --serena --focus architecture
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Efficient token usage
 /sg:analyze large-project/ --uc
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ## Learning Progression Workflow
@@ -480,8 +480,8 @@
 - Can solve common development problems independently
 - Understands when to use different flags and focuses
 - Can adapt examples to specific project needs
-- Ready to explore more complex SuperGemini capabilities
+- Ready to explore more complex SuperCodex capabilities
 
 ---
 
-**Remember**: Start simple, practice frequently, and gradually increase complexity. These basic examples form the foundation for all advanced SuperGemini usage.
+**Remember**: Start simple, practice frequently, and gradually increase complexity. These basic examples form the foundation for all advanced SuperCodex usage.

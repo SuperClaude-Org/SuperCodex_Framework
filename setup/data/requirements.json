@@ -8,8 +8,8 @@
   },
   "disk_space_mb": 500,
   "external_tools": {
-    "gemini_cli": {
-      "command": "gemini --version",
+    "codex_cli": {
+      "command": "codex --version",
       "min_version": "0.1.0",
       "required_for": ["mcp"],
       "optional": false
@@ -26,7 +26,7 @@
       "linux": "sudo apt update && sudo apt install python3 python3-pip",
       "darwin": "brew install python3",
       "win32": "Download Python from https://python.org/downloads/",
-      "description": "Python 3.8+ is required for SuperGemini framework"
+      "description": "Python 3.8+ is required for SuperCodex framework"
     },
     "node": {
       "linux": "sudo apt update && sudo apt install nodejs npm",
@@ -34,9 +34,9 @@
       "win32": "Download Node.js from https://nodejs.org/",
       "description": "Node.js 16+ is required for MCP server integration"
     },
-    "gemini_cli": {
-      "all": "npm install -g @google/gemini-cli",
-      "description": "Gemini CLI is required for AI-powered development assistance. Install via npm with: npm install -g @google/gemini-cli"
+    "codex_cli": {
+      "all": "npm install -g @google/codex-cli",
+      "description": "Codex CLI is required for AI-powered development assistance. Install via npm with: npm install -g @google/codex-cli"
     },
     "git": {
       "linux": "sudo apt update && sudo apt install git",

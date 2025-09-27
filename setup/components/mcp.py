@@ -1,5 +1,5 @@
 """
-MCP component for MCP server configuration via .gemini.json
+MCP component for MCP server configuration via .codex.json
 """
 
 import json
@@ -57,7 +57,7 @@ class MCPComponent(Component):
                 "requires_api_key": True,
                 "api_key_env": "TWENTYFIRST_API_KEY",
                 "disabled_by_default": True,
-                "disabled_reason": "Gemini API compatibility issues - function naming conflicts"
+                "disabled_reason": "Codex API compatibility issues - function naming conflicts"
             },
             "playwright": {
                 "name": "playwright",
@@ -74,7 +74,7 @@ class MCPComponent(Component):
                 "uv_package": "git+https://github.com/oraios/serena",
                 "requires_api_key": False,
                 "disabled_by_default": True,
-                "disabled_reason": "Gemini API compatibility issues - complex semantic operations may conflict"
+                "disabled_reason": "Codex API compatibility issues - complex semantic operations may conflict"
             },
             "morphllm": {
                 "name": "morphllm-fast-apply",
@@ -84,7 +84,7 @@ class MCPComponent(Component):
                 "requires_api_key": True,
                 "api_key_env": "MORPH_API_KEY",
                 "disabled_by_default": True,
-                "disabled_reason": "Gemini API compatibility issues - function naming conflicts with fast apply"
+                "disabled_reason": "Codex API compatibility issues - function naming conflicts with fast apply"
             },
         }
         
@@ -129,7 +129,7 @@ class MCPComponent(Component):
         return {
             "name": "mcp",
             "version": __version__,
-            "description": "MCP server configuration management via .gemini.json",
+            "description": "MCP server configuration management via .codex.json",
             "category": "integration"
         }
     
@@ -150,11 +150,11 @@ class MCPComponent(Component):
             errors.append(f"MCP config source directory not found: {source_dir}")
             return False, errors
         
-        # Check if user's Gemini settings directory exists
+        # Check if user's Codex settings directory exists
         settings_path = self.install_dir / "settings.json"
         if not settings_path.parent.exists():
-            errors.append(f"Gemini settings directory not found: {settings_path.parent}")
-            errors.append("Please ensure Gemini is properly configured")
+            errors.append(f"Codex settings directory not found: {settings_path.parent}")
+            errors.append("Please ensure Codex is properly configured")
         elif not settings_path.exists():
             # Create empty settings.json if directory exists but file doesn't
             try:
@@ -166,13 +166,13 @@ class MCPComponent(Component):
         return len(errors) == 0, errors
     
     def get_files_to_install(self) -> List[Tuple[Path, Path]]:
-        """MCP component doesn't install files - it modifies .gemini.json"""
+        """MCP component doesn't install files - it modifies .codex.json"""
         return []
     
     def _get_config_source_dir(self) -> Optional[Path]:
         """Get source directory for MCP config files"""
         project_root = Path(__file__).parent.parent.parent
-        config_dir = project_root / "SuperGemini" / "MCP" / "configs"
+        config_dir = project_root / "SuperCodex" / "MCP" / "configs"
         
         if not config_dir.exists():
             return None
@@ -183,8 +183,8 @@ class MCPComponent(Component):
         """Override parent method - MCP component doesn't use traditional file installation"""
         return self._get_config_source_dir()
     
-    def _load_gemini_config(self) -> Tuple[Optional[Dict], Path]:
-        """Load user's Gemini configuration with file locking"""
+    def _load_codex_config(self) -> Tuple[Optional[Dict], Path]:
+        """Load user's Codex configuration with file locking"""
         settings_path = self.install_dir / "settings.json"
         
         try:
@@ -197,11 +197,11 @@ class MCPComponent(Component):
                 finally:
                     self._unlock_file(f)
         except Exception as e:
-            self.logger.error(f"Failed to load Gemini configuration: {e}")
+            self.logger.error(f"Failed to load Codex configuration: {e}")
             return None, settings_path
     
-    def _save_gemini_config(self, config: Dict, config_path: Path) -> bool:
-        """Save user's Gemini configuration with backup and improved error handling"""
+    def _save_codex_config(self, config: Dict, config_path: Path) -> bool:
+        """Save user's Codex configuration with backup and improved error handling"""
         max_retries = 3
         retry_delay = 0.1
         
@@ -219,7 +219,7 @@ class MCPComponent(Component):
                         json.dump(config, f, indent=2)
                         f.flush()
                     
-                    self.logger.debug("Updated Gemini configuration")
+                    self.logger.debug("Updated Codex configuration")
                     return True
                     
                 except (OSError, IOError, PermissionError) as e:
@@ -238,7 +238,7 @@ class MCPComponent(Component):
                             finally:
                                 self._unlock_file(f)
                         
-                        self.logger.debug("Updated Gemini configuration with locking")
+                        self.logger.debug("Updated Codex configuration with locking")
                         return True
                 
             except (OSError, IOError) as e:
@@ -247,10 +247,10 @@ class MCPComponent(Component):
                     time.sleep(retry_delay * (2 ** attempt))  # Exponential backoff
                     continue
                 else:
-                    self.logger.error(f"Failed to save Gemini config after {max_retries} attempts: {e}")
+                    self.logger.error(f"Failed to save Codex config after {max_retries} attempts: {e}")
                     return False
             except Exception as e:
-                self.logger.error(f"Failed to save Gemini config: {e}")
+                self.logger.error(f"Failed to save Codex config: {e}")
                 return False
         
         return False
@@ -584,7 +584,7 @@ class MCPComponent(Component):
             return None
 
     def _validate_prerequisites(self) -> Tuple[bool, List[str]]:
-        """Validate Gemini environment, npm and uv prerequisites with enhanced PATH detection"""
+        """Validate Codex environment, npm and uv prerequisites with enhanced PATH detection"""
         errors = []
         
         # Check Node.js version (>=18 required for MCP) with enhanced detection
@@ -634,8 +634,8 @@ class MCPComponent(Component):
         return len(errors) == 0, errors
     
     def _install(self, config: Dict[str, Any]) -> bool:
-        """Install MCP component: npm packages + Gemini configuration (v3 + v4 hybrid)"""
-        self.logger.info("Installing MCP servers for Gemini...")
+        """Install MCP component: npm packages + Codex configuration (v3 + v4 hybrid)"""
+        self.logger.info("Installing MCP servers for Codex...")
         
         # Get selected servers from config
         selected_servers = config.get("selected_mcp_servers", [])
@@ -695,16 +695,16 @@ class MCPComponent(Component):
             return False
         
         # Phase 2: Configure settings.json (v4 logic)
-        gemini_config, config_path = self._load_gemini_config()
-        if gemini_config is None:
-            self.logger.error("Failed to load Gemini configuration for setup")
+        codex_config, config_path = self._load_codex_config()
+        if codex_config is None:
+            self.logger.error("Failed to load Codex configuration for setup")
             return False
         
         # Ensure mcpServers and _disabledMcpServers sections exist
-        if "mcpServers" not in gemini_config:
-            gemini_config["mcpServers"] = {}
-        if "_disabledMcpServers" not in gemini_config:
-            gemini_config["_disabledMcpServers"] = {}
+        if "mcpServers" not in codex_config:
+            codex_config["mcpServers"] = {}
+        if "_disabledMcpServers" not in codex_config:
+            codex_config["_disabledMcpServers"] = {}
         
         # Configure only successfully installed servers
         configured_count = 0
@@ -731,12 +731,12 @@ class MCPComponent(Component):
             target_section = "_disabledMcpServers" if is_disabled_by_default else "mcpServers"
             
             # Add comments for disabled section
-            if is_disabled_by_default and "_comment" not in gemini_config["_disabledMcpServers"]:
-                gemini_config["_disabledMcpServers"]["_comment"] = f"{server_info['description']} - disabled due to compatibility issues"
-                gemini_config["_disabledMcpServers"]["_instructions"] = f"Reason: {server_info.get('disabled_reason', 'Compatibility issues')}. Move to mcpServers section to enable."
+            if is_disabled_by_default and "_comment" not in codex_config["_disabledMcpServers"]:
+                codex_config["_disabledMcpServers"]["_comment"] = f"{server_info['description']} - disabled due to compatibility issues"
+                codex_config["_disabledMcpServers"]["_instructions"] = f"Reason: {server_info.get('disabled_reason', 'Compatibility issues')}. Move to mcpServers section to enable."
             
             # Merge server config into appropriate section
-            self._merge_mcp_server_config(gemini_config[target_section], server_config, server_key)
+            self._merge_mcp_server_config(codex_config[target_section], server_config, server_key)
             configured_count += 1
             
             if is_disabled_by_default:
@@ -746,9 +746,9 @@ class MCPComponent(Component):
         
         # Save updated configuration
         if configured_count > 0:
-            success = self._save_gemini_config(gemini_config, config_path)
+            success = self._save_codex_config(codex_config, config_path)
             if not success:
-                self.logger.error("Failed to save Gemini configuration")
+                self.logger.error("Failed to save Codex configuration")
                 return False
         
         # Report results
@@ -795,39 +795,39 @@ class MCPComponent(Component):
             return False
     
     def uninstall(self) -> bool:
-        """Uninstall MCP component by removing servers from .gemini.json"""
+        """Uninstall MCP component by removing servers from .codex.json"""
         try:
             self.logger.info("Removing MCP server configurations...")
             
-            # Load Gemini configuration
-            gemini_config, config_path = self._load_gemini_config()
-            if gemini_config is None:
-                self.logger.warning("Could not load Gemini configuration for cleanup")
+            # Load Codex configuration
+            codex_config, config_path = self._load_codex_config()
+            if codex_config is None:
+                self.logger.warning("Could not load Codex configuration for cleanup")
                 return True  # Not a failure if config doesn't exist
             
-            if "mcpServers" not in gemini_config:
+            if "mcpServers" not in codex_config:
                 self.logger.info("No MCP servers configured")
                 return True
             
-            # Only remove servers that were installed by SuperGemini
+            # Only remove servers that were installed by SuperCodex
             removed_count = 0
             installed_servers = self._get_installed_servers()
             
             for server_name in installed_servers:
-                if server_name in gemini_config["mcpServers"]:
-                    # Check if this server was installed by SuperGemini by comparing with our configs
-                    if self._is_supergemini_managed_server(gemini_config["mcpServers"][server_name], server_name):
-                        del gemini_config["mcpServers"][server_name]
+                if server_name in codex_config["mcpServers"]:
+                    # Check if this server was installed by SuperCodex by comparing with our configs
+                    if self._is_supercodex_managed_server(codex_config["mcpServers"][server_name], server_name):
+                        del codex_config["mcpServers"][server_name]
                         removed_count += 1
-                        self.logger.debug(f"Removed SuperGemini-managed MCP server: {server_name}")
+                        self.logger.debug(f"Removed SuperCodex-managed MCP server: {server_name}")
                     else:
                         self.logger.info(f"Preserved user-customized MCP server: {server_name}")
             
             # Save updated configuration
             if removed_count > 0:
-                success = self._save_gemini_config(gemini_config, config_path)
+                success = self._save_codex_config(codex_config, config_path)
                 if not success:
-                    self.logger.warning("Failed to save updated Gemini configuration")
+                    self.logger.warning("Failed to save updated Codex configuration")
             
             # Update settings.json
             try:
@@ -838,9 +838,9 @@ class MCPComponent(Component):
                 self.logger.warning(f"Could not update settings.json: {e}")
             
             if removed_count > 0:
-                self.logger.success(f"MCP component uninstalled ({removed_count} SuperGemini-managed servers removed)")
+                self.logger.success(f"MCP component uninstalled ({removed_count} SuperCodex-managed servers removed)")
             else:
-                self.logger.info("MCP component uninstalled (no SuperGemini-managed servers to remove)")
+                self.logger.info("MCP component uninstalled (no SuperCodex-managed servers to remove)")
             return True
             
         except Exception as e:
@@ -848,7 +848,7 @@ class MCPComponent(Component):
             return False
     
     def _get_installed_servers(self) -> List[str]:
-        """Get list of servers that were installed by SuperGemini"""
+        """Get list of servers that were installed by SuperCodex"""
         try:
             metadata = self.settings_manager.get_metadata_setting("components")
             if metadata and "mcp" in metadata:
@@ -857,10 +857,10 @@ class MCPComponent(Component):
             pass
         return []
     
-    def _is_supergemini_managed_server(self, server_config: Dict, server_name: str) -> bool:
-        """Check if a server configuration matches SuperGemini's templates
+    def _is_supercodex_managed_server(self, server_config: Dict, server_name: str) -> bool:
+        """Check if a server configuration matches SuperCodex's templates
         
-        This helps determine if a server was installed by SuperGemini or manually
+        This helps determine if a server was installed by SuperCodex or manually
         configured by the user, allowing us to preserve user customizations.
         """
         # Find the server key that maps to this server name

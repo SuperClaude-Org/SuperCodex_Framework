@@ -1,6 +1,6 @@
-# SuperGemini Quick Start Practices
+# SuperCodex Quick Start Practices
 
-**Essential SuperGemini Fundamentals**: Core practices for immediate productivity gains. Master these foundations to build confidence and establish effective development workflows from day one.
+**Essential SuperCodex Fundamentals**: Core practices for immediate productivity gains. Master these foundations to build confidence and establish effective development workflows from day one.
 
 **Focus**: Quick wins, essential commands, basic workflows, and session management fundamentals for new users.
 
@@ -430,7 +430,7 @@ For detailed flag documentation, see [Flags Guide](../User-Guide/flags.md).
 ### Day-by-Day Progression
 
 **Day 1: Foundation Setup**
-- Install and configure SuperGemini
+- Install and configure SuperCodex
 - Practice basic `/sg:analyze` and `/sg:implement` commands
 - Learn session save/load basics
 - **Goal**: Comfort with core commands
@@ -474,7 +474,7 @@ For detailed flag documentation, see [Flags Guide](../User-Guide/flags.md).
 ### Skill Development Milestones
 
 **Week 1 Success Criteria:**
-- Comfortable with daily SuperGemini workflow
+- Comfortable with daily SuperCodex workflow
 - Can analyze and implement features independently
 - Understands basic optimization principles
 - Uses session management effectively
@@ -631,7 +631,7 @@ Once you've mastered these quick start practices, explore more advanced capabili
 ## Community Resources
 
 **Learning Support:**
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Community help and tips
+- [GitHub Discussions](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions) - Community help and tips
 - [Troubleshooting Guide](troubleshooting.md) - Common issue resolution
 
 **Practice Materials:**

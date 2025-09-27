@@ -1,6 +1,6 @@
 """
-SuperGemini Installation Suite
-Pure Python installation system for SuperGemini framework
+SuperCodex Installation Suite
+Pure Python installation system for SuperCodex framework
 """
 
 from pathlib import Path
@@ -18,7 +18,7 @@ def _get_version():
 
 __version__ = _get_version()
 
-__author__ = "SuperGemini-Org"
+__author__ = "SuperCodex-Org"
 
 # Core paths
 SETUP_DIR = Path(__file__).parent
@@ -26,4 +26,4 @@ PROJECT_ROOT = SETUP_DIR.parent
 DATA_DIR = SETUP_DIR / "data"
 
 # Installation target
-DEFAULT_INSTALL_DIR = Path.home() / ".gemini"
+DEFAULT_INSTALL_DIR = Path.home() / ".codex"

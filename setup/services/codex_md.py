@@ -1,5 +1,5 @@
 """
-GEMINI.md Manager for preserving user customizations while managing framework imports
+CODEX.md Manager for preserving user customizations while managing framework imports
 """
 
 import re
@@ -8,34 +8,34 @@ from typing import List, Set, Dict, Optional
 from ..utils.logger import get_logger
 
 
-class GEMINIMdService:
-    """Manages GEMINI.md file updates while preserving user customizations"""
+class CODEXMdService:
+    """Manages CODEX.md file updates while preserving user customizations"""
     
     def __init__(self, install_dir: Path):
         """
-        Initialize GEMINIMdService
+        Initialize CODEXMdService
         
         Args:
-            install_dir: Installation directory (typically ~/.gemini)
+            install_dir: Installation directory (typically ~/.codex)
         """
         self.install_dir = install_dir
-        self.gemini_md_path = install_dir / "GEMINI.md"
+        self.codex_md_path = install_dir / "CODEX.md"
         self.logger = get_logger()
     
     def read_existing_imports(self) -> Set[str]:
         """
-        Parse GEMINI.md for existing @import statements
+        Parse CODEX.md for existing @import statements
         
         Returns:
             Set of already imported filenames (without @)
         """
         existing_imports = set()
         
-        if not self.gemini_md_path.exists():
+        if not self.codex_md_path.exists():
             return existing_imports
         
         try:
-            with open(self.gemini_md_path, 'r', encoding='utf-8') as f:
+            with open(self.codex_md_path, 'r', encoding='utf-8') as f:
                 content = f.read()
             
             # Find all @import statements using regex
@@ -46,25 +46,25 @@ class GEMINIMdService:
             self.logger.debug(f"Found existing imports: {existing_imports}")
             
         except Exception as e:
-            self.logger.warning(f"Could not read existing GEMINI.md imports: {e}")
+            self.logger.warning(f"Could not read existing CODEX.md imports: {e}")
         
         return existing_imports
     
     def read_existing_content(self) -> str:
         """
-        Read existing GEMINI.md content
+        Read existing CODEX.md content
         
         Returns:
             Existing content or empty string if file doesn't exist
         """
-        if not self.gemini_md_path.exists():
+        if not self.codex_md_path.exists():
             return ""
         
         try:
-            with open(self.gemini_md_path, 'r', encoding='utf-8') as f:
+            with open(self.codex_md_path, 'r', encoding='utf-8') as f:
                 return f.read()
         except Exception as e:
-            self.logger.warning(f"Could not read existing GEMINI.md: {e}")
+            self.logger.warning(f"Could not read existing CODEX.md: {e}")
             return ""
     
     def extract_user_content(self, content: str) -> str:
@@ -72,13 +72,13 @@ class GEMINIMdService:
         Extract user content (everything before framework imports section)
         
         Args:
-            content: Full GEMINI.md content
+            content: Full CODEX.md content
             
         Returns:
             User content without framework imports
         """
         # Look for framework imports section marker
-        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperGemini Framework Components"
+        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperCodex Framework Components"
         
         if framework_marker in content:
             user_content = content.split(framework_marker)[0].rstrip()
@@ -105,7 +105,7 @@ class GEMINIMdService:
         
         # Framework imports section header
         sections.append("# ═══════════════════════════════════════════════════")
-        sections.append("# SuperGemini Framework Components")
+        sections.append("# SuperCodex Framework Components")
         sections.append("# ═══════════════════════════════════════════════════")
         sections.append("")
         
@@ -131,8 +131,8 @@ class GEMINIMdService:
             True if successful, False otherwise
         """
         try:
-            # Ensure GEMINI.md exists
-            self.ensure_gemini_md_exists()
+            # Ensure CODEX.md exists
+            self.ensure_codex_md_exists()
             
             # Read existing content and imports
             existing_content = self.read_existing_content()
@@ -174,14 +174,14 @@ class GEMINIMdService:
             # Write updated content
             new_content = "\n".join(new_content_parts)
             
-            with open(self.gemini_md_path, 'w', encoding='utf-8') as f:
+            with open(self.codex_md_path, 'w', encoding='utf-8') as f:
                 f.write(new_content)
             
-            self.logger.success(f"Updated GEMINI.md with {len(new_files)} new imports")
+            self.logger.success(f"Updated CODEX.md with {len(new_files)} new imports")
             return True
             
         except Exception as e:
-            self.logger.error(f"Failed to update GEMINI.md: {e}")
+            self.logger.error(f"Failed to update CODEX.md: {e}")
             return False
     
     def _parse_existing_framework_imports(self, content: str) -> Dict[str, List[str]]:
@@ -189,7 +189,7 @@ class GEMINIMdService:
         Parse existing framework imports organized by category
         
         Args:
-            content: Full GEMINI.md content
+            content: Full CODEX.md content
             
         Returns:
             Dict mapping category names to lists of imported files
@@ -197,7 +197,7 @@ class GEMINIMdService:
         imports_by_category = {}
         
         # Look for framework imports section
-        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperGemini Framework Components"
+        framework_marker = "# ═══════════════════════════════════════════════════\n# SuperCodex Framework Components"
         
         if framework_marker not in content:
             return imports_by_category
@@ -230,38 +230,38 @@ class GEMINIMdService:
         
         return imports_by_category
     
-    def ensure_gemini_md_exists(self) -> None:
+    def ensure_codex_md_exists(self) -> None:
         """
-        Create GEMINI.md with default content if it doesn't exist
+        Create CODEX.md with default content if it doesn't exist
         """
-        if self.gemini_md_path.exists():
+        if self.codex_md_path.exists():
             return
         
         try:
             # Create directory if it doesn't exist
-            self.gemini_md_path.parent.mkdir(parents=True, exist_ok=True)
+            self.codex_md_path.parent.mkdir(parents=True, exist_ok=True)
             
-            # Default GEMINI.md content
-            default_content = """# SuperGemini Entry Point
+            # Default CODEX.md content
+            default_content = """# SuperCodex Entry Point
 
-This file serves as the entry point for the SuperGemini framework.
+This file serves as the entry point for the SuperCodex framework.
 You can add your own custom instructions and configurations here.
 
-The SuperGemini framework components will be automatically imported below.
+The SuperCodex framework components will be automatically imported below.
 """
             
-            with open(self.gemini_md_path, 'w', encoding='utf-8') as f:
+            with open(self.codex_md_path, 'w', encoding='utf-8') as f:
                 f.write(default_content)
             
-            self.logger.info("Created GEMINI.md with default content")
+            self.logger.info("Created CODEX.md with default content")
             
         except Exception as e:
-            self.logger.error(f"Failed to create GEMINI.md: {e}")
+            self.logger.error(f"Failed to create CODEX.md: {e}")
             raise
     
     def remove_imports(self, files: List[str]) -> bool:
         """
-        Remove specific imports from GEMINI.md
+        Remove specific imports from CODEX.md
         
         Args:
             files: List of filenames to remove from imports
@@ -270,7 +270,7 @@ The SuperGemini framework components will be automatically imported below.
             True if successful, False otherwise
         """
         try:
-            if not self.gemini_md_path.exists():
+            if not self.codex_md_path.exists():
                 return True  # Nothing to remove
             
             existing_content = self.read_existing_content()
@@ -305,12 +305,12 @@ The SuperGemini framework components will be automatically imported below.
             # Write updated content
             new_content = "\n".join(new_content_parts)
             
-            with open(self.gemini_md_path, 'w', encoding='utf-8') as f:
+            with open(self.codex_md_path, 'w', encoding='utf-8') as f:
                 f.write(new_content)
             
-            self.logger.info(f"Removed {len(files)} imports from GEMINI.md")
+            self.logger.info(f"Removed {len(files)} imports from CODEX.md")
             return True
             
         except Exception as e:
-            self.logger.error(f"Failed to remove imports from GEMINI.md: {e}")
+            self.logger.error(f"Failed to remove imports from CODEX.md: {e}")
             return False

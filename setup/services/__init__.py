@@ -1,18 +1,18 @@
 """
-SuperGemini Services Module
-Business logic services for the SuperGemini installation system
+SuperCodex Services Module
+Business logic services for the SuperCodex installation system
 """
 
-from .gemini_md import GEMINIMdService
+from .codex_md import CODEXMdService
 from .config import ConfigService
 from .files import FileService
 from .settings import SettingsService
 
 # Backward compatibility alias
-CLAUDEMdService = GEMINIMdService
+CLAUDEMdService = CODEXMdService
 
 __all__ = [
-    'GEMINIMdService',
+    'CODEXMdService',
     'CLAUDEMdService',  # Keep for backward compatibility
     'ConfigService', 
     'FileService',

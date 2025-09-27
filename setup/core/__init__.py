@@ -1,4 +1,4 @@
-"""Core modules for SuperGemini installation system"""
+"""Core modules for SuperCodex installation system"""
 
 from .validator import Validator
 from .registry import ComponentRegistry

@@ -1,18 +1,18 @@
 """
-SuperGemini Operations Module
+SuperCodex Operations Module
 
-This module contains all SuperGemini management operations that can be
-executed through the unified CLI hub (SuperGemini).
+This module contains all SuperCodex management operations that can be
+executed through the unified CLI hub (SuperCodex).
 
 Each operation module should implement:
 - register_parser(subparsers): Register CLI arguments for the operation
 - run(args): Execute the operation with parsed arguments
 
 Available operations:
-- install: Install SuperGemini framework components
-- update: Update existing SuperGemini installation
-- uninstall: Remove SuperGemini framework installation  
-- backup: Backup and restore SuperGemini installations
+- install: Install SuperCodex framework components
+- update: Update existing SuperCodex installation
+- uninstall: Remove SuperCodex framework installation  
+- backup: Backup and restore SuperCodex installations
 """
 
 # Import version from SSOT
@@ -37,22 +37,22 @@ def get_operation_info():
     return {
         "install": {
             "name": "install",
-            "description": "Install SuperGemini framework components",
+            "description": "Install SuperCodex framework components",
             "module": "setup.operations.install"
         },
         "update": {
             "name": "update", 
-            "description": "Update existing SuperGemini installation",
+            "description": "Update existing SuperCodex installation",
             "module": "setup.operations.update"
         },
         "uninstall": {
             "name": "uninstall",
-            "description": "Remove SuperGemini framework installation", 
+            "description": "Remove SuperCodex framework installation", 
             "module": "setup.operations.uninstall"
         },
         "backup": {
             "name": "backup",
-            "description": "Backup and restore SuperGemini installations",
+            "description": "Backup and restore SuperCodex installations",
             "module": "setup.operations.backup"
         }
     }

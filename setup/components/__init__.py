@@ -1,4 +1,4 @@
-"""Component implementations for SuperGemini installation system"""
+"""Component implementations for SuperCodex installation system"""
 
 from .core import CoreComponent
 from .commands import CommandsComponent

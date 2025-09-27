@@ -11,7 +11,7 @@
 **Comprehensive Performance Monitoring:**
 ```bash
 # Complete system resource analysis
-echo "=== SuperGemini Performance Diagnostics ==="
+echo "=== SuperCodex Performance Diagnostics ==="
 
 # CPU usage analysis
 echo "=== CPU Usage ==="
@@ -34,8 +34,8 @@ netstat -i
 ss -tuln | grep -E ":8000|:8001|:8002"
 
 # Process analysis
-echo "=== SuperGemini Processes ==="
-ps aux | grep -E "python.*SuperGemini|node.*mcp|gemini"
+echo "=== SuperCodex Processes ==="
+ps aux | grep -E "python.*SuperCodex|node.*mcp|codex"
 ```
 
 **Real-time Performance Monitoring:**
@@ -58,9 +58,9 @@ echo "watch df -h       # Disk space updates"
 
 # Performance baseline establishment
 echo "=== Establishing performance baselines ==="
-time python3 -m SuperGemini --version
-time ls ~/.gemini/
-time cat ~/.gemini/GEMINI.md | wc -l
+time python3 -m SuperCodex --version
+time ls ~/.codex/
+time cat ~/.codex/CODEX.md | wc -l
 ```
 
 **Performance Bottleneck Identification:**
@@ -81,7 +81,7 @@ echo "Memory Analysis:"
 MEM_USAGE=$(free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}')
 if [ $MEM_USAGE -gt 85 ]; then
     echo "⚠️ High memory usage: ${MEM_USAGE}%"
-    echo "Solutions: Clear sessions, restart Gemini CLI"
+    echo "Solutions: Clear sessions, restart Codex CLI"
 fi
 
 # Disk I/O bottleneck detection
@@ -101,14 +101,14 @@ ping -c 3 8.8.8.8 | tail -1 | awk -F'/' '{if($5 > 100) print "⚠️ High networ
 echo "=== CPU Optimization Strategies ==="
 
 # Identify CPU-intensive processes
-ps aux --sort=-%cpu | grep -E "python.*SuperGemini|node.*mcp" | head -5
+ps aux --sort=-%cpu | grep -E "python.*SuperCodex|node.*mcp" | head -5
 
 # Optimization solutions
 echo "CPU Optimization Actions:"
 echo "1. Use scope limiting: --scope file instead of --scope project"
 echo "2. Break complex tasks into smaller operations"
 echo "3. Use selective MCP servers: --c7 --seq instead of --all-mcp"
-echo "4. Restart Gemini CLI session to clear accumulated processes"
+echo "4. Restart Codex CLI session to clear accumulated processes"
 
 # CPU monitoring during operations
 echo "Monitor CPU during operations:"
@@ -129,8 +129,8 @@ ps aux --sort=-%mem | head -10
 
 # Session memory cleanup
 echo "Session cleanup commands:"
-echo "rm -rf ~/.gemini/sessions/old-*     # Remove old sessions"
-echo "rm -rf ~/.gemini/temp/              # Clear temporary files"
+echo "rm -rf ~/.codex/sessions/old-*     # Remove old sessions"
+echo "rm -rf ~/.codex/temp/              # Clear temporary files"
 echo "rm -rf /tmp/superclaude-*           # Clear system temp files"
 
 # Memory monitoring
@@ -144,14 +144,14 @@ echo "watch 'free -h && echo && ps aux --sort=-%mem | head -5'"
 echo "=== Disk I/O Optimization ==="
 
 # Disk usage analysis
-du -sh ~/.gemini/
-du -sh ~/.gemini/sessions/ 2>/dev/null || echo "No sessions directory"
-df -h ~/.gemini/
+du -sh ~/.codex/
+du -sh ~/.codex/sessions/ 2>/dev/null || echo "No sessions directory"
+df -h ~/.codex/
 
 # I/O optimization actions
 echo "I/O Optimization Actions:"
 echo "1. Focus on specific files instead of entire projects"
-echo "2. Use faster storage (SSD) for ~/.gemini directory"
+echo "2. Use faster storage (SSD) for ~/.codex directory"
 echo "3. Regular cleanup of session files"
 echo "4. Move large projects to faster storage"
 
@@ -171,12 +171,12 @@ echo "=== Session State Diagnostics ==="
 
 # Session directory analysis
 echo "Session Directory Analysis:"
-ls -la ~/.gemini/sessions/ 2>/dev/null || echo "No sessions directory found"
-du -sh ~/.gemini/sessions/ 2>/dev/null || echo "No sessions to analyze"
+ls -la ~/.codex/sessions/ 2>/dev/null || echo "No sessions directory found"
+du -sh ~/.codex/sessions/ 2>/dev/null || echo "No sessions to analyze"
 
 # Session file integrity check
 echo "Session File Integrity:"
-find ~/.gemini/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
+find ~/.codex/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
     if python3 -c "import json; json.load(open('$file'))" 2>/dev/null; then
         echo "✅ Valid: $(basename $file)"
     else
@@ -186,7 +186,7 @@ done
 
 # Session memory usage analysis
 echo "Session Memory Usage:"
-find ~/.gemini/sessions/ -name "*.json" -type f -exec du -h {} \; 2>/dev/null | sort -hr | head -10
+find ~/.codex/sessions/ -name "*.json" -type f -exec du -h {} \; 2>/dev/null | sort -hr | head -10
 ```
 
 **Session Performance Analysis:**
@@ -196,11 +196,11 @@ echo "=== Session Performance Analysis ==="
 
 # Session load time testing
 echo "Session Load Performance:"
-time ls ~/.gemini/sessions/ >/dev/null 2>&1
+time ls ~/.codex/sessions/ >/dev/null 2>&1
 
 # Session access pattern analysis
 echo "Session Access Patterns:"
-find ~/.gemini/sessions/ -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -10 | while read timestamp file; do
+find ~/.codex/sessions/ -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -10 | while read timestamp file; do
     date -d @${timestamp} "+%Y-%m-%d %H:%M:%S"
     basename "$file"
     echo "---"
@@ -208,8 +208,8 @@ done
 
 # Session storage efficiency
 echo "Session Storage Efficiency:"
-total_sessions=$(find ~/.gemini/sessions/ -name "*.json" 2>/dev/null | wc -l)
-total_size=$(du -sb ~/.gemini/sessions/ 2>/dev/null | cut -f1)
+total_sessions=$(find ~/.codex/sessions/ -name "*.json" 2>/dev/null | wc -l)
+total_size=$(du -sb ~/.codex/sessions/ 2>/dev/null | cut -f1)
 if [ "$total_sessions" -gt 0 ] && [ "$total_size" -gt 0 ]; then
     avg_size=$((total_size / total_sessions))
     echo "Total sessions: $total_sessions"
@@ -227,7 +227,7 @@ echo "=== Session Corruption Recovery ==="
 
 # Identify corrupted sessions
 echo "Identifying corrupted sessions:"
-find ~/.gemini/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
+find ~/.codex/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
     if ! python3 -c "import json; json.load(open('$file'))" 2>/dev/null; then
         echo "Corrupted: $file"
         mv "$file" "$file.corrupted.$(date +%s)"
@@ -237,9 +237,9 @@ done
 
 # Session backup creation
 echo "Creating session backups:"
-if [ -d ~/.gemini/sessions/ ]; then
-    backup_dir=~/.gemini/sessions.backup.$(date +%Y%m%d_%H%M%S)
-    cp -r ~/.gemini/sessions/ "$backup_dir"
+if [ -d ~/.codex/sessions/ ]; then
+    backup_dir=~/.codex/sessions.backup.$(date +%Y%m%d_%H%M%S)
+    cp -r ~/.codex/sessions/ "$backup_dir"
     echo "Sessions backed up to: $backup_dir"
 fi
 
@@ -277,7 +277,7 @@ if __name__ == "__main__":
     print(f"{'✅' if is_valid else '❌'} {filepath}: {message}")
 EOF
 
-find ~/.gemini/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
+find ~/.codex/sessions/ -name "*.json" -type f 2>/dev/null | while read file; do
     python3 /tmp/validate_session.py "$file"
 done
 
@@ -291,8 +291,8 @@ echo "=== Session Optimization ==="
 
 # Archive old sessions
 echo "Archiving old sessions (>30 days):"
-find ~/.gemini/sessions/ -name "*.json" -type f -mtime +30 2>/dev/null | while read file; do
-    archive_dir=~/.gemini/sessions.archive/$(date +%Y-%m)
+find ~/.codex/sessions/ -name "*.json" -type f -mtime +30 2>/dev/null | while read file; do
+    archive_dir=~/.codex/sessions.archive/$(date +%Y-%m)
     mkdir -p "$archive_dir"
     mv "$file" "$archive_dir/"
     echo "Archived: $(basename $file)"
@@ -300,21 +300,21 @@ done
 
 # Compress large sessions
 echo "Compressing large sessions (>1MB):"
-find ~/.gemini/sessions/ -name "*.json" -type f -size +1M 2>/dev/null | while read file; do
+find ~/.codex/sessions/ -name "*.json" -type f -size +1M 2>/dev/null | while read file; do
     gzip "$file"
     echo "Compressed: $(basename $file).gz"
 done
 
 # Session defragmentation
 echo "Session defragmentation:"
-if [ -d ~/.gemini/sessions/ ]; then
+if [ -d ~/.codex/sessions/ ]; then
     # Sort sessions by access time and reorganize
     temp_dir=$(mktemp -d)
-    find ~/.gemini/sessions/ -name "*.json" -type f -printf "%A@ %p\n" 2>/dev/null | sort -n | while read atime file; do
+    find ~/.codex/sessions/ -name "*.json" -type f -printf "%A@ %p\n" 2>/dev/null | sort -n | while read atime file; do
         cp "$file" "$temp_dir/$(basename $file)"
     done
     echo "Sessions reorganized in: $temp_dir"
-    echo "Replace sessions directory with: mv $temp_dir ~/.gemini/sessions.optimized"
+    echo "Replace sessions directory with: mv $temp_dir ~/.codex/sessions.optimized"
 fi
 ```
 
@@ -324,19 +324,19 @@ fi
 
 **System-Wide Health Check:**
 ```bash
-# Complete SuperGemini system health assessment
-echo "=== SuperGemini System Health Assessment ==="
+# Complete SuperCodex system health assessment
+echo "=== SuperCodex System Health Assessment ==="
 
 # Core component verification
 echo "Core Component Status:"
-python3 -m SuperGemini --version && echo "✅ SuperGemini installed" || echo "❌ SuperGemini not found"
-ls ~/.gemini/GEMINI.md >/dev/null 2>&1 && echo "✅ Configuration exists" || echo "❌ Configuration missing"
-grep -q "SuperGemini" ~/.gemini/GEMINI.md 2>/dev/null && echo "✅ Configuration valid" || echo "❌ Configuration invalid"
+python3 -m SuperCodex --version && echo "✅ SuperCodex installed" || echo "❌ SuperCodex not found"
+ls ~/.codex/CODEX.md >/dev/null 2>&1 && echo "✅ Configuration exists" || echo "❌ Configuration missing"
+grep -q "SuperCodex" ~/.codex/CODEX.md 2>/dev/null && echo "✅ Configuration valid" || echo "❌ Configuration invalid"
 
 # Dependency verification
 echo "Dependency Status:"
 python3 --version | grep -E "3\.[8-9]|3\.[1-9][0-9]" >/dev/null && echo "✅ Python version OK" || echo "❌ Python version incompatible"
-which gemini >/dev/null 2>&1 && echo "✅ Gemini CLI available" || echo "❌ Gemini CLI not found"
+which codex >/dev/null 2>&1 && echo "✅ Codex CLI available" || echo "❌ Codex CLI not found"
 
 # MCP server verification
 echo "MCP Server Status:"
@@ -345,8 +345,8 @@ npm list -g 2>/dev/null | grep -E "context7|sequential|magic" >/dev/null && echo
 
 # File system verification
 echo "File System Status:"
-[ -w ~/.gemini/ ] && echo "✅ Configuration directory writable" || echo "❌ Configuration directory not writable"
-df -h ~/.gemini/ | tail -1 | awk '{if($5+0 < 90) print "✅ Sufficient disk space: " $5 " used"; else print "⚠️ Low disk space: " $5 " used"}'
+[ -w ~/.codex/ ] && echo "✅ Configuration directory writable" || echo "❌ Configuration directory not writable"
+df -h ~/.codex/ | tail -1 | awk '{if($5+0 < 90) print "✅ Sufficient disk space: " $5 " used"; else print "⚠️ Low disk space: " $5 " used"}'
 
 # Network verification (if MCP servers require internet)
 echo "Network Status:"
@@ -358,10 +358,10 @@ ping -c 1 8.8.8.8 >/dev/null 2>&1 && echo "✅ Internet connectivity OK" || echo
 # Configuration file integrity analysis
 echo "=== Configuration Integrity Analysis ==="
 
-# GEMINI.md structure analysis
-echo "GEMINI.md Analysis:"
-if [ -f ~/.gemini/GEMINI.md ]; then
-    line_count=$(wc -l ~/.gemini/GEMINI.md | cut -d' ' -f1)
+# CODEX.md structure analysis
+echo "CODEX.md Analysis:"
+if [ -f ~/.codex/CODEX.md ]; then
+    line_count=$(wc -l ~/.codex/CODEX.md | cut -d' ' -f1)
     if [ $line_count -gt 100 ]; then
         echo "✅ Configuration size appropriate: $line_count lines"
     else
@@ -369,7 +369,7 @@ if [ -f ~/.gemini/GEMINI.md ]; then
     fi
     
     # Check for required imports
-    import_count=$(grep -c "^@" ~/.gemini/GEMINI.md 2>/dev/null)
+    import_count=$(grep -c "^@" ~/.codex/CODEX.md 2>/dev/null)
     if [ $import_count -gt 5 ]; then
         echo "✅ Import structure OK: $import_count imports"
     else
@@ -378,20 +378,20 @@ if [ -f ~/.gemini/GEMINI.md ]; then
     
     # Check for circular imports
     echo "Circular import check:"
-    if grep -q "@GEMINI.md" ~/.gemini/GEMINI.md 2>/dev/null; then
+    if grep -q "@CODEX.md" ~/.codex/CODEX.md 2>/dev/null; then
         echo "❌ Circular import detected"
     else
         echo "✅ No circular imports"
     fi
 else
-    echo "❌ GEMINI.md not found"
+    echo "❌ CODEX.md not found"
 fi
 
 # Component file analysis
 echo "Component Files Analysis:"
 for component in FLAGS RULES PRINCIPLES; do
-    if [ -f ~/.gemini/${component}.md ]; then
-        size=$(wc -l ~/.gemini/${component}.md | cut -d' ' -f1)
+    if [ -f ~/.codex/${component}.md ]; then
+        size=$(wc -l ~/.codex/${component}.md | cut -d' ' -f1)
         echo "✅ ${component}.md: $size lines"
     else
         echo "❌ ${component}.md missing"
@@ -437,9 +437,9 @@ classify_error() {
 
 # Error log analysis (if logs exist)
 echo "Error Log Analysis:"
-if [ -f ~/.gemini/error.log ]; then
+if [ -f ~/.codex/error.log ]; then
     echo "Recent errors:"
-    tail -20 ~/.gemini/error.log | while read line; do
+    tail -20 ~/.codex/error.log | while read line; do
         error_type=$(classify_error "$line")
         echo "$error_type: $line"
     done
@@ -447,9 +447,9 @@ else
     echo "No error log found"
 fi
 
-# System log analysis for SuperGemini-related errors
+# System log analysis for SuperCodex-related errors
 echo "System Log Analysis:"
-journalctl --since "1 day ago" 2>/dev/null | grep -i -E "superclaude|gemini|python.*error" | tail -10 || echo "No system logs available"
+journalctl --since "1 day ago" 2>/dev/null | grep -i -E "superclaude|codex|python.*error" | tail -10 || echo "No system logs available"
 ```
 
 **Root Cause Analysis Procedures:**
@@ -496,11 +496,11 @@ test_isolation() {
     # Test basic Python functionality
     python3 -c "print('Python OK')" && echo "✅ Python working" || echo "❌ Python issue"
     
-    # Test SuperGemini installation
-    python3 -m SuperGemini --version >/dev/null 2>&1 && echo "✅ SuperGemini installed" || echo "❌ SuperGemini issue"
+    # Test SuperCodex installation
+    python3 -m SuperCodex --version >/dev/null 2>&1 && echo "✅ SuperCodex installed" || echo "❌ SuperCodex issue"
     
     # Test configuration loading
-    [ -f ~/.gemini/GEMINI.md ] && echo "✅ Configuration exists" || echo "❌ Configuration missing"
+    [ -f ~/.codex/CODEX.md ] && echo "✅ Configuration exists" || echo "❌ Configuration missing"
     
     # Test MCP servers (if applicable)
     if which node >/dev/null 2>&1; then
@@ -517,7 +517,7 @@ test_isolation
 
 **Performance Baseline Establishment:**
 ```bash
-# Establish SuperGemini performance baselines
+# Establish SuperCodex performance baselines
 echo "=== Performance Baseline Establishment ==="
 
 # System capability assessment
@@ -539,9 +539,9 @@ time_basic() {
     echo "$(echo "$end_time - $start_time" | bc)s"
 }
 
-echo "SuperGemini version check: $(time_basic 'python3 -m SuperGemini --version')"
-echo "Configuration read: $(time_basic 'cat ~/.gemini/GEMINI.md | wc -l')"
-echo "Session directory list: $(time_basic 'ls ~/.gemini/sessions/')"
+echo "SuperCodex version check: $(time_basic 'python3 -m SuperCodex --version')"
+echo "Configuration read: $(time_basic 'cat ~/.codex/CODEX.md | wc -l')"
+echo "Session directory list: $(time_basic 'ls ~/.codex/sessions/')"
 
 # File operation benchmarks
 echo "File Operation Benchmarks:"
@@ -602,10 +602,10 @@ def time_operation(command, description):
 def run_performance_tests():
     """Run suite of performance tests"""
     tests = [
-        ('python3 -m SuperGemini --version', 'Version check'),
-        ('ls ~/.gemini/', 'Config directory list'),
-        ('cat ~/.gemini/GEMINI.md | wc -l', 'Config file read'),
-        ('find ~/.gemini/ -name "*.md" | wc -l', 'Config file search'),
+        ('python3 -m SuperCodex --version', 'Version check'),
+        ('ls ~/.codex/', 'Config directory list'),
+        ('cat ~/.codex/CODEX.md | wc -l', 'Config file read'),
+        ('find ~/.codex/ -name "*.md" | wc -l', 'Config file search'),
     ]
     
     results = []
@@ -619,7 +619,7 @@ def run_performance_tests():
     return results
 
 if __name__ == "__main__":
-    print("SuperGemini Performance Test Suite")
+    print("SuperCodex Performance Test Suite")
     print("=" * 40)
     results = run_performance_tests()
     
@@ -667,8 +667,8 @@ analyze_memory_usage() {
     free -h
     echo ""
     
-    echo "SuperGemini-related processes:"
-    ps aux | grep -E "python.*SuperGemini|node.*mcp" | head -10
+    echo "SuperCodex-related processes:"
+    ps aux | grep -E "python.*SuperCodex|node.*mcp" | head -10
     echo ""
     
     echo "Memory-intensive processes:"
@@ -684,8 +684,8 @@ analyze_memory_usage() {
     if [ $mem_percent -gt 80 ]; then
         echo "⚠️ High memory usage detected"
         echo "Recommendations:"
-        echo "  - Clear old session files: rm -rf ~/.gemini/sessions/old-*"
-        echo "  - Restart Gemini CLI session"
+        echo "  - Clear old session files: rm -rf ~/.codex/sessions/old-*"
+        echo "  - Restart Codex CLI session"
         echo "  - Use scope limiting: --scope file"
         echo "  - Close unused applications"
     elif [ $mem_percent -gt 60 ]; then
@@ -700,7 +700,7 @@ analyze_memory_usage
 
 # Memory cleanup procedures
 echo "Memory Cleanup Procedures:"
-echo "1. Session cleanup: find ~/.gemini/sessions/ -mtime +7 -delete"
+echo "1. Session cleanup: find ~/.codex/sessions/ -mtime +7 -delete"
 echo "2. Temporary file cleanup: rm -rf /tmp/superclaude-*"
 echo "3. System cache cleanup: sync && echo 3 > /proc/sys/vm/drop_caches (requires sudo)"
 echo "4. Browser cache cleanup (if using Playwright MCP)"
@@ -726,9 +726,9 @@ analyze_cpu_usage() {
     echo "Top CPU consumers:"
     ps aux --sort=-%cpu | head -10
     
-    # SuperGemini-specific CPU usage
-    echo "SuperGemini-related CPU usage:"
-    ps aux | grep -E "python.*SuperGemini|node.*mcp" | awk '{sum+=$3} END {print "Total CPU: " sum "%"}'
+    # SuperCodex-specific CPU usage
+    echo "SuperCodex-related CPU usage:"
+    ps aux | grep -E "python.*SuperCodex|node.*mcp" | awk '{sum+=$3} END {print "Total CPU: " sum "%"}'
     
     # CPU optimization recommendations
     if [ $cpu_percent -gt 80 ]; then
@@ -767,13 +767,13 @@ echo "Layer 2 - Python Environment:"
 echo "Python version: $(python3 --version)"
 echo "Python executable: $(which python3)"
 echo "Python modules: $(python3 -c 'import sys; print(len(sys.modules))') loaded"
-echo "SuperGemini installation: $(python3 -m SuperGemini --version 2>/dev/null || echo 'Not installed')"
+echo "SuperCodex installation: $(python3 -m SuperCodex --version 2>/dev/null || echo 'Not installed')"
 
-# Layer 3: SuperGemini configuration
-echo "Layer 3 - SuperGemini Configuration:"
-echo "Configuration directory: $(ls -ld ~/.gemini/ 2>/dev/null || echo 'Not found')"
-echo "Configuration files: $(find ~/.gemini/ -name "*.md" 2>/dev/null | wc -l) files"
-echo "Session files: $(find ~/.gemini/sessions/ -name "*.json" 2>/dev/null | wc -l) sessions"
+# Layer 3: SuperCodex configuration
+echo "Layer 3 - SuperCodex Configuration:"
+echo "Configuration directory: $(ls -ld ~/.codex/ 2>/dev/null || echo 'Not found')"
+echo "Configuration files: $(find ~/.codex/ -name "*.md" 2>/dev/null | wc -l) files"
+echo "Session files: $(find ~/.codex/sessions/ -name "*.json" 2>/dev/null | wc -l) sessions"
 
 # Layer 4: MCP servers
 echo "Layer 4 - MCP Servers:"
@@ -784,12 +784,12 @@ else
     echo "Node.js: Not installed"
 fi
 
-# Layer 5: Gemini CLI integration
-echo "Layer 5 - Gemini CLI Integration:"
-if which gemini >/dev/null 2>&1; then
-    echo "Gemini CLI: $(gemini --version 2>/dev/null || echo 'Version unknown')"
+# Layer 5: Codex CLI integration
+echo "Layer 5 - Codex CLI Integration:"
+if which codex >/dev/null 2>&1; then
+    echo "Codex CLI: $(codex --version 2>/dev/null || echo 'Version unknown')"
 else
-    echo "Gemini CLI: Not found in PATH"
+    echo "Codex CLI: Not found in PATH"
 fi
 ```
 
@@ -822,9 +822,9 @@ verify_dependency_chain() {
         status=1
     fi
     
-    # Level 3: SuperGemini package
-    echo -n "3. SuperGemini package: "
-    if python3 -m SuperGemini --version >/dev/null 2>&1; then
+    # Level 3: SuperCodex package
+    echo -n "3. SuperCodex package: "
+    if python3 -m SuperCodex --version >/dev/null 2>&1; then
         echo "✅ Installed"
     else
         echo "❌ Not installed or corrupted"
@@ -833,7 +833,7 @@ verify_dependency_chain() {
     
     # Level 4: Configuration files
     echo -n "4. Configuration files: "
-    if [ -f ~/.gemini/GEMINI.md ] && [ -s ~/.gemini/GEMINI.md ]; then
+    if [ -f ~/.codex/CODEX.md ] && [ -s ~/.codex/CODEX.md ]; then
         echo "✅ Present and non-empty"
     else
         echo "❌ Missing or empty"
@@ -853,12 +853,12 @@ verify_dependency_chain() {
         echo "⚠️ Not installed (MCP servers unavailable)"
     fi
     
-    # Level 6: Gemini CLI integration
-    echo -n "6. Gemini CLI integration: "
-    if which gemini >/dev/null 2>&1; then
-        echo "✅ Gemini CLI available"
+    # Level 6: Codex CLI integration
+    echo -n "6. Codex CLI integration: "
+    if which codex >/dev/null 2>&1; then
+        echo "✅ Codex CLI available"
     else
-        echo "⚠️ Gemini CLI not found"
+        echo "⚠️ Codex CLI not found"
     fi
     
     return $status
@@ -880,8 +880,8 @@ fi
 
 **Full System Recovery Protocol:**
 ```bash
-# Complete SuperGemini system recovery
-echo "=== SuperGemini Emergency Recovery Protocol ==="
+# Complete SuperCodex system recovery
+echo "=== SuperCodex Emergency Recovery Protocol ==="
 
 # Step 1: System state backup
 echo "Step 1: Creating system state backup..."
@@ -889,7 +889,7 @@ backup_timestamp=$(date +%Y%m%d_%H%M%S)
 backup_dir=~/superclaude_recovery_$backup_timestamp
 
 mkdir -p "$backup_dir"
-[ -d ~/.gemini/ ] && cp -r ~/.gemini/ "$backup_dir/claude_config/"
+[ -d ~/.codex/ ] && cp -r ~/.codex/ "$backup_dir/claude_config/"
 [ -d ~/.npm/ ] && cp -r ~/.npm/  "$backup_dir/npm_config/" 2>/dev/null || true
 env | grep -E "CLAUDE|PYTHON|NODE" > "$backup_dir/environment_vars.txt"
 python3 -m pip list > "$backup_dir/python_packages.txt" 2>/dev/null || true
@@ -899,15 +899,15 @@ echo "Backup created in: $backup_dir"
 
 # Step 2: Complete cleanup
 echo "Step 2: Performing complete cleanup..."
-rm -rf ~/.gemini/
+rm -rf ~/.codex/
 npm cache clean --force 2>/dev/null || true
-python3 -m pip uninstall SuperGemini -y 2>/dev/null || true
+python3 -m pip uninstall SuperCodex -y 2>/dev/null || true
 
 # Step 3: Fresh installation
-echo "Step 3: Fresh SuperGemini installation..."
-python3 -m pip install SuperGemini
+echo "Step 3: Fresh SuperCodex installation..."
+python3 -m pip install SuperCodex
 if [ $? -eq 0 ]; then
-    echo "✅ SuperGemini package installed"
+    echo "✅ SuperCodex package installed"
 else
     echo "❌ Package installation failed"
     exit 1
@@ -915,7 +915,7 @@ fi
 
 # Step 4: Configuration setup
 echo "Step 4: Configuration setup..."
-python3 -m SuperGemini install --fresh
+python3 -m SuperCodex install --fresh
 if [ $? -eq 0 ]; then
     echo "✅ Configuration installed"
 else
@@ -926,7 +926,7 @@ fi
 # Step 5: MCP server installation (if Node.js available)
 if which node >/dev/null 2>&1; then
     echo "Step 5: MCP server installation..."
-    python3 -m SuperGemini install --components mcp --force
+    python3 -m SuperCodex install --components mcp --force
     if [ $? -eq 0 ]; then
         echo "✅ MCP servers installed"
     else
@@ -938,7 +938,7 @@ fi
 
 # Step 6: Verification
 echo "Step 6: Installation verification..."
-if python3 -m SuperGemini --version && [ -f ~/.gemini/GEMINI.md ]; then
+if python3 -m SuperCodex --version && [ -f ~/.codex/CODEX.md ]; then
     echo "✅ Recovery completed successfully"
     echo "Backup available at: $backup_dir"
 else
@@ -953,7 +953,7 @@ fi
 echo "=== Disaster Recovery Checklist ==="
 
 cat << 'EOF'
-SuperGemini Disaster Recovery Checklist:
+SuperCodex Disaster Recovery Checklist:
 
 PRE-RECOVERY ASSESSMENT:
 □ Identify specific failure symptoms
@@ -963,7 +963,7 @@ PRE-RECOVERY ASSESSMENT:
 
 RECOVERY STEPS:
 □ Create system state backup
-□ Stop all Gemini CLI sessions
+□ Stop all Codex CLI sessions
 □ Clear corrupted configurations
 □ Perform fresh installation
 □ Verify basic functionality
@@ -973,9 +973,9 @@ RECOVERY STEPS:
 □ Validate full functionality
 
 POST-RECOVERY VERIFICATION:
-□ Test SuperGemini version command
+□ Test SuperCodex version command
 □ Verify configuration file integrity
-□ Test basic operations in Gemini CLI
+□ Test basic operations in Codex CLI
 □ Validate MCP server functionality
 □ Document recovery process and lessons learned
 
@@ -996,15 +996,15 @@ EOF
 - **Network Diagnostics**: `ping`, `curl`, `wget`, `ss`
 - **Log Analysis**: `journalctl`, `tail`, `grep`, `awk`
 
-### SuperGemini-Specific Resources
+### SuperCodex-Specific Resources
 - **Common Issues**: [common-issues.md](common-issues.md) - Basic troubleshooting procedures
 - **MCP Server Guide**: [mcp-server-guide.md](mcp-server-guide.md) - MCP-specific diagnostics
 - **Installation Guide**: [../Getting-Started/installation.md](../Getting-Started/installation.md) - Setup procedures
 - **User Guide**: [../User-Guide/](../User-Guide/) - Operational documentation
 
 ### Support and Community
-- **GitHub Issues**: [Technical support and bug reporting](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
-- **GitHub Discussions**: [Community support and best practices](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions)
+- **GitHub Issues**: [Technical support and bug reporting](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues)
+- **GitHub Discussions**: [Community support and best practices](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions)
 - **Contributing Guide**: [../Developer-Guide/contributing-code.md](../Developer-Guide/contributing-code.md) - Development contribution
 
 ---

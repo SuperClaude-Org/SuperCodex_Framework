@@ -1,5 +1,5 @@
 """
-Cross-platform file management for SuperGemini installation system
+Cross-platform file management for SuperCodex installation system
 """
 
 import shutil

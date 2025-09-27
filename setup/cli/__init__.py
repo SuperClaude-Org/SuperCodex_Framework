@@ -1,6 +1,6 @@
 """
-SuperGemini CLI Module
-Command-line interface operations for SuperGemini installation system
+SuperCodex CLI Module
+Command-line interface operations for SuperCodex installation system
 """
 
 from .base import OperationBase

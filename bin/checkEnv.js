@@ -28,9 +28,9 @@ function detectPip() {
   return null;
 }
 
-function isSuperGeminiInstalled(pipCmd) {
-  const result = run(pipCmd, ["show", "SuperGemini"]);
+function isSuperCodexInstalled(pipCmd) {
+  const result = run(pipCmd, ["show", "SuperCodex"]);
   return result.status === 0;
 }
 
-module.exports = { run, detectPython, detectPip, isSuperGeminiInstalled };
+module.exports = { run, detectPython, detectPip, isSuperCodexInstalled };

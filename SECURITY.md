@@ -2,7 +2,7 @@
 
 ## 🔒 Reporting Security Vulnerabilities
 
-SuperGemini Framework prioritizes security through secure-by-design principles, comprehensive input validation, and responsible vulnerability management. We are committed to maintaining a secure development platform while enabling powerful AI-assisted workflows.
+SuperCodex Framework prioritizes security through secure-by-design principles, comprehensive input validation, and responsible vulnerability management. We are committed to maintaining a secure development platform while enabling powerful AI-assisted workflows.
 
 **Security Commitment:**
 - Timely response to security reports (48-72 hours)
@@ -39,10 +39,10 @@ SuperGemini Framework prioritizes security through secure-by-design principles, 
 ### What to Include
 
 **Essential Information:**
-- SuperGemini version: `SuperGemini --version`
+- SuperCodex version: `SuperCodex --version`
 - Operating system and version
 - Python version: `python3 --version`
-- Gemini CLI version: `gemini --version`
+- Codex CLI version: `codex --version`
 - Vulnerability description and potential impact
 - Detailed reproduction steps with minimal test case
 - Proof-of-concept code or commands (if applicable)
@@ -56,8 +56,8 @@ SuperGemini Framework prioritizes security through secure-by-design principles, 
 
 **Vulnerability Report Template:**
 ```
-**SuperGemini Version:** [version]
-**Environment:** [OS, Python version, Gemini Code version]
+**SuperCodex Version:** [version]
+**Environment:** [OS, Python version, Codex Code version]
 
 **Vulnerability Summary:**
 [Brief description of the security issue]
@@ -240,7 +240,7 @@ For organizations requiring extended security support:
 - Configuration file integrity validation
 
 **Configuration Security:**
-- ~/.gemini directory permission validation (user-only access)
+- ~/.codex directory permission validation (user-only access)
 - Configuration file schema validation and sanitization
 - Backup creation before configuration changes
 - Rollback capabilities for configuration corruption
@@ -305,7 +305,7 @@ For organizations requiring extended security support:
 
 ### Configuration Security
 **Configuration File Security:**
-- ~/.gemini directory with user-only permissions (700)
+- ~/.codex directory with user-only permissions (700)
 - Configuration files with restricted access (600)
 - Schema validation for all configuration content
 - Atomic configuration updates to prevent corruption
@@ -318,7 +318,7 @@ For organizations requiring extended security support:
 
 **API Key Handling:**
 - User-managed API keys stored in secure system credential stores
-- No framework storage of Gemini API credentials
+- No framework storage of Codex API credentials
 - Clear separation between framework configuration and user credentials
 - Guidance for secure credential rotation
 
@@ -345,21 +345,21 @@ For organizations requiring extended security support:
 ### For Users
 
 **Installation Security:**
-- Download SuperGemini only from official sources (PyPI, npm, GitHub releases)
+- Download SuperCodex only from official sources (PyPI, npm, GitHub releases)
 - Verify package signatures and checksums when available
 - Use virtual environments to isolate dependencies
 - Keep Python, Node.js, and system packages updated
 
 **Configuration Security:**
-- Use secure file permissions for ~/.gemini directory (user-only access)
+- Use secure file permissions for ~/.codex directory (user-only access)
 - Store API credentials in system credential managers, not configuration files
 - Regularly review and audit MCP server configurations
 - Enable only needed MCP servers to minimize attack surface
 
 **Project Security:**
-- Never run SuperGemini with elevated privileges unless absolutely necessary
+- Never run SuperCodex with elevated privileges unless absolutely necessary
 - Review generated code before execution, especially for external API calls
-- Use version control to track all SuperGemini-generated changes
+- Use version control to track all SuperCodex-generated changes
 - Regularly backup project configurations and important data
 
 **Network Security:**
@@ -533,7 +533,7 @@ Security researchers who responsibly disclose vulnerabilities are recognized in:
 - Priority review for future security research and contributions
 
 **Current Incentive Structure:**
-SuperGemini Framework currently operates as an open-source project without monetary bug bounty rewards. Recognition focuses on professional acknowledgment and community contribution value.
+SuperCodex Framework currently operates as an open-source project without monetary bug bounty rewards. Recognition focuses on professional acknowledgment and community contribution value.
 
 **Future Incentive Considerations:**
 As the project grows and secures funding:
@@ -611,7 +611,7 @@ As the project grows and secures funding:
 - **Community Security Liaisons**: Interface with security researchers and community
 
 **GitHub Security Integration:**
-- **Security Advisories**: https://github.com/SuperGemini-Org/SuperGemini_Framework/security/advisories
+- **Security Advisories**: https://github.com/SuperCodex-Org/SuperCodex_Framework/security/advisories
 - **Security Policy**: Available in repository security tab
 - **Vulnerability Reporting**: GitHub's private vulnerability reporting system
 - **Security Team**: GitHub team with security focus and escalation procedures
@@ -624,13 +624,13 @@ For sensitive security discussions requiring encrypted communication:
 
 **Emergency Contact:**
 For critical vulnerabilities requiring immediate attention:
-- **GitHub**: Direct message to @SuperGemini-Security team
+- **GitHub**: Direct message to @SuperCodex-Security team
 - **Priority Email**: security-urgent@superclaude.org (monitored continuously)
 - **Escalation Path**: Direct maintainer contact information provided upon first contact
 
 ### General Security Questions
 **General Security Questions:**
-- **GitHub Discussions**: https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions
+- **GitHub Discussions**: https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions
 - **Community Forums**: Security-focused discussion threads
 - **Documentation**: [Security Best Practices](Reference/best-practices.md#security-practices)
 - **Issue Tracker**: Non-sensitive security configuration questions
@@ -722,7 +722,7 @@ For organizations requiring dedicated security support:
 
 **Security Policy Maintenance:**
 
-**Last Updated**: December 2025 (SuperGemini Framework v4.0)
+**Last Updated**: December 2025 (SuperCodex Framework v4.0)
 **Next Review**: March 2025 (Quarterly review cycle)
 **Version**: 4.0.0 (Updated for v4 architectural changes)
 
@@ -740,7 +740,7 @@ For organizations requiring dedicated security support:
 
 **Security Contributor Acknowledgments:**
 
-SuperGemini Framework's security posture benefits from community-driven security research, responsible disclosure, and collaborative improvement efforts.
+SuperCodex Framework's security posture benefits from community-driven security research, responsible disclosure, and collaborative improvement efforts.
 
 **Security Contributors:**
 - Security researchers who responsibly disclose vulnerabilities
@@ -749,13 +749,13 @@ SuperGemini Framework's security posture benefits from community-driven security
 - Documentation contributors who improve security guidance and best practices
 
 **Recognition:**
-- [GitHub Contributors](https://github.com/SuperGemini-Org/SuperGemini_Framework/graphs/contributors) - Complete contributor recognition
+- [GitHub Contributors](https://github.com/SuperCodex-Org/SuperCodex_Framework/graphs/contributors) - Complete contributor recognition
 - Security advisories include researcher acknowledgment and credit
 - Annual security report highlights significant security contributions
 - Community discussions celebrate helpful security guidance and support
 
 **Ongoing Security Community:**
-The SuperGemini security community continues growing through shared commitment to secure AI-assisted development workflows. Security-focused contributions, from vulnerability reports to secure coding practices, strengthen the framework for all users.
+The SuperCodex security community continues growing through shared commitment to secure AI-assisted development workflows. Security-focused contributions, from vulnerability reports to secure coding practices, strengthen the framework for all users.
 
 **Join Security Efforts:**
 Whether you're reporting security issues, improving security documentation, or contributing security-focused code, your efforts help build more secure software development tools for the entire community.

@@ -1,5 +1,5 @@
 """
-User interface utilities for SuperGemini installation system
+User interface utilities for SuperCodex installation system
 Cross-platform console UI with colors and progress indication
 """
 

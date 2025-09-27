@@ -1,5 +1,5 @@
 """
-Configuration management for SuperGemini installation system
+Configuration management for SuperCodex installation system
 """
 
 import json

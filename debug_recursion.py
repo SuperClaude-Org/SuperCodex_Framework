@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Debug script to find recursion issue in SuperGemini"""
+"""Debug script to find recursion issue in SuperCodex"""
 
 import sys
 import traceback

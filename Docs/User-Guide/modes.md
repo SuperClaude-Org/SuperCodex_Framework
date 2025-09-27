@@ -1,7 +1,7 @@
-# SuperGemini Behavioral Modes Guide 🧠
+# SuperCodex Behavioral Modes Guide 🧠
 
 ## ✅ Verification Status
-- **SuperGemini Version**: v4.0+ Compatible
+- **SuperCodex Version**: v4.0+ Compatible
 - **Last Tested**: 2025-01-16
 - **Test Environment**: Linux/Windows/macOS
 - **Mode Activation**: ✅ All Verified
@@ -41,7 +41,7 @@ Before using this guide, verify modes activate correctly:
 
 ## Getting Started (2-Minute Overview)
 
-**Modes activate automatically** - you don't need to think about them. They adapt Gemini CLI's behavior based on your task complexity and context.
+**Modes activate automatically** - you don't need to think about them. They adapt Codex CLI's behavior based on your task complexity and context.
 
 **Quick Examples:**
 ```bash
@@ -124,7 +124,7 @@ Analysis Approach:
 - **Decision Analysis**: Evaluates choice logic and considers alternative approaches
 - **Pattern Recognition**: Identifies recurring behaviors and improvement opportunities
 - **Meta-Learning**: Extracts insights for continuous framework improvement
-- **Framework Compliance**: Validates actions against SuperGemini principles and quality gates
+- **Framework Compliance**: Validates actions against SuperCodex principles and quality gates
 
 **Example Experience:**
 ```
@@ -267,7 +267,7 @@ Token Efficient Approach:
 **Behavioral Changes:**
 - **Professional Communication**: Clear, concise technical language without compression
 - **Moderate Detail**: Balanced information depth suitable for most development tasks
-- **Standard Tool Selection**: Uses native Gemini capabilities and basic tools
+- **Standard Tool Selection**: Uses native Codex capabilities and basic tools
 - **Quality Focus**: Maintains code quality without complex orchestration overhead
 - **Responsive Adaptation**: Ready to switch to specialized modes when complexity increases
 
@@ -438,7 +438,7 @@ Standard Approach: Consistent, professional baseline for all tasks
 
 ### Immediate Fixes
 - **Force specific mode**: Use explicit commands like `/sg:analyze` or `--task-manage`
-- **Reset mode behavior**: Restart Gemini CLI session to reset mode state
+- **Reset mode behavior**: Restart Codex CLI session to reset mode state
 - **Check mode indicators**: Look for 🤔, 🎯, 📋 symbols in responses
 - **Verify complexity**: Simple tasks use Standard mode, complex tasks auto-switch
 
@@ -499,14 +499,14 @@ Standard Approach: Consistent, professional baseline for all tasks
 | **O001** | Orchestration coordination failed | Use `--no-mcp` or `--simple` |
 | **M001** | Mode conflict detected | Check flag priority rules |
 | **M002** | Mode switching loop | Restart session to reset state |
-| **M003** | Mode not recognized | Update SuperGemini or check spelling |
+| **M003** | Mode not recognized | Update SuperCodex or check spelling |
 
 ### Progressive Support Levels
 
 **Level 1: Quick Fix (< 2 min)**
 - Use manual flags to override automatic mode selection
 - Check if task complexity matches expected mode behavior
-- Try restarting Gemini CLI session
+- Try restarting Codex CLI session
 
 **Level 2: Detailed Help (5-15 min)**
 ```bash
@@ -520,14 +520,14 @@ Standard Approach: Consistent, professional baseline for all tasks
 **Level 3: Expert Support (30+ min)**
 ```bash
 # Deep mode analysis
-SuperGemini diagnose --modes
+SuperCodex diagnose --modes
 # Check mode activation patterns
 # Review behavioral triggers and thresholds
 ```
 - See [Diagnostic Reference Guide](../Reference/diagnostic-reference.md) for behavioral mode analysis
 
 **Level 4: Community Support**
-- Report mode issues at [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
+- Report mode issues at [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues)
 - Include examples of unexpected mode behavior
 - Describe desired vs actual mode activation
 
@@ -582,7 +582,7 @@ A: Yes, modes are designed to complement each other:
 
 ## Summary
 
-SuperGemini's 6 behavioral modes create an **intelligent adaptation system** that matches your needs automatically:
+SuperCodex's 6 behavioral modes create an **intelligent adaptation system** that matches your needs automatically:
 
 - **🧠 Analysis**: Transforms vague ideas into clear implementation plans
 - **🔍 Introspection**: Provides transparent reasoning for learning and debugging
@@ -591,7 +591,7 @@ SuperGemini's 6 behavioral modes create an **intelligent adaptation system** tha
 - **⚡ Token Efficiency**: Compresses communication while preserving clarity
 - **🎨 Standard**: Maintains professional baseline for straightforward tasks
 
-**The key insight**: You don't need to think about modes - they work transparently to enhance your development experience. Simply describe what you want to accomplish, and SuperGemini automatically adapts its approach to match your needs.
+**The key insight**: You don't need to think about modes - they work transparently to enhance your development experience. Simply describe what you want to accomplish, and SuperCodex automatically adapts its approach to match your needs.
 
 ---
 

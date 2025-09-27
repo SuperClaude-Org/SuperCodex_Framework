@@ -1,5 +1,5 @@
 """
-Commands component for SuperGemini slash command definitions
+Commands component for SuperCodex slash command definitions
 """
 
 from typing import Dict, List, Tuple, Optional, Any
@@ -9,7 +9,7 @@ import re
 from ..core.base import Component
 
 class CommandsComponent(Component):
-    """SuperGemini slash commands component"""
+    """SuperCodex slash commands component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize commands component"""
@@ -44,7 +44,7 @@ class CommandsComponent(Component):
         return {
             "name": "commands",
             "version": "4.0.10",
-            "description": "SuperGemini slash command definitions",
+            "description": "SuperCodex slash command definitions",
             "category": "commands"
         }
     
@@ -67,7 +67,7 @@ class CommandsComponent(Component):
     
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install commands component"""
-        self.logger.info("Installing SuperGemini command definitions...")
+        self.logger.info("Installing SuperCodex command definitions...")
 
         # Check for and migrate existing commands from old location
         self._migrate_existing_commands()
@@ -75,7 +75,7 @@ class CommandsComponent(Component):
         return super()._install(config);
 
     def _post_install(self) -> bool:
-        # Convert MD files to TOML for Gemini CLI compatibility
+        # Convert MD files to TOML for Codex CLI compatibility
         self._convert_md_to_toml()
         
         # Update metadata
@@ -100,7 +100,7 @@ class CommandsComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall commands component"""
         try:
-            self.logger.info("Uninstalling SuperGemini commands component...")
+            self.logger.info("Uninstalling SuperCodex commands component...")
             
             # Remove command files from sg subdirectory
             commands_dir = self.install_dir / "commands" / "sg"
@@ -177,7 +177,7 @@ class CommandsComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update commands component"""
         try:
-            self.logger.info("Updating SuperGemini commands component...")
+            self.logger.info("Updating SuperCodex commands component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("commands")
@@ -267,14 +267,14 @@ class CommandsComponent(Component):
         current_file = Path(__file__)
         
         # Option 1: Development mode - relative to this file
-        dev_path = current_file.parent.parent.parent / "SuperGemini" / "Commands"
+        dev_path = current_file.parent.parent.parent / "SuperCodex" / "Commands"
         if dev_path.exists():
             return dev_path
         
         # Option 2: Installed package - look in site-packages
         import site
         for site_dir in site.getsitepackages():
-            installed_path = Path(site_dir) / "SuperGemini" / "Commands"
+            installed_path = Path(site_dir) / "SuperCodex" / "Commands"
             if installed_path.exists():
                 return installed_path
         
@@ -375,7 +375,7 @@ class CommandsComponent(Component):
             self.logger.warning(f"Error during command migration: {e}")
     
     def _convert_md_to_toml(self) -> None:
-        """Convert MD command files to TOML format for Gemini CLI compatibility"""
+        """Convert MD command files to TOML format for Codex CLI compatibility"""
         try:
             commands_dir = self.install_dir / "commands" / "sg"
             if not commands_dir.exists():
@@ -410,8 +410,8 @@ class CommandsComponent(Component):
                             tools_str = tools_match.group(1)
                             allowed_tools = [tool.strip() for tool in tools_str.split(',')]
                     
-                    # Clean up content - remove Gemini CLI specific sections
-                    main_content = re.sub(r'## Gemini CLI Integration.*', '', main_content, flags=re.DOTALL)
+                    # Clean up content - remove Codex CLI specific sections
+                    main_content = re.sub(r'## Codex CLI Integration.*', '', main_content, flags=re.DOTALL)
                     
                     # Build enhanced prompt with flag handling
                     command_name = md_file.stem
@@ -425,7 +425,7 @@ class CommandsComponent(Component):
                     
                     mcp_instruction = mcp_triggers.get(command_name, "")
                     
-                    prompt = f"""SuperGemini Framework Command: /sg:{command_name}
+                    prompt = f"""SuperCodex Framework Command: /sg:{command_name}
 
 {mcp_instruction}
 

@@ -1,6 +1,6 @@
 """
-Settings management for SuperGemini installation system
-Handles settings.json migration to the new SuperGemini metadata json file
+Settings management for SuperCodex installation system
+Handles settings.json migration to the new SuperCodex metadata json file
 Allows for manipulation of these json files with deep merge and backup
 """
 
@@ -24,7 +24,7 @@ class SettingsService:
         """
         self.install_dir = install_dir
         self.settings_file = install_dir / "settings.json"
-        self.metadata_file = install_dir / ".supergemini-metadata.json"
+        self.metadata_file = install_dir / ".supercodex-metadata.json"
         self.backup_dir = install_dir / "backups" / "settings"
         
     def load_settings(self) -> Dict[str, Any]:
@@ -67,7 +67,7 @@ class SettingsService:
     
     def load_metadata(self) -> Dict[str, Any]:
         """
-        Load SuperGemini metadata from .supergemini-metadata.json
+        Load SuperCodex metadata from .supercodex-metadata.json
         
         Returns:
             Metadata dict (empty if file doesn't exist)
@@ -83,7 +83,7 @@ class SettingsService:
     
     def save_metadata(self, metadata: Dict[str, Any]) -> None:
         """
-        Save SuperGemini metadata to .supergemini-metadata.json
+        Save SuperCodex metadata to .supercodex-metadata.json
         
         Args:
             metadata: Metadata dict to save
@@ -122,22 +122,22 @@ class SettingsService:
         merged = self.merge_metadata(modifications)
         self.save_metadata(merged)
 
-    def migrate_supergemini_data(self) -> bool:
+    def migrate_supercodex_data(self) -> bool:
         """
-        Migrate SuperGemini-specific data from settings.json to metadata file
+        Migrate SuperCodex-specific data from settings.json to metadata file
         
         Returns:
             True if migration occurred, False if no data to migrate
         """
         settings = self.load_settings()
         
-        # SuperGemini-specific fields to migrate
-        supergemini_fields = ["components", "framework", "supergemini", "mcp"]
+        # SuperCodex-specific fields to migrate
+        supercodex_fields = ["components", "framework", "supercodex", "mcp"]
         data_to_migrate = {}
         fields_found = False
         
-        # Extract SuperGemini data
-        for field in supergemini_fields:
+        # Extract SuperCodex data
+        for field in supercodex_fields:
             if field in settings:
                 data_to_migrate[field] = settings[field]
                 fields_found = True
@@ -152,8 +152,8 @@ class SettingsService:
         # Save to metadata file
         self.save_metadata(merged_metadata)
         
-        # Remove SuperGemini fields from settings
-        clean_settings = {k: v for k, v in settings.items() if k not in supergemini_fields}
+        # Remove SuperCodex fields from settings
+        clean_settings = {k: v for k, v in settings.items() if k not in supercodex_fields}
         
         # Save cleaned settings
         self.save_settings(clean_settings, create_backup=True)
@@ -333,7 +333,7 @@ class SettingsService:
     
     def update_framework_version(self, version: str) -> None:
         """
-        Update SuperGemini framework version in metadata
+        Update SuperCodex framework version in metadata
         
         Args:
             version: Framework version string
@@ -349,7 +349,7 @@ class SettingsService:
     
     def check_installation_exists(self) -> bool:
         """
-        Get SuperGemini framework version from metadata
+        Get SuperCodex framework version from metadata
         
         Returns:
             Version string or None if not set
@@ -358,7 +358,7 @@ class SettingsService:
 
     def check_v2_installation_exists(self) -> bool:
         """
-        Get SuperGemini framework version from metadata
+        Get SuperCodex framework version from metadata
 
         Returns:
             Version string or None if not set

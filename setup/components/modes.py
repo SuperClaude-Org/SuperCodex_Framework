@@ -1,16 +1,16 @@
 """
-Modes component for SuperGemini behavioral modes
+Modes component for SuperCodex behavioral modes
 """
 
 from typing import Dict, List, Tuple, Optional, Any
 from pathlib import Path
 
 from ..core.base import Component
-from ..services.gemini_md import GEMINIMdService
+from ..services.codex_md import CODEXMdService
 
 
 class ModesComponent(Component):
-    """SuperGemini behavioral modes component"""
+    """SuperCodex behavioral modes component"""
     
     def __init__(self, install_dir: Optional[Path] = None):
         """Initialize modes component"""
@@ -21,13 +21,13 @@ class ModesComponent(Component):
         return {
             "name": "modes",
             "version": "4.0.10",
-            "description": "SuperGemini behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
+            "description": "SuperCodex behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
             "category": "modes"
         }
     
     def _install(self, config: Dict[str, Any]) -> bool:
         """Install modes component"""
-        self.logger.info("Installing SuperGemini behavioral modes...")
+        self.logger.info("Installing SuperCodex behavioral modes...")
 
         # Validate installation
         success, errors = self.validate_prerequisites()
@@ -86,13 +86,13 @@ class ModesComponent(Component):
             })
             self.logger.info("Registered modes component in metadata")
             
-            # Update GEMINI.md with mode imports
+            # Update CODEX.md with mode imports
             try:
-                manager = GEMINIMdService(self.install_dir)
+                manager = CODEXMdService(self.install_dir)
                 manager.add_imports(self.component_files, category="Behavioral Modes")
-                self.logger.info("Updated GEMINI.md with mode imports")
+                self.logger.info("Updated CODEX.md with mode imports")
             except Exception as e:
-                self.logger.warning(f"Failed to update GEMINI.md with mode imports: {e}")
+                self.logger.warning(f"Failed to update CODEX.md with mode imports: {e}")
                 # Don't fail the whole installation for this
             
             return True
@@ -103,7 +103,7 @@ class ModesComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall modes component"""
         try:
-            self.logger.info("Uninstalling SuperGemini modes component...")
+            self.logger.info("Uninstalling SuperCodex modes component...")
             
             # Remove mode files
             removed_count = 0
@@ -143,10 +143,10 @@ class ModesComponent(Component):
     
     def _get_source_dir(self) -> Optional[Path]:
         """Get source directory for mode files"""
-        # Assume we're in SuperGemini/setup/components/modes.py
-        # and mode files are in SuperGemini/SuperGemini/Modes/
+        # Assume we're in SuperCodex/setup/components/modes.py
+        # and mode files are in SuperCodex/SuperCodex/Modes/
         project_root = Path(__file__).parent.parent.parent
-        modes_dir = project_root / "SuperGemini" / "Modes"
+        modes_dir = project_root / "SuperCodex" / "Modes"
         
         # Return None if directory doesn't exist to prevent warning
         if not modes_dir.exists():
@@ -156,25 +156,25 @@ class ModesComponent(Component):
     
     def _discover_component_files(self) -> List[str]:
         """
-        Discover MODE files, excluding Gemini CLI incompatible ones
+        Discover MODE files, excluding Codex CLI incompatible ones
         
-        Filters out MODE files that require parallel agents or features not supported by Gemini CLI
+        Filters out MODE files that require parallel agents or features not supported by Codex CLI
         """
         source_dir = self._get_source_dir()
         
         if not source_dir:
             return []
         
-        # Gemini CLI compatible MODE files only
-        gemini_compatible_modes = [
+        # Codex CLI compatible MODE files only
+        codex_compatible_modes = [
             'MODE_Brainstorming.md',      # Uses dialogue patterns only
             'MODE_Introspection.md',      # Uses self-analysis only  
             'MODE_Task_Management.md',    # Uses MCP memory (works)
             'MODE_Token_Efficiency.md'   # Uses compression patterns only
         ]
         
-        # Gemini CLI incompatible MODE files (require parallel agents)
-        gemini_incompatible_modes = [
+        # Codex CLI incompatible MODE files (require parallel agents)
+        codex_incompatible_modes = [
             'MODE_Orchestration.md'       # Requires parallel execution, delegation
         ]
         
@@ -186,7 +186,7 @@ class ModesComponent(Component):
                 return []
             
             # Check which compatible files actually exist
-            for mode_file in gemini_compatible_modes:
+            for mode_file in codex_compatible_modes:
                 file_path = source_dir / mode_file
                 if file_path.exists():
                     discovered_files.append(mode_file)
@@ -195,12 +195,12 @@ class ModesComponent(Component):
                     self.logger.warning(f"Compatible MODE file not found: {mode_file}")
             
             # Log excluded files for transparency
-            for mode_file in gemini_incompatible_modes:
+            for mode_file in codex_incompatible_modes:
                 file_path = source_dir / mode_file
                 if file_path.exists():
                     self.logger.info(f"Excluding incompatible MODE file: {mode_file} (requires parallel agents)")
             
-            self.logger.info(f"Selected {len(discovered_files)} Gemini CLI compatible MODE files")
+            self.logger.info(f"Selected {len(discovered_files)} Codex CLI compatible MODE files")
             
             return sorted(discovered_files)
             

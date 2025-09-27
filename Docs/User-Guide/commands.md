@@ -1,9 +1,9 @@
-# SuperGemini Commands Guide
+# SuperCodex Commands Guide
 
-> **Command Context**: This guide covers **Gemini CLI Commands** (`/sg:` commands). These run inside Gemini CLI chat, not in your terminal. For installation commands, see [Installation Guide](../Getting-Started/installation.md).
+> **Command Context**: This guide covers **Codex CLI Commands** (`/sg:` commands). These run inside Codex CLI chat, not in your terminal. For installation commands, see [Installation Guide](../Getting-Started/installation.md).
 
 ## ✅ Verification Status
-- **SuperGemini Version**: v4.0+ Compatible
+- **SuperCodex Version**: v4.0+ Compatible
 - **Last Tested**: 2025-01-16
 - **Test Environment**: Linux/Windows/macOS
 - **Command Syntax**: ✅ All Verified
@@ -14,16 +14,16 @@
 
 ### 🖥️ Terminal Verification (Run in Terminal/CMD)
 ```bash
-# Verify SuperGemini is working
-SuperGemini --version
-# Expected: SuperGemini Framework v4.0+
+# Verify SuperCodex is working
+SuperCodex --version
+# Expected: SuperCodex Framework v4.0+
 
 # Check MCP server connectivity
-SuperGemini status --mcp
+SuperCodex status --mcp
 # Expected: At least context7 and sequential connected
 ```
 
-### 💬 Gemini CLI Testing (Type in Gemini CLI Chat)
+### 💬 Codex CLI Testing (Type in Codex CLI Chat)
 ```
 # Test basic /sg: command
 /sg:analyze "test project"
@@ -40,12 +40,12 @@ SuperGemini status --mcp
 
 | Command Type | Where to Run | Format | Purpose |
 |-------------|--------------|--------|---------|
-| **🖥️ Installation** | Terminal/CMD | `SuperGemini [command]` | Setup and maintenance |
-| **🔧 Configuration** | Terminal/CMD | `python3 -m SuperGemini` | Advanced configuration |
-| **💬 Development** | Gemini CLI | `/sg:[command]` | AI-enhanced development |
-| **⚡ Workflow** | Gemini CLI | `/sg:[command] --flags` | Enhanced automation |
+| **🖥️ Installation** | Terminal/CMD | `SuperCodex [command]` | Setup and maintenance |
+| **🔧 Configuration** | Terminal/CMD | `python3 -m SuperCodex` | Advanced configuration |
+| **💬 Development** | Codex CLI | `/sg:[command]` | AI-enhanced development |
+| **⚡ Workflow** | Codex CLI | `/sg:[command] --flags` | Enhanced automation |
 
-> **Remember**: All `/sg:` commands work inside Gemini CLI chat, not your terminal.
+> **Remember**: All `/sg:` commands work inside Codex CLI chat, not your terminal.
 
 ## Table of Contents
 
@@ -427,16 +427,16 @@ SuperGemini status --mcp
 ## 🚨 Quick Troubleshooting
 
 ### Common Issues (< 2 minutes)
-- **Command not found**: Check `/sg:` prefix and SuperGemini installation
-- **Invalid flag**: Verify flag against `python3 -m SuperGemini --help`
+- **Command not found**: Check `/sg:` prefix and SuperCodex installation
+- **Invalid flag**: Verify flag against `python3 -m SuperCodex --help`
 - **MCP server error**: Check Node.js installation and server configuration
 - **Permission denied**: Run `chmod +x` or check file permissions
 
 ### Immediate Fixes
 - **Reset session**: `/sg:load` to reinitialize
-- **Clear cache**: Remove `~/.gemini/cache/` directory
-- **Restart Gemini CLI**: Exit and restart application
-- **Check status**: `python3 -m SuperGemini --version`
+- **Clear cache**: Remove `~/.codex/cache/` directory
+- **Restart Codex CLI**: Exit and restart application
+- **Check status**: `python3 -m SuperCodex --version`
 
 ## Troubleshooting
 
@@ -447,7 +447,7 @@ SuperGemini status --mcp
 # Problem: "/sg:analyze not found"
 # Quick Fix: Check command spelling and prefix
 /sg:help commands  # List all available commands
-python3 -m SuperGemini --help  # Verify installation
+python3 -m SuperCodex --help  # Verify installation
 ```
 
 **Command Hangs or No Response:**
@@ -456,7 +456,7 @@ python3 -m SuperGemini --help  # Verify installation
 # Quick Fix: Check for dependency issues
 /sg:command --timeout 30  # Set explicit timeout
 /sg:command --no-mcp     # Try without MCP servers
-ps aux | grep SuperGemini  # Check for hung processes
+ps aux | grep SuperCodex  # Check for hung processes
 ```
 
 **Invalid Flag Combinations:**
@@ -474,7 +474,7 @@ ps aux | grep SuperGemini  # Check for hung processes
 ```bash
 # Problem: MCP servers not responding
 # Quick Fix: Verify server status and restart
-SuperGemini status --mcp                    # Check all servers
+SuperCodex status --mcp                    # Check all servers
 /sg:command --no-mcp                       # Bypass MCP temporarily
 node --version                             # Verify Node.js v16+
 npm cache clean --force                    # Clear NPM cache
@@ -522,7 +522,7 @@ killall node                         # Reset MCP servers
 | **E005** | Timeout exceeded | Reduce scope with `--scope file` or increase `--timeout` |
 | **E006** | Memory limit exceeded | Use `--memory-limit` or `--scope module` |
 | **E007** | Invalid project structure | Verify you're in a valid project directory |
-| **E008** | Dependency missing | Check installation with `SuperGemini --version` |
+| **E008** | Dependency missing | Check installation with `SuperCodex --version` |
 
 ### Progressive Support Levels
 
@@ -534,54 +534,54 @@ killall node                         # Reset MCP servers
 **Level 2: Detailed Help (5-15 min)**
 ```bash
 # Comprehensive diagnostics
-SuperGemini diagnose --verbose
+SuperCodex diagnose --verbose
 /sg:help troubleshoot
-cat ~/.gemini/logs/superclaude.log | tail -50
+cat ~/.codex/logs/superclaude.log | tail -50
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for detailed troubleshooting
 
 **Level 3: Expert Support (30+ min)**
 ```bash
 # Deep system analysis
-SuperGemini diagnose --full-system
+SuperCodex diagnose --full-system
 strace -e trace=file /sg:command 2>&1 | grep ENOENT
-lsof | grep SuperGemini
+lsof | grep SuperCodex
 # Check GitHub Issues for known problems
 ```
 - See [Diagnostic Reference Guide](../Reference/diagnostic-reference.md) for advanced procedures
 
 **Level 4: Community Support**
-- Report issues at [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
+- Report issues at [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues)
 - Include diagnostic output from Level 3
 - Describe steps to reproduce the problem
 
 ### Success Validation
 
 After applying fixes, test with:
-- [ ] `python3 -m SuperGemini --version` (should show version)
+- [ ] `python3 -m SuperCodex --version` (should show version)
 - [ ] `/sg:analyze README.md` (should complete without errors)
-- [ ] Check MCP servers respond: `SuperGemini status --mcp`
+- [ ] Check MCP servers respond: `SuperCodex status --mcp`
 - [ ] Verify flags work: `/sg:help flags`
 - [ ] Test basic workflow: `/sg:analyze "test"` → should provide analysis
 
 ## Quick Troubleshooting (Legacy)
-- **Command not found** → Check installation: `SuperGemini --version`
+- **Command not found** → Check installation: `SuperCodex --version`
 - **Flag error** → Verify against [FLAGS.md](flags.md)  
-- **MCP error** → Check server configuration: `SuperGemini status --mcp`
-- **No output** → Restart Gemini CLI session
+- **MCP error** → Check server configuration: `SuperCodex status --mcp`
+- **No output** → Restart Codex CLI session
 - **Slow performance** → Use `--scope file` or `--no-mcp`
 
 ### Common Issues
 
 **Command Not Recognized**
 ```bash
-# Check SuperGemini installation
-SuperGemini --version
+# Check SuperCodex installation
+SuperCodex --version
 
 # Verify component installation  
-SuperGemini install --list-components
+SuperCodex install --list-components
 
-# Restart Gemini CLI session
+# Restart Codex CLI session
 ```
 
 **Slow Performance**
@@ -599,10 +599,10 @@ SuperGemini install --list-components
 **MCP Server Connection Issues**
 ```bash
 # Check server status
-ls ~/.gemini/.gemini.json
+ls ~/.codex/.codex.json
 
 # Reinstall MCP components
-SuperGemini install --components mcp --force
+SuperCodex install --components mcp --force
 
 # Use native execution fallback
 /sg:analyze . --no-mcp
@@ -658,8 +658,8 @@ SuperGemini install --components mcp --force
 - [Examples Cookbook](../Reference/examples-cookbook.md) - Real-world usage patterns
 
 **Community Support**
-- [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) - Bug reports and feature requests
-- [Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Community help and patterns
+- [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues) - Bug reports and feature requests
+- [Discussions](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions) - Community help and patterns
 
 ---
 
@@ -725,5 +725,5 @@ time /sg:analyze large-project/
 
 ---
 
-**Remember**: SuperGemini learns from your usage patterns. Start with the [Essential Commands](#essential-commands), explore [Common Workflows](#common-workflows), and gradually discover advanced capabilities. Use `/sg:index` whenever you need guidance.
+**Remember**: SuperCodex learns from your usage patterns. Start with the [Essential Commands](#essential-commands), explore [Common Workflows](#common-workflows), and gradually discover advanced capabilities. Use `/sg:index` whenever you need guidance.
 

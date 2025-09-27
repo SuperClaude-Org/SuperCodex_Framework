@@ -1,5 +1,5 @@
 """
-Safe path utilities for SuperGemini component discovery
+Safe path utilities for SuperCodex component discovery
 Handles PyPI installation, development, and various deployment scenarios
 """
 
@@ -53,7 +53,7 @@ def get_safe_components_directory() -> Optional[Path]:
     
     # Strategy 4: Environment variable override
     # Allow explicit override for custom installations
-    env_components_path = os.getenv("SUPERGEMINI_COMPONENTS_PATH")
+    env_components_path = os.getenv("SUPERCODEX_COMPONENTS_PATH")
     if env_components_path:
         env_components_dir = Path(env_components_path)
         if env_components_dir.exists() and env_components_dir.is_dir():

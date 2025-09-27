@@ -1,8 +1,8 @@
-# SuperGemini Framework Reference Documentation
+# SuperCodex Framework Reference Documentation
 
-**Complete Navigation Hub**: Your definitive guide to mastering SuperGemini Framework with structured learning paths, comprehensive references, and expert guidance for all skill levels.
+**Complete Navigation Hub**: Your definitive guide to mastering SuperCodex Framework with structured learning paths, comprehensive references, and expert guidance for all skill levels.
 
-**Documentation Status**: ✅ **VERIFIED SuperGemini v4.0** - All content verified for accuracy and completeness.
+**Documentation Status**: ✅ **VERIFIED SuperCodex v4.0** - All content verified for accuracy and completeness.
 
 ## How to Use This Reference Library
 
@@ -38,7 +38,7 @@ This documentation is organized for **progressive learning** with multiple entry
 ## Recommended Learning Paths
 
 ### New Users (Week 1 Foundation)
-**Goal**: Establish confident SuperGemini usage with essential workflows
+**Goal**: Establish confident SuperCodex usage with essential workflows
 
 ```
 Day 1-2: quick-start-practices.md
@@ -93,7 +93,7 @@ Advanced Analysis: diagnostic-reference.md
 
 ## Command Quick Reference
 
-### Essential SuperGemini Commands
+### Essential SuperCodex Commands
 
 | Command Pattern | Purpose | Example |
 |----------------|---------|---------|
@@ -159,7 +159,7 @@ Advanced Analysis: diagnostic-reference.md
 ## Problem-Solving Quick Reference
 
 ### Immediate Issues (< 5 minutes)
-- **Command not working**: Check [common-issues.md](common-issues.md) → Common SuperGemini Problems
+- **Command not working**: Check [common-issues.md](common-issues.md) → Common SuperCodex Problems
 - **Session lost**: Use `/sg:load` → See [quick-start-practices.md](quick-start-practices.md) → Session Management
 - **Flag confusion**: Check [basic-examples.md](basic-examples.md) → Flag Usage Examples
 
@@ -178,13 +178,13 @@ Advanced Analysis: diagnostic-reference.md
 ## Documentation Health & Verification
 
 ### Quality Assurance
-- ✅ **Commands Tested**: All examples verified against SuperGemini v4.0
+- ✅ **Commands Tested**: All examples verified against SuperCodex v4.0
 - ✅ **Patterns Proven**: Real-world usage validation in production environments  
 - ✅ **Cross-References**: Internal links verified and maintained
 - ✅ **Regular Updates**: Documentation synchronized with framework evolution
 
 ### Accuracy Standards
-- **Command Syntax**: Verified against latest SuperGemini implementation
+- **Command Syntax**: Verified against latest SuperCodex implementation
 - **Flag Behavior**: Tested in multiple scenarios and environments
 - **MCP Integration**: Confirmed compatibility with current MCP server versions
 - **Performance Claims**: Benchmarked and measured in realistic conditions
@@ -238,12 +238,12 @@ Found outdated information or broken examples?
 ### Community & Support
 - **Best Practices**: Continuously updated based on community feedback
 - **Pattern Library**: Growing collection of proven workflow patterns
-- **Expert Network**: Connect with experienced SuperGemini practitioners
+- **Expert Network**: Connect with experienced SuperCodex practitioners
 - **Regular Updates**: Documentation evolves with framework capabilities
 
 ---
 
-**Start Your Journey**: New to SuperGemini? Begin with [quick-start-practices.md](quick-start-practices.md) for immediate productivity gains.
+**Start Your Journey**: New to SuperCodex? Begin with [quick-start-practices.md](quick-start-practices.md) for immediate productivity gains.
 
 **Need Answers Now**: Jump to [basic-examples.md](basic-examples.md) for copy-paste solutions.
 

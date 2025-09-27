@@ -1,6 +1,6 @@
-# SuperGemini PyPI Publishing Guide
+# SuperCodex PyPI Publishing Guide
 
-SuperGemini Framework is published to PyPI as a Python package with automated CI/CD workflows for testing, validation, and release management. The publishing process includes comprehensive testing, security validation, and multi-platform compatibility verification.
+SuperCodex Framework is published to PyPI as a Python package with automated CI/CD workflows for testing, validation, and release management. The publishing process includes comprehensive testing, security validation, and multi-platform compatibility verification.
 
 **Publishing Workflow Overview:**
 1. **Development**: Feature development with comprehensive testing
@@ -11,7 +11,7 @@ SuperGemini Framework is published to PyPI as a Python package with automated CI
 6. **Post-Release**: GitHub release creation, documentation updates, community notification
 
 **Package Distribution:**
-- **Primary**: PyPI (pip install SuperGemini)
+- **Primary**: PyPI (pip install SuperCodex)
 - **Alternative**: npm (npm install -g superclaude) for Node.js environments
 - **Development**: Direct GitHub installation for contributors and testers
 
@@ -48,13 +48,13 @@ twine upload --repository testpypi dist/*
 **For Users (Installation):**
 ```bash
 # Production installation
-pip install SuperGemini
+pip install SuperCodex
 
 # Development version
-pip install git+https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+pip install git+https://github.com/SuperCodex-Org/SuperCodex_Framework.git
 
 # Specific version
-pip install SuperGemini==4.0.0
+pip install SuperCodex==4.0.0
 ```
 
 **Automated Release Process:**
@@ -71,16 +71,16 @@ pip install SuperGemini==4.0.0
 **Account Requirements:**
 - PyPI account: https://pypi.org/account/register/
 - Two-factor authentication enabled (required for package maintenance)
-- Project maintainer access to SuperGemini package
+- Project maintainer access to SuperCodex package
 - TestPyPI account: https://test.pypi.org/ (for testing)
 
 **API Token Configuration:**
 
 **For GitHub Actions (Maintainers):**
 ```bash
-# Generate PyPI API token with SuperGemini package scope
+# Generate PyPI API token with SuperCodex package scope
 # Add to GitHub repository secrets as PYPI_API_TOKEN
-# Token format: pypi-AgEIcHl... (scoped to SuperGemini package)
+# Token format: pypi-AgEIcHl... (scoped to SuperCodex package)
 ```
 
 **For Local Publishing (Emergency Only):**
@@ -151,7 +151,7 @@ python -m build
 twine check dist/*
 
 # Local installation test
-pip install dist/SuperGemini-*.whl
+pip install dist/SuperCodex-*.whl
 ```
 
 **Git Configuration:**
@@ -211,21 +211,21 @@ git config tag.gpgsign true
 
 **Package Information:**
 
-**Package Name**: `SuperGemini`
+**Package Name**: `SuperCodex`
 **Current Version**: 4.0.0 (Major release with v4 architecture)
-**PyPI URL**: https://pypi.org/project/SuperGemini/
-**GitHub URL**: https://github.com/SuperGemini-Org/SuperGemini_Framework
+**PyPI URL**: https://pypi.org/project/SuperCodex/
+**GitHub URL**: https://github.com/SuperCodex-Org/SuperCodex_Framework
 
 **Entry Points:**
 ```python
 [console_scripts]
-SuperGemini = superclaude.cli:main
+SuperCodex = superclaude.cli:main
 superclaude = superclaude.cli:main  # Alternative entry point
 ```
 
 **Package Structure:**
 ```
-SuperGemini/
+SuperCodex/
 ├── superclaude/           # Main package code
 │   ├── __init__.py       # Package initialization and version
 │   ├── cli.py            # Command-line interface
@@ -240,11 +240,11 @@ SuperGemini/
 ```
 
 **Metadata:**
-- **Author**: SuperGemini Organization
+- **Author**: SuperCodex Organization
 - **License**: MIT License
 - **Python Requires**: >=3.8
 - **Classifiers**: Development Status :: 5 - Production/Stable
-- **Keywords**: gemini, ai, development, automation, mcp, agents
+- **Keywords**: codex, ai, development, automation, mcp, agents
 
 ## 🔧 Available Scripts
 
@@ -472,7 +472,7 @@ git tag -v v4.0.1
 
 **Source Distribution Contents:**
 ```
-SuperGemini-4.0.0.tar.gz
+SuperCodex-4.0.0.tar.gz
 ├── superclaude/
 │   ├── __init__.py                 # Version and package metadata
 │   ├── cli.py                      # Main CLI entry point
@@ -501,9 +501,9 @@ SuperGemini-4.0.0.tar.gz
 
 **Wheel Distribution:**
 ```
-SuperGemini-4.0.0-py3-none-any.whl
+SuperCodex-4.0.0-py3-none-any.whl
 ├── superclaude/                    # Compiled package code
-├── SuperGemini-4.0.0.dist-info/   # Package metadata
+├── SuperCodex-4.0.0.dist-info/   # Package metadata
 │   ├── METADATA                    # Package description and requirements
 │   ├── WHEEL                       # Wheel format metadata
 │   ├── entry_points.txt            # CLI entry points
@@ -513,7 +513,7 @@ SuperGemini-4.0.0-py3-none-any.whl
 **Entry Points Configuration:**
 ```ini
 [console_scripts]
-SuperGemini = superclaude.cli:main
+SuperCodex = superclaude.cli:main
 superclaude = superclaude.cli:main
 ```
 
@@ -538,12 +538,12 @@ python -m build
 
 # 3. Validate package contents
 twine check dist/*
-tar -tzf dist/SuperGemini-*.tar.gz | head -20
+tar -tzf dist/SuperCodex-*.tar.gz | head -20
 
 # 4. Local installation test
-pip install dist/SuperGemini-*.whl
-SuperGemini --version
-SuperGemini install --dry-run
+pip install dist/SuperCodex-*.whl
+SuperCodex --version
+SuperCodex install --dry-run
 ```
 
 **TestPyPI Testing (Maintainers):**
@@ -552,14 +552,14 @@ SuperGemini install --dry-run
 twine upload --repository testpypi dist/*
 
 # 2. Test installation from TestPyPI
-pip install --index-url https://test.pypi.org/simple/ SuperGemini
+pip install --index-url https://test.pypi.org/simple/ SuperCodex
 
 # 3. Functional testing
-SuperGemini install --list-components
-SuperGemini --help
+SuperCodex install --list-components
+SuperCodex --help
 
 # 4. Clean up test environment
-pip uninstall SuperGemini
+pip uninstall SuperCodex
 ```
 
 **Cross-Platform Testing:**
@@ -567,8 +567,8 @@ pip uninstall SuperGemini
 # Docker-based testing for Linux environments
 docker run -v $(pwd):/app python:3.9 /bin/bash -c "
   cd /app && 
-  pip install dist/SuperGemini-*.whl && 
-  SuperGemini --version
+  pip install dist/SuperCodex-*.whl && 
+  SuperCodex --version
 "
 
 # Virtual machine testing for Windows/macOS
@@ -577,10 +577,10 @@ docker run -v $(pwd):/app python:3.9 /bin/bash -c "
 
 **Integration Testing:**
 ```bash
-# Test with real Gemini Code environment
-gemini --version
-SuperGemini install --components core
-# Verify slash commands work: SuperGemini help
+# Test with real Codex Code environment
+codex --version
+SuperCodex install --components core
+# Verify slash commands work: SuperCodex help
 ```
 
 ## 🚨 Troubleshooting
@@ -610,7 +610,7 @@ twine upload --username __token__ --password pypi-... dist/*
 
 # Issue: "Package already exists"
 # Solution: Version already published, increment version
-# Check: https://pypi.org/project/SuperGemini/
+# Check: https://pypi.org/project/SuperCodex/
 
 # Issue: "File already exists"
 # Solution: Clean dist/ directory and rebuild
@@ -623,10 +623,10 @@ rm -rf dist/ && python -m build
 # Solution: Check Python version compatibility
 python --version  # Must be 3.8+
 
-# Issue: "Command 'SuperGemini' not found"
+# Issue: "Command 'SuperCodex' not found"
 # Solution: Check PATH and entry points
-pip show -f SuperGemini | grep console_scripts
-which SuperGemini
+pip show -f SuperCodex | grep console_scripts
+which SuperCodex
 ```
 
 **GitHub Actions Failures:**
@@ -647,8 +647,8 @@ git tag -d v4.0.0 && git tag v4.0.0
 - [Twine Documentation](https://twine.readthedocs.io/) - Secure package uploading
 - [GitHub Actions Documentation](https://docs.github.com/en/actions) - CI/CD automation
 
-**SuperGemini-Specific Support:**
-- **GitHub Issues**: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+**SuperCodex-Specific Support:**
+- **GitHub Issues**: https://github.com/SuperCodex-Org/SuperCodex_Framework/issues
 - **Maintainer Contact**: For urgent publishing issues
 - **Community Discussions**: General publishing questions and experiences
 - **Documentation**: [Contributing Guide](CONTRIBUTING.md) for development setup
@@ -688,7 +688,7 @@ For organizations requiring dedicated packaging support:
 - [ ] CHANGELOG.md updated with release notes and date
 - [ ] Package builds successfully (`python -m build`)
 - [ ] Package contents validated (`twine check dist/*`)
-- [ ] Entry points functional (`SuperGemini --version`)
+- [ ] Entry points functional (`SuperCodex --version`)
 
 **Documentation:**
 - [ ] README.md updated with new features and changes
@@ -700,7 +700,7 @@ For organizations requiring dedicated packaging support:
 - [ ] Local installation test successful
 - [ ] TestPyPI upload and installation successful
 - [ ] Cross-platform compatibility verified (Linux, macOS, Windows)
-- [ ] Integration testing with Gemini Code environment
+- [ ] Integration testing with Codex Code environment
 - [ ] MCP server integrations functional
 
 **Security:**
@@ -786,14 +786,14 @@ gh release create v4.0.1 --title "v4.0.1" --notes-file CHANGELOG.md
 **GitHub Secrets Configuration:**
 ```bash
 # Required secrets for automated publishing:
-PYPI_API_TOKEN          # PyPI publishing token (scoped to SuperGemini)
+PYPI_API_TOKEN          # PyPI publishing token (scoped to SuperCodex)
 CODECOV_TOKEN          # Code coverage reporting
 GPG_PRIVATE_KEY        # Optional: GPG signing for releases
 GPG_PASSPHRASE         # Optional: GPG key passphrase
 ```
 
 **Token Scope Configuration:**
-- **Project Scope**: Limited to SuperGemini package only
+- **Project Scope**: Limited to SuperCodex package only
 - **Permission Level**: Upload permissions only (not management)
 - **Expiration**: Set reasonable expiration dates (1 year maximum)
 - **Audit Trail**: Regular review of token usage and access logs
@@ -831,14 +831,14 @@ GPG_PASSPHRASE         # Optional: GPG key passphrase
 **Immediate Verification (Within 1 hour):**
 ```bash
 # 1. Verify PyPI publication
-curl -s https://pypi.org/pypi/SuperGemini/json | jq '.info.version'
+curl -s https://pypi.org/pypi/SuperCodex/json | jq '.info.version'
 
 # 2. Test installation from PyPI
-pip install SuperGemini==4.0.1
-SuperGemini --version
+pip install SuperCodex==4.0.1
+SuperCodex --version
 
 # 3. Verify entry points functional
-SuperGemini install --list-components
+SuperCodex install --list-components
 ```
 
 **GitHub Release Management:**
@@ -850,7 +850,7 @@ SuperGemini install --list-components
 
 # Manual release creation (if automated fails):
 gh release create v4.0.1 \
-  --title "SuperGemini v4.0.1" \
+  --title "SuperCodex v4.0.1" \
   --notes-file CHANGELOG.md \
   --latest
 ```
@@ -884,8 +884,8 @@ gh release create v4.0.1 \
 **Publishing Support Contacts:**
 
 **Primary Maintainers:**
-- **GitHub**: @SuperGemini-Org maintainer team
-- **Issues**: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+- **GitHub**: @SuperCodex-Org maintainer team
+- **Issues**: https://github.com/SuperCodex-Org/SuperCodex_Framework/issues
 - **Email**: maintainers@superclaude.org (for urgent publishing issues)
 
 **Specific Support Areas:**

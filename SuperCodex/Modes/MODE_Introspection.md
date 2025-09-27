@@ -14,7 +14,7 @@
 - **Self-Examination**: Consciously analyze decision logic and reasoning chains
 - **Transparency**: Expose thinking process with markers (🤔, 🎯, ⚡, 📊, 💡)
 - **Pattern Detection**: Identify recurring cognitive and behavioral patterns
-- **Framework Compliance**: Validate actions against SuperGemini standards
+- **Framework Compliance**: Validate actions against SuperCodex standards
 - **Learning Focus**: Extract insights for continuous improvement
 
 ## Outcomes

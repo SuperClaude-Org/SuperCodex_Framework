@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PyPI Build and Upload Script for SuperGemini Framework
+PyPI Build and Upload Script for SuperCodex Framework
 Handles building, validation, and uploading to PyPI with proper error handling
 """
 
@@ -52,7 +52,7 @@ def run_command(cmd: List[str], description: str) -> Tuple[bool, str]:
 
 def clean_build_artifacts():
     """Clean previous build artifacts"""
-    artifacts = [DIST_DIR, BUILD_DIR, PROJECT_ROOT / "SuperGemini.egg-info"]
+    artifacts = [DIST_DIR, BUILD_DIR, PROJECT_ROOT / "SuperCodex.egg-info"]
     
     for artifact in artifacts:
         if artifact.exists():
@@ -82,8 +82,8 @@ def validate_project_structure() -> bool:
         "pyproject.toml",
         "README.md", 
         "LICENSE",
-        "SuperGemini/__init__.py",
-        "SuperGemini/__main__.py",
+        "SuperCodex/__init__.py",
+        "SuperCodex/__main__.py",
         "setup/__init__.py"
     ]
     
@@ -97,10 +97,10 @@ def validate_project_structure() -> bool:
     
     # Check if version is consistent
     try:
-        from SuperGemini import __version__
+        from SuperCodex import __version__
         print(f"📦 Package version: {__version__}")
     except ImportError as e:
-        print(f"❌ Could not import version from SuperGemini: {e}")
+        print(f"❌ Could not import version from SuperCodex: {e}")
         return False
     
     print("✅ Project structure validation passed")
@@ -168,15 +168,15 @@ def test_installation_from_testpypi() -> bool:
         sys.executable, "-m", "pip", "install", 
         "--index-url", "https://test.pypi.org/simple/",
         "--extra-index-url", "https://pypi.org/simple/",
-        "SuperGemini", "--force-reinstall", "--no-deps"
+        "SuperCodex", "--force-reinstall", "--no-deps"
     ], "Installing from TestPyPI")
     
     if success:
         print("✅ Test installation successful")
         # Try to import the package
         try:
-            import SuperGemini
-            print(f"✅ Package import successful, version: {SuperGemini.__version__}")
+            import SuperCodex
+            print(f"✅ Package import successful, version: {SuperCodex.__version__}")
             return True
         except ImportError as e:
             print(f"❌ Package import failed: {e}")
@@ -186,7 +186,7 @@ def test_installation_from_testpypi() -> bool:
 
 def main():
     """Main execution function"""
-    parser = argparse.ArgumentParser(description="Build and upload SuperGemini to PyPI")
+    parser = argparse.ArgumentParser(description="Build and upload SuperCodex to PyPI")
     parser.add_argument("--testpypi", action="store_true", help="Upload to TestPyPI instead of PyPI")
     parser.add_argument("--test-install", action="store_true", help="Test installation from TestPyPI")
     parser.add_argument("--skip-build", action="store_true", help="Skip build step (use existing dist)")
@@ -202,7 +202,7 @@ def main():
         clean_build_artifacts()
         return
     
-    print("🚀 SuperGemini PyPI Build and Upload Script")
+    print("🚀 SuperCodex PyPI Build and Upload Script")
     print(f"📁 Working directory: {PROJECT_ROOT}")
     
     # Update version references first

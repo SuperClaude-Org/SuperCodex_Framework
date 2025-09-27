@@ -1,10 +1,10 @@
-# SuperGemini Quick Start Guide
+# SuperCodex Quick Start Guide
 
-> **Command Context**: This guide uses both **Terminal Commands** (for installation) and **Gemini CLI Commands** (`/sg:` for development). See sections below for where to run each type.
+> **Command Context**: This guide uses both **Terminal Commands** (for installation) and **Codex CLI Commands** (`/sg:` for development). See sections below for where to run each type.
 
 ## The Simple Truth
 
-SuperGemini transforms Gemini CLI into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
+SuperCodex transforms Codex CLI into a structured development framework with just one installation command. Behind the simple interface, intelligent routing automatically selects the right tools, activates domain experts, and coordinates complex workflows.
 
 **5-Minute Start**: Install → Try `/sg:analyze` → Watch the magic happen.
 
@@ -13,13 +13,13 @@ SuperGemini transforms Gemini CLI into a structured development framework with j
 ### 🖥️ Installation (2 minutes) - Run in Terminal
 ```bash
 # Recommended: pipx (isolated environment)
-pipx install SuperGemini && SuperGemini install
+pipx install SuperCodex && SuperCodex install
 
 # Alternative: pip (traditional)
-pip install SuperGemini && SuperGemini install
+pip install SuperCodex && SuperCodex install
 ```
 
-### 💬 First Commands (3 minutes) - Type in Gemini CLI
+### 💬 First Commands (3 minutes) - Type in Codex CLI
 ```
 # Interactive project discovery (brainstorm mode)
 /sg:analyze "web app for task management"
@@ -39,9 +39,9 @@ pip install SuperGemini && SuperGemini install
 
 ---
 
-## What is SuperGemini Really?
+## What is SuperCodex Really?
 
-SuperGemini is a meta-programming framework that enhances Gemini CLI with:
+SuperCodex is a meta-programming framework that enhances Codex CLI with:
 
 **18 Slash Commands** for workflow automation (/sg:analyze, /sg:implement, /sg:workflow)
 **13 AI Specialists** with domain expertise (architect, security, frontend, backend)
@@ -53,7 +53,7 @@ SuperGemini is a meta-programming framework that enhances Gemini CLI with:
 ## How It Works
 
 **User Experience:**
-You type `/sg:implement "user login"` → SuperGemini analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
+You type `/sg:implement "user login"` → SuperCodex analyzes requirements → activates security specialist → connects to Context7 for authentication patterns → generates complete implementation with tests.
 
 **Technical Workflow:**
 1. **Command Parser** analyzes intent and complexity
@@ -100,9 +100,9 @@ You type `/sg:implement "user login"` → SuperGemini analyzes requirements → 
 
 ## Key Takeaways
 
-### SuperGemini's Core Value
+### SuperCodex's Core Value
 
-SuperGemini transforms Gemini CLI from a general-purpose AI assistant into a **specialized development framework** with:
+SuperCodex transforms Codex CLI from a general-purpose AI assistant into a **specialized development framework** with:
 
 - **Systematic Workflows** instead of ad-hoc requests
 - **Domain Expertise** through specialized agents
@@ -135,22 +135,22 @@ SuperGemini transforms Gemini CLI from a general-purpose AI assistant into a **s
 - Enable MCP servers gradually as you understand their benefits
 - Save successful patterns with `/sg:save` for reuse
 
-### When to Use SuperGemini
+### When to Use SuperCodex
 
-**Use SuperGemini When:**
+**Use SuperCodex When:**
 - Building software projects (any language/framework)
 - Need systematic workflows and quality gates
 - Working on complex, multi-component systems
 - Require session persistence across development cycles
 - Want specialized domain expertise (security, performance, etc.)
 
-**Use Standard Gemini CLI When:**
+**Use Standard Codex CLI When:**
 - Simple questions or explanations
 - One-off coding tasks
 - Learning programming concepts
 - Quick prototypes or experiments
 
-**SuperGemini Excellence**: Multi-step development workflows with quality requirements
+**SuperCodex Excellence**: Multi-step development workflows with quality requirements
 
 ---
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Version update utility for SuperGemini Framework
+Version update utility for SuperCodex Framework
 Updates all hardcoded version strings to match VERSION file (SSOT)
 """
 
@@ -28,7 +28,7 @@ def update_file_versions(file_path: Path, old_version: str, new_version: str):
     
     for match in pattern.finditer(content):
         version_str = match.group()
-        if version_str.startswith('4.0.'):  # Only update SuperGemini versions
+        if version_str.startswith('4.0.'):  # Only update SuperCodex versions
             new_content = new_content.replace(version_str, new_version)
             updated = True
     
@@ -48,7 +48,7 @@ def main():
     project_root = Path(__file__).parent
     dirs_to_search = [
         project_root / "setup",
-        project_root / "SuperGemini",
+        project_root / "SuperCodex",
     ]
     
     # Find and update Python files

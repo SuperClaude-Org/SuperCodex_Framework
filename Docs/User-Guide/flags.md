@@ -1,7 +1,7 @@
-# SuperGemini Framework Flags User Guide 🏁
+# SuperCodex Framework Flags User Guide 🏁
 
 ## ✅ Verification Status
-- **SuperGemini Version**: v4.0+ Compatible
+- **SuperCodex Version**: v4.0+ Compatible
 - **Last Tested**: 2025-01-16
 - **Test Environment**: Linux/Windows/macOS
 - **Flag Syntax**: ✅ All Verified
@@ -28,11 +28,11 @@ Before using flags, verify they work correctly:
 
 ## 🤖 Most Flags Activate Automatically - Don't Stress About It!
 
-SuperGemini's intelligent flag system automatically detects task complexity and context, then activates appropriate flags behind the scenes. You get optimized performance without memorizing flag combinations.
+SuperCodex's intelligent flag system automatically detects task complexity and context, then activates appropriate flags behind the scenes. You get optimized performance without memorizing flag combinations.
 
 **Intelligent Auto-Activation**: Type `/sg:analyze large-codebase/` → `--think-hard` + `--serena` + `--orchestrate` activate automatically. Type complex multi-file operations → `--task-manage` + `--delegate` optimize execution. Work under resource pressure → `--uc` compresses output.
 
-**Manual Override Available**: When you want specific behavior, flags provide precise control. But in most cases, SuperGemini's automatic selection delivers optimal results.
+**Manual Override Available**: When you want specific behavior, flags provide precise control. But in most cases, SuperCodex's automatic selection delivers optimal results.
 
 ---
 
@@ -74,7 +74,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 
 ## What Are Flags? 🤔
 
-**Flags are Modifiers** that adjust SuperGemini's behavior for specific contexts and requirements:
+**Flags are Modifiers** that adjust SuperCodex's behavior for specific contexts and requirements:
 
 **Flag Syntax:**
 ```bash
@@ -87,7 +87,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ```
 
 **Two Types of Activation:**
-1. **Automatic** (90% of use): SuperGemini detects context and activates optimal flags
+1. **Automatic** (90% of use): SuperCodex detects context and activates optimal flags
 2. **Manual** (10% of use): You override or specify exact behavior needed
 
 **Flag Functions:**
@@ -649,7 +649,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ## 🚨 Quick Troubleshooting
 
 ### Common Issues (< 2 minutes)
-- **Flag not recognized**: Check spelling and verify against `python3 -m SuperGemini --help`
+- **Flag not recognized**: Check spelling and verify against `python3 -m SuperCodex --help`
 - **MCP flag failures**: Check Node.js installation and server configuration
 - **Auto-flags wrong**: Use manual override with `--no-mcp` or specific flags
 - **Performance degradation**: Reduce complexity with `--scope file` or `--concurrency 1`
@@ -658,8 +658,8 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 ### Immediate Fixes
 - **Reset flags**: Remove all flags and let auto-detection work
 - **Check compatibility**: Use `/sg:help flags` for valid combinations
-- **Restart session**: Exit and restart Gemini CLI to reset flag state
-- **Verify setup**: Run `SuperGemini status --flags` to check flag system
+- **Restart session**: Exit and restart Codex CLI to reset flag state
+- **Verify setup**: Run `SuperCodex status --flags` to check flag system
 
 ### Flag-Specific Troubleshooting
 
@@ -668,7 +668,7 @@ SuperGemini's intelligent flag system automatically detects task complexity and 
 # Problem: "Unknown flag --invalid-flag"
 # Quick Fix: Check flag spelling and availability
 /sg:help flags                         # List all valid flags
-python3 -m SuperGemini --help flags    # System-level flag help
+python3 -m SuperCodex --help flags    # System-level flag help
 # Common typos: --brainstrom →, --seq → --sequential
 ```
 
@@ -676,7 +676,7 @@ python3 -m SuperGemini --help flags    # System-level flag help
 ```bash
 # Problem: --magic, --morph, --c7 not working
 # Quick Fix: Check MCP server status
-SuperGemini status --mcp              # Verify server connections
+SuperCodex status --mcp              # Verify server connections
 node --version                        # Ensure Node.js v16+
 npm cache clean --force               # Clear package cache
 /sg:command --no-mcp                  # Bypass MCP temporarily
@@ -739,7 +739,7 @@ export MORPH_API_KEY="key"           # For --morph flag
 # Quick Fix: Install missing dependencies
 node --version                        # Check Node.js v16+
 npm install -g npx                   # Ensure npx available
-SuperGemini install --components mcp --force  # Reinstall MCP
+SuperCodex install --components mcp --force  # Reinstall MCP
 ```
 
 ### Error Code Reference
@@ -765,9 +765,9 @@ SuperGemini install --components mcp --force  # Reinstall MCP
 **Level 2: Detailed Help (5-15 min)**
 ```bash
 # Flag-specific diagnostics
-SuperGemini diagnose --flags
+SuperCodex diagnose --flags
 /sg:help flags --verbose
-cat ~/.gemini/logs/flag-system.log
+cat ~/.codex/logs/flag-system.log
 # Test individual flags one at a time
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for flag installation problems
@@ -775,7 +775,7 @@ cat ~/.gemini/logs/flag-system.log
 **Level 3: Expert Support (30+ min)**
 ```bash
 # Deep flag system analysis
-SuperGemini validate-flags --all-combinations
+SuperCodex validate-flags --all-combinations
 strace -e trace=execve /sg:command --verbose 2>&1
 # Check flag interaction matrix
 # Review flag priority implementation
@@ -783,7 +783,7 @@ strace -e trace=execve /sg:command --verbose 2>&1
 - See [Diagnostic Reference Guide](../Reference/diagnostic-reference.md) for system-level analysis
 
 **Level 4: Community Support**
-- Report flag issues at [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
+- Report flag issues at [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues)
 - Include flag combination that failed
 - Describe expected vs actual behavior
 
@@ -792,13 +792,13 @@ strace -e trace=execve /sg:command --verbose 2>&1
 After applying flag fixes, test with:
 - [ ] `/sg:help flags` (should list all available flags)
 - [ ] `/sg:command --basic-flag` (should work without errors)
-- [ ] `SuperGemini status --mcp` (MCP flags should work if servers connected)
+- [ ] `SuperCodex status --mcp` (MCP flags should work if servers connected)
 - [ ] Flag combinations follow priority rules correctly
 - [ ] Auto-detection works for simple commands
 
 ## Quick Troubleshooting (Legacy)
-- **Flag not recognized** → Check spelling: `SuperGemini --help flags`
-- **MCP flag fails** → Check server status: `SuperGemini status --mcp`
+- **Flag not recognized** → Check spelling: `SuperCodex --help flags`
+- **MCP flag fails** → Check server status: `SuperCodex status --mcp`
 - **Auto-flags wrong** → Use manual override: `--no-mcp` or specific flags
 - **Performance issues** → Reduce complexity: `--scope file` or `--concurrency 1`
 - **Flag conflicts** → Check priority rules in documentation
@@ -811,7 +811,7 @@ After applying flag fixes, test with:
 /sg:analyze code/ --unknown-flag
 
 # Solution: Check flag spelling and availability
-SuperGemini --help flags
+SuperCodex --help flags
 /sg:help --flags
 ```
 
@@ -842,14 +842,14 @@ SuperGemini --help flags
 
 # Solutions:
 # 1. Check MCP installation
-SuperGemini install --list-components | grep mcp
+SuperCodex install --list-components | grep mcp
 
-# 2. Restart Gemini CLI session (MCP connections refresh)
+# 2. Restart Codex CLI session (MCP connections refresh)
 # 3. Use fallback approach
 /sg:implement "dashboard" --no-mcp  # Native execution
 
 # 4. Reinstall MCP servers
-SuperGemini install --components mcp --force
+SuperCodex install --components mcp --force
 ```
 
 **Performance Problems:**
@@ -887,14 +887,14 @@ SuperGemini install --components mcp --force
 **Validate Flag Usage:**
 ```bash
 # Check flag compatibility
-SuperGemini validate-flags --think-hard --no-mcp --magic
+SuperCodex validate-flags --think-hard --no-mcp --magic
 # → Reports conflicts and suggests corrections
 ```
 
 ### Best Practices for Flag Usage
 
 **Start Simple:**
-1. **Trust Auto-Detection**: Let SuperGemini choose flags automatically
+1. **Trust Auto-Detection**: Let SuperCodex choose flags automatically
 2. **Add Specific Flags**: Override only when you need specific behavior
 3. **Use Common Patterns**: Start with proven flag combinations
 4. **Monitor Performance**: Watch for resource usage and adjust accordingly

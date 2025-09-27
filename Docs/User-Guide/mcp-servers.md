@@ -1,7 +1,7 @@
-# SuperGemini MCP Servers Guide 🔌
+# SuperCodex MCP Servers Guide 🔌
 
 ## ✅ Verification Status
-- **SuperGemini Version**: v4.0+ Compatible
+- **SuperCodex Version**: v4.0+ Compatible
 - **Last Tested**: 2025-01-16
 - **Test Environment**: Linux/Windows/macOS
 - **MCP Servers**: ✅ All Verified (6 servers tested)
@@ -12,7 +12,7 @@ Before using this guide, verify MCP servers are working:
 
 ```bash
 # Test server connectivity
-SuperGemini status --mcp
+SuperCodex status --mcp
 # Expected: Shows connected servers (context7, sequential, magic, playwright, serena, morphllm)
 
 # Test Context7 server
@@ -28,12 +28,12 @@ SuperGemini status --mcp
 
 ## 🚀 MCP in 5 Minutes - Quick Success Path
 
-**What are MCP Servers?** Specialized tools that extend Gemini CLI's capabilities automatically. No manual configuration needed - just start coding.
+**What are MCP Servers?** Specialized tools that extend Codex CLI's capabilities automatically. No manual configuration needed - just start coding.
 
 **Instant Validation:**
 ```bash
 # 1. Verify MCP servers are working (takes 30 seconds)
-echo "Test Context7 server" | gemini --test-mcp
+echo "Test Context7 server" | codex --test-mcp
 
 # 2. Quick success indicators you'll see:
 ✅ "context7: Connected" 
@@ -46,13 +46,13 @@ echo "Test Context7 server" | gemini --test-mcp
 ```
 
 **If something's not working:**
-- Missing packages? Run: `SuperGemini install --components mcp --force`
+- Missing packages? Run: `SuperCodex install --components mcp --force`
 - Need Node.js? Run: `node --version` (requires 16+)
 - API keys needed? Magic and Morphllm require paid API keys (skip for now)
 
 ## 🎯 The Simple Truth About MCP Servers
 
-MCP (Model Context Protocol) servers are specialized tools that extend Gemini CLI's capabilities beyond native functionality. SuperGemini integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
+MCP (Model Context Protocol) servers are specialized tools that extend Codex CLI's capabilities beyond native functionality. SuperCodex integrates 6 carefully selected MCP servers that automatically activate based on your tasks, providing enhanced documentation access, advanced reasoning, UI generation, browser automation, code transformation, and project memory.
 
 **Seamless Integration**: Type `/sg:implement "React dashboard"` → Magic MCP activates for UI generation. Type `/sg:analyze --think-hard` → Sequential MCP enables structured reasoning. The system intelligently selects the right tools for your context.
 
@@ -66,7 +66,7 @@ MCP (Model Context Protocol) servers are specialized tools that extend Gemini CL
 - **morphllm**: Efficient pattern-based code transformations
 - **serena**: Semantic code understanding with project memory
 
-**How They Enhance SuperGemini:**
+**How They Enhance SuperCodex:**
 - **Automatic Activation**: Intelligent context-based server selection
 - **Parallel Coordination**: Multiple servers working together on complex tasks
 - **Quality Enhancement**: Specialized tools for specific domains
@@ -75,7 +75,7 @@ MCP (Model Context Protocol) servers are specialized tools that extend Gemini CL
 
 ## 🧠 Auto-Activation Logic & Server Selection
 
-**How SuperGemini Chooses Servers:**
+**How SuperCodex Chooses Servers:**
 
 | Your Request Contains | Servers Activated | Priority Logic |
 |----------------------|-------------------|----------------|
@@ -385,7 +385,7 @@ export MORPH_API_KEY="your_key_here"
 - **Dependencies**: Python 3.9+, uv package manager
 - **API Key**: Not required - runs locally
 - **Memory Usage**: ~150MB + project index (varies by codebase size)
-- **Working Directory**: `$HOME/.gemini/serena`
+- **Working Directory**: `$HOME/.codex/serena`
 
 **Capabilities:**
 - Symbol-level code navigation with LSP integration
@@ -418,7 +418,7 @@ export MORPH_API_KEY="your_key_here"
 **Installation Verification:**
 ```bash
 # Check if serena is properly installed
-ls -la ~/.gemini/serena/
+ls -la ~/.codex/serena/
 # Should show serena installation directory
 
 # Test serena server
@@ -436,11 +436,11 @@ uv run serena --help
 
 ### Automatic Installation (Recommended)
 
-**During SuperGemini Setup:**
+**During SuperCodex Setup:**
 ```bash
-SuperGemini install
+SuperCodex install
 # → Interactive installer offers MCP server selection
-# → Automatically configures selected servers in ~/.gemini.json
+# → Automatically configures selected servers in ~/.codex.json
 # → Downloads and configures NPM packages automatically
 ```
 
@@ -460,7 +460,7 @@ SuperGemini install
 ✅ @morph-llm/morph-fast-apply (0.6.8) - requires MORPH_API_KEY
 
 # Local Python package:
-✅ serena (installed via uv in ~/.gemini/serena)
+✅ serena (installed via uv in ~/.codex/serena)
 ```
 
 ### Manual Configuration
@@ -468,16 +468,16 @@ SuperGemini install
 **Server-Specific Installation:**
 ```bash
 # Install MCP component (configures all selected servers)
-SuperGemini install --components mcp
+SuperCodex install --components mcp
 
 # Force reinstall with updated configurations
-SuperGemini install --components mcp --force
+SuperCodex install --components mcp --force
 
 # Validate current configuration
-cat ~/.gemini.json | jq '.mcpServers'
+cat ~/.codex.json | jq '.mcpServers'
 ```
 
-**Configuration File (`~/.gemini.json`):**
+**Configuration File (`~/.codex.json`):**
 ```json
 {
   "mcpServers": {
@@ -500,7 +500,7 @@ cat ~/.gemini.json | jq '.mcpServers'
     "serena": {
       "command": "uv",
       "args": ["run", "serena", "start-mcp-server", "--context", "ide-assistant"],
-      "cwd": "$HOME/.gemini/serena"
+      "cwd": "$HOME/.codex/serena"
     }
   }
 }
@@ -514,7 +514,7 @@ cat ~/.gemini.json | jq '.mcpServers'
 
 **Python Required:**
 - Morphllm, Serena work with Python environment
-- Already satisfied by SuperGemini installation
+- Already satisfied by SuperCodex installation
 
 **System Resources:**
 - **Minimal**: 2GB RAM for basic MCP functionality
@@ -526,7 +526,7 @@ cat ~/.gemini.json | jq '.mcpServers'
 ### Automatic Server Selection
 
 **Context-Based Activation:**
-SuperGemini analyzes your request and automatically selects optimal MCP servers:
+SuperCodex analyzes your request and automatically selects optimal MCP servers:
 
 ```bash
 # Frontend development → Magic + Context7
@@ -614,7 +614,7 @@ SuperGemini analyzes your request and automatically selects optimal MCP servers:
 ### Multi-Server Orchestration
 
 **Intelligent Workflow Coordination:**
-SuperGemini orchestrates multiple MCP servers for complex tasks:
+SuperCodex orchestrates multiple MCP servers for complex tasks:
 
 **Full-Stack Development Workflow:**
 ```bash
@@ -721,11 +721,11 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 - **No servers connected**: Check Node.js installation: `node --version` (need v16+)
 - **Context7 server fails**: Clear NPM cache: `npm cache clean --force`
 - **Magic/Morphllm errors**: Expected if no API keys configured (paid services)
-- **Server timeouts**: Restart Gemini CLI session to reset connections
+- **Server timeouts**: Restart Codex CLI session to reset connections
 - **Performance issues**: Use `--no-mcp` for lightweight execution
 
 ### Immediate Fixes
-- **Reset MCP**: Restart Gemini CLI session to refresh server connections
+- **Reset MCP**: Restart Codex CLI session to refresh server connections
 - **Check dependencies**: Verify Node.js v16+ with `node --version`
 - **Clear cache**: Run `npm cache clean --force` for package issues
 - **Bypass servers**: Use `--no-mcp` flag to test without MCP servers
@@ -737,15 +737,15 @@ SuperGemini orchestrates multiple MCP servers for complex tasks:
 **Step 1: Quick Health Check (30 seconds)**
 ```bash
 # Check if configuration exists
-ls ~/.gemini/.gemini.json
-# Should show: /home/user/.gemini/.gemini.json
+ls ~/.codex/.codex.json
+# Should show: /home/user/.codex/.codex.json
 
 # Check Node.js version (critical dependency)
 node --version  
 # Should show: v16.x.x or higher
 
 # Test basic MCP connectivity
-SuperGemini status --mcp
+SuperCodex status --mcp
 # Should show connected servers (at least context7, sequential-thinking)
 ```
 
@@ -759,10 +759,10 @@ sudo apt-get install -y nodejs
 npm cache clean --force
 
 # Configuration corrupted? Reinstall:
-SuperGemini install --components mcp --force
+SuperCodex install --components mcp --force
 
 # Permissions issue? Fix MCP directory:
-chmod -R 755 ~/.gemini/
+chmod -R 755 ~/.codex/
 ```
 
 **Step 3: Server-Specific Validation (2-3 minutes)**
@@ -785,19 +785,19 @@ chmod -R 755 ~/.gemini/
 **Step 4: Advanced Diagnostics (5+ minutes)**
 ```bash
 # Detailed MCP server logs
-tail -f ~/.gemini/logs/mcp-*.log
+tail -f ~/.codex/logs/mcp-*.log
 
 # Test individual server connections
-SuperGemini test-mcp --server context7
-SuperGemini test-mcp --server sequential-thinking
+SuperCodex test-mcp --server context7
+SuperCodex test-mcp --server sequential-thinking
 
 # Check for port conflicts
 netstat -tulpn | grep :3000
 lsof -i :3000
 
 # Reset all MCP configurations
-SuperGemini uninstall --components mcp
-SuperGemini install --components mcp
+SuperCodex uninstall --components mcp
+SuperCodex install --components mcp
 ```
 
 ### Server-Specific Troubleshooting
@@ -859,7 +859,7 @@ echo 'export TWENTYFIRST_API_KEY="your_key_here"' >> ~/.bashrc  # Make persisten
 # ✅ Should start project indexing and memory
 
 # Verify serena is working
-ls ~/.gemini/serena/
+ls ~/.codex/serena/
 uv run serena --help
 # ✅ Should show serena installation and commands
 ```
@@ -900,7 +900,7 @@ npx playwright install                        # Install browsers
 ```bash
 # Problem: "Serena server startup failed"
 # Quick Fix: Python environment
-ls ~/.gemini/serena/                         # Verify installation
+ls ~/.codex/serena/                         # Verify installation
 uv run serena --help                         # Test serena command
 /sg:load project/ --serena                   # Test server directly
 ```
@@ -910,13 +910,13 @@ uv run serena --help                         # Test serena command
 | MCP Error | Server | Meaning | Quick Fix |
 |-----------|--------|---------|-----------|
 | **M001** | context7 | Package not found | Run `npm cache clean --force` |
-| **M002** | sequential | Connection timeout | Restart Gemini CLI session |
+| **M002** | sequential | Connection timeout | Restart Codex CLI session |
 | **M003** | magic | API key missing | Set `TWENTYFIRST_API_KEY` or use `--no-mcp` |
 | **M004** | playwright | Browser missing | Run `npx playwright install` |
 | **M005** | morphllm | API key missing | Set `MORPH_API_KEY` or use `--no-mcp` |
 | **M006** | serena | Python/uv issue | Check `uv run serena --help` |
 | **M007** | * | Node.js version | Upgrade to Node.js v16+ |
-| **M008** | * | Permission denied | Run `chmod -R 755 ~/.gemini/` |
+| **M008** | * | Permission denied | Run `chmod -R 755 ~/.codex/` |
 
 ### Performance Issues
 
@@ -935,7 +935,7 @@ uv run serena --help                         # Test serena command
 # Quick Fix: Timeout and restart management
 /sg:command --timeout 30                     # Set explicit timeout
 killall node                                 # Reset all MCP servers
-SuperGemini restart --mcp                    # Restart MCP system
+SuperCodex restart --mcp                    # Restart MCP system
 ```
 
 ### Progressive Support Levels
@@ -943,14 +943,14 @@ SuperGemini restart --mcp                    # Restart MCP system
 **Level 1: Quick Fix (< 2 min)**
 - Use the Common Issues section above
 - Try `--no-mcp` to bypass MCP servers
-- Restart Gemini CLI session
+- Restart Codex CLI session
 
 **Level 2: Detailed Help (5-15 min)**
 ```bash
 # MCP-specific diagnostics
-SuperGemini diagnose --mcp
-tail -f ~/.gemini/logs/mcp-*.log
-SuperGemini test-mcp --all-servers
+SuperCodex diagnose --mcp
+tail -f ~/.codex/logs/mcp-*.log
+SuperCodex test-mcp --all-servers
 ```
 - See [Common Issues Guide](../Reference/common-issues.md) for MCP installation problems
 - See [MCP Server Guide](../Reference/mcp-server-guide.md) for detailed server troubleshooting
@@ -958,7 +958,7 @@ SuperGemini test-mcp --all-servers
 **Level 3: Expert Support (30+ min)**
 ```bash
 # Deep MCP analysis
-SuperGemini diagnose --mcp --full-system
+SuperCodex diagnose --mcp --full-system
 lsof | grep mcp
 netstat -tulpn | grep node
 # Check individual server configurations
@@ -966,14 +966,14 @@ netstat -tulpn | grep node
 - See [Diagnostic Reference Guide](../Reference/diagnostic-reference.md) for comprehensive system analysis
 
 **Level 4: Community Support**
-- Report MCP issues at [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues)
+- Report MCP issues at [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues)
 - Include server status output from Level 2
 - Specify which servers are failing
 
 ### Success Validation
 
 After applying MCP fixes, test with:
-- [ ] `SuperGemini status --mcp` (should show connected servers)
+- [ ] `SuperCodex status --mcp` (should show connected servers)
 - [ ] `/sg:explain "test" --c7` (context7 should fetch documentation)
 - [ ] `/sg:analyze test/ --seq` (sequential should show reasoning)
 - [ ] MCP flags work: `--magic`, `--play` (if configured)
@@ -984,53 +984,53 @@ After applying MCP fixes, test with:
 **MCP Server Status Check:**
 ```bash
 # Check all server health
-SuperGemini status --mcp
+SuperCodex status --mcp
 
 # Test individual servers
-SuperGemini test-mcp --server context7
-SuperGemini test-mcp --server sequential
+SuperCodex test-mcp --server context7
+SuperCodex test-mcp --server sequential
 
 # Detailed diagnostics
-SuperGemini diagnose --verbose
+SuperCodex diagnose --verbose
 ```
 
 **Log Analysis:**
 ```bash
 # View MCP server logs
-tail -f ~/.gemini/logs/mcp-context7.log
-tail -f ~/.gemini/logs/mcp-sequential.log
+tail -f ~/.codex/logs/mcp-context7.log
+tail -f ~/.codex/logs/mcp-sequential.log
 
-# SuperGemini operation logs  
-tail -f ~/.gemini/logs/superclaude.log
+# SuperCodex operation logs  
+tail -f ~/.codex/logs/superclaude.log
 
-# Gemini CLI MCP logs
-tail -f ~/.gemini/logs/gemini-mcp.log
+# Codex CLI MCP logs
+tail -f ~/.codex/logs/codex-mcp.log
 ```
 
 **Manual Testing:**
 ```bash
 # Test Context7 documentation lookup
-echo "Test React hooks documentation" | gemini --mcp context7
+echo "Test React hooks documentation" | codex --mcp context7
 
 # Test Sequential reasoning
-echo "Analyze this complex problem" | gemini --mcp sequential
+echo "Analyze this complex problem" | codex --mcp sequential
 
 # Test server combination
-echo "Complex analysis task" | gemini --mcp context7,sequential
+echo "Complex analysis task" | codex --mcp context7,sequential
 ```
 
 ### Resolution Steps
 
 **Step 1: Basic Verification**
-1. Check SuperGemini installation: `SuperGemini --version`
-2. Verify MCP component: `SuperGemini install --list-components`
+1. Check SuperCodex installation: `SuperCodex --version`
+2. Verify MCP component: `SuperCodex install --list-components`
 3. Check Node.js: `node --version` (should be 16+)
-4. Restart Gemini CLI session
+4. Restart Codex CLI session
 
 **Step 2: Configuration Check**
-1. Verify `.gemini.json` exists: `ls ~/.gemini/.gemini.json`
+1. Verify `.codex.json` exists: `ls ~/.codex/.codex.json`
 2. Check server paths and permissions
-3. Test configuration syntax: `SuperGemini validate-config`
+3. Test configuration syntax: `SuperCodex validate-config`
 
 **Step 3: Server Specific**
 1. **Context7**: Check documentation server connection
@@ -1043,11 +1043,11 @@ echo "Complex analysis task" | gemini --mcp context7,sequential
 **Step 4: Full Reset (Last Resort)**
 ```bash
 # Backup existing configuration
-cp ~/.gemini/.gemini.json ~/.gemini/.gemini.json.backup
+cp ~/.codex/.codex.json ~/.codex/.codex.json.backup
 
 # Remove and reinstall MCP
-SuperGemini uninstall --components mcp
-SuperGemini install --components mcp
+SuperCodex uninstall --components mcp
+SuperCodex install --components mcp
 
 # Restore custom settings if needed
 ```
@@ -1087,7 +1087,7 @@ server.setRequestHandler(
 );
 ```
 
-**SuperGemini Integration:**
+**SuperCodex Integration:**
 ```python
 # setup/components/custom_mcp.py
 from setup.components.base import BaseComponent
@@ -1108,9 +1108,9 @@ class CustomMCPComponent(BaseComponent):
 ### Communication Protocols
 
 **MCP Protocol Flow:**
-1. **Initialization**: Gemini CLI connects to MCP server via JSON-RPC
+1. **Initialization**: Codex CLI connects to MCP server via JSON-RPC
 2. **Capability Exchange**: Server announces available tools and resources
-3. **Request/Response**: Gemini sends requests, server processes and responds
+3. **Request/Response**: Codex sends requests, server processes and responds
 4. **Session Management**: Maintain context across multiple interactions
 
 **Message Structure:**
@@ -1129,7 +1129,7 @@ class CustomMCPComponent(BaseComponent):
 }
 ```
 
-**SuperGemini MCP Interface:**
+**SuperCodex MCP Interface:**
 ```python
 class MCPCoordinator:
     def select_servers(self, task_context):
@@ -1175,7 +1175,7 @@ config_service.add_mcp_server({
 
 **Tool Registration:**
 ```python
-# Register server capabilities with SuperGemini
+# Register server capabilities with SuperCodex
 from setup.core.mcp_registry import MCPRegistry
 
 registry = MCPRegistry()

@@ -20,7 +20,7 @@ class Component(ABC):
         Initialize component with installation directory
         
         Args:
-            install_dir: Target installation directory (defaults to ~/.gemini)
+            install_dir: Target installation directory (defaults to ~/.codex)
         """
         from .. import DEFAULT_INSTALL_DIR
         # Initialize logger first
@@ -131,12 +131,12 @@ class Component(ABC):
     def get_settings_modifications(self) -> Dict[str, Any]:
         """
         Return settings.json modifications to apply
-        (now only Gemini CLI compatible settings)
+        (now only Codex CLI compatible settings)
 
         Returns:
             Dict of settings to merge into settings.json
         """
-        # Return empty dict as we don't modify Gemini CLI settings
+        # Return empty dict as we don't modify Codex CLI settings
         return {}
     
     def install(self, config: Dict[str, Any]) -> bool:
@@ -240,8 +240,8 @@ class Component(ABC):
             Version string if installed, None otherwise
         """
         self.logger.debug("Checking installed version")
-        # Use SuperGemini metadata file instead of settings.json
-        metadata_file = self.install_dir / ".supergemini-metadata.json"
+        # Use SuperCodex metadata file instead of settings.json
+        metadata_file = self.install_dir / ".supercodex-metadata.json"
         if metadata_file.exists():
             self.logger.debug("Metadata file exists, reading version")
             try:
@@ -307,7 +307,7 @@ class Component(ABC):
         Dynamically discover framework .md files in the Core directory
 
         Returns:
-            List of framework filenames (e.g., ['GEMINI.md', 'COMMANDS.md', ...])
+            List of framework filenames (e.g., ['CODEX.md', 'COMMANDS.md', ...])
         """
         source_dir = self._get_source_dir()
 

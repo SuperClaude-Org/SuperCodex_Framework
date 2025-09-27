@@ -1,9 +1,9 @@
 """
-Security utilities for SuperGemini installation system
+Security utilities for SuperCodex installation system
 Path validation and input sanitization
 
 This module provides comprehensive security validation for file paths and user inputs
-during SuperGemini installation. It includes protection against:
+during SuperCodex installation. It includes protection against:
 - Directory traversal attacks
 - Installation to system directories
 - Path injection attacks
@@ -69,7 +69,7 @@ class SecurityValidator:
         r'^c:[/\\]windows[/\\]',        # Windows system directory
         r'^c:[/\\]program files[/\\]',  # Program Files directory
         # Note: Removed c:\\users\\ to allow installation in user directories
-        # Gemini CLI installs to user home directory by default
+        # Codex CLI installs to user home directory by default
     ]
     
     # Combined dangerous patterns for backward compatibility
@@ -404,23 +404,23 @@ class SecurityValidator:
         else:
             abs_target_str = str(abs_target).lower()
         
-        # Special handling for Gemini installation directory
-        gemini_patterns = ['.gemini', '.gemini' + os.sep, '.gemini\\', '.gemini/']
-        is_gemini_dir = any(abs_target_str.endswith(pattern) for pattern in gemini_patterns)
+        # Special handling for Codex installation directory
+        codex_patterns = ['.codex', '.codex' + os.sep, '.codex\\', '.codex/']
+        is_codex_dir = any(abs_target_str.endswith(pattern) for pattern in codex_patterns)
         
-        if is_gemini_dir:
+        if is_codex_dir:
             try:
                 home_path = Path.home()
             except (RuntimeError, OSError):
-                # If we can't determine home directory, skip .gemini special handling
-                cls._log_security_decision("WARN", f"Cannot determine home directory for .gemini validation: {abs_target}")
+                # If we can't determine home directory, skip .codex special handling
+                cls._log_security_decision("WARN", f"Cannot determine home directory for .codex validation: {abs_target}")
                 # Fall through to regular validation
             else:
                 try:
                     # Verify it's specifically the current user's home directory
                     abs_target.relative_to(home_path)
                     
-                    # Enhanced Windows security checks for .gemini directories
+                    # Enhanced Windows security checks for .codex directories
                     if os.name == 'nt':
                         # Check for junction points and symbolic links on Windows
                         if cls._is_windows_junction_or_symlink(abs_target):
@@ -450,19 +450,19 @@ class SecurityValidator:
                             errors.append(f"Insufficient permissions: missing {missing}")
                     
                     # Log successful validation for audit trail
-                    cls._log_security_decision("ALLOW", f"Gemini directory installation validated: {abs_target}")
+                    cls._log_security_decision("ALLOW", f"Codex directory installation validated: {abs_target}")
                     return len(errors) == 0, errors
                     
                 except ValueError:
                     # Not under current user's home directory
                     if os.name == 'nt':
-                        errors.append("Gemini installation must be in your user directory (e.g., C:\\Users\\YourName\\.gemini)")
+                        errors.append("Codex installation must be in your user directory (e.g., C:\\Users\\YourName\\.codex)")
                     else:
-                        errors.append("Gemini installation must be in your home directory (e.g., ~/.gemini)")
-                    cls._log_security_decision("DENY", f"Gemini directory outside user home: {abs_target}")
+                        errors.append("Codex installation must be in your home directory (e.g., ~/.codex)")
+                    cls._log_security_decision("DENY", f"Codex directory outside user home: {abs_target}")
                     return False, errors
         
-        # Validate path for non-.gemini directories
+        # Validate path for non-.codex directories
         is_safe, msg = cls.validate_path(target_dir)
         if not is_safe:
             if os.name == 'nt':
@@ -606,13 +606,13 @@ class SecurityValidator:
                 return (
                     f"Cannot install to Windows system directory '{path}'. "
                     f"Please choose a location in your user directory instead, "
-                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.gemini\\"
+                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.codex\\"
                 )
             elif pattern == r'^c:\\program files\\':
                 return (
                     f"Cannot install to Program Files directory '{path}'. "
                     f"Please choose a location in your user directory instead, "
-                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.gemini\\"
+                    f"such as C:\\Users\\{os.environ.get('USERNAME', 'YourName')}\\.codex\\"
                 )
             else:
                 return (
@@ -637,7 +637,7 @@ class SecurityValidator:
             return (
                 f"Cannot install to {dir_desc} '{path}'. "
                 f"Please choose a location in your home directory instead, "
-                f"such as ~/.gemini/ or ~/SuperGemini/"
+                f"such as ~/.codex/ or ~/SuperCodex/"
             )
         else:
             return f"Security validation failed for path '{path}'"
@@ -703,7 +703,7 @@ class SecurityValidator:
             import datetime
             
             # Create security logger if it doesn't exist
-            security_logger = logging.getLogger('supergemini.security')
+            security_logger = logging.getLogger('supercodex.security')
             if not security_logger.handlers:
                 # Set up basic logging if not already configured
                 handler = logging.StreamHandler()
@@ -728,7 +728,7 @@ class SecurityValidator:
             pass
     
     @classmethod
-    def create_secure_temp_dir(cls, prefix: str = "supergemini_") -> Path:
+    def create_secure_temp_dir(cls, prefix: str = "supercodex_") -> Path:
         """
         Create secure temporary directory
         

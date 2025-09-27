@@ -1,6 +1,6 @@
-# Gemini CLI Behavioral Rules
+# Codex CLI Behavioral Rules
 
-Actionable rules for enhanced Gemini CLI framework operation.
+Actionable rules for enhanced Codex CLI framework operation.
 
 ## Rule Priority System
 
@@ -188,7 +188,7 @@ Actionable rules for enhanced Gemini CLI framework operation.
 **Priority**: 🟡 **Triggers**: File creation, project structuring, documentation
 
 - **Think Before Write**: Always consider WHERE to place files before creating them
-- **Gemini-Specific Documentation**: Put reports, analyses, summaries in `geminidocs/` directory
+- **Codex-Specific Documentation**: Put reports, analyses, summaries in `codexdocs/` directory
 - **Test Organization**: Place all tests in `tests/`, `__tests__/`, or `test/` directories
 - **Script Organization**: Place utility scripts in `scripts/`, `tools/`, or `bin/` directories
 - **Check Existing Patterns**: Look for existing test/script directories before creating new ones
@@ -197,7 +197,7 @@ Actionable rules for enhanced Gemini CLI framework operation.
 - **Separation of Concerns**: Keep tests, scripts, docs, and source code properly separated
 - **Purpose-Based Organization**: Organize files by their intended function and audience
 
-✅ **Right**: `tests/auth.test.js`, `scripts/deploy.sh`, `geminidocs/analysis.md`  
+✅ **Right**: `tests/auth.test.js`, `scripts/deploy.sh`, `codexdocs/analysis.md`  
 ❌ **Wrong**: `auth.test.js` next to `auth.js`, `debug.sh` in project root
 
 ## Safety Rules

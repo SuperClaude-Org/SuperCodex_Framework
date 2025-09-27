@@ -1,6 +1,6 @@
-# SuperGemini Integration Patterns Collection
+# SuperCodex Integration Patterns Collection
 
-**Status**: ✅ **VERIFIED SuperGemini v4.0** - Framework integration, cross-tool coordination, and performance optimization recipes.
+**Status**: ✅ **VERIFIED SuperCodex v4.0** - Framework integration, cross-tool coordination, and performance optimization recipes.
 
 **Expert Integration Guide**: Advanced patterns for framework integration, cross-tool coordination, performance optimization, and troubleshooting complex development scenarios.
 
@@ -8,7 +8,7 @@
 
 **Purpose**: Expert-level integration patterns for complex tool coordination, framework integration, and performance optimization across diverse development environments.
 
-**Target Audience**: Expert SuperGemini users, system architects, performance engineers, integration specialists
+**Target Audience**: Expert SuperCodex users, system architects, performance engineers, integration specialists
 
 **Usage Pattern**: Analyze → Integrate → Optimize → Validate → Scale
 
@@ -38,7 +38,7 @@
 # - Context7 MCP: Official React patterns and Next.js documentation
 # - Magic MCP: Modern UI components with accessibility
 # - Quality validation: ESLint, Prettier, TypeScript strict mode
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 
 # Advanced React patterns
 /sg:implement "React performance optimization with Suspense, lazy loading, and memoization" --focus performance --c7
@@ -47,7 +47,7 @@
 # React testing integration
 /sg:test --focus react --type comprehensive --orchestrate
 # Expected: React Testing Library, Jest, Playwright E2E tests
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Node.js Backend Integration
@@ -71,7 +71,7 @@
 # Backend testing and validation
 /sg:test --focus api --type integration --security --orchestrate
 # Expected: API testing, security validation, load testing
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Python Ecosystem Integration
@@ -95,7 +95,7 @@
 # Python testing and quality
 /sg:test --focus python --type comprehensive && /sg:analyze . --focus quality
 # Expected: Pytest, mypy, black, comprehensive quality assessment
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### DevOps and Infrastructure Integration
@@ -215,7 +215,7 @@
 # Performance validation
 /sg:test --focus performance --type frontend --orchestrate
 # Expected: Lighthouse audits, Core Web Vitals measurement, load testing
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Backend Performance Optimization
@@ -473,7 +473,7 @@
 # - Visual regression testing for UI consistency
 # - Accessibility testing for compliance validation
 # - Cross-browser and cross-device testing
-# ✅ Verified: SuperGemini v4.0
+# ✅ Verified: SuperCodex v4.0
 ```
 
 ### Quality Gates and Automation
@@ -552,11 +552,11 @@
 - **Community Leadership**: Mentoring and knowledge sharing
 
 ### Success Indicators:
-- Can integrate SuperGemini with any development framework
+- Can integrate SuperCodex with any development framework
 - Masters performance optimization across all layers
 - Develops custom integration patterns for specific domains
-- Contributes to SuperGemini framework development
+- Contributes to SuperCodex framework development
 
 ---
 
-**Remember**: Integration mastery comes from understanding both SuperGemini capabilities and target framework patterns. Focus on systematic integration, performance optimization, and comprehensive validation for production-ready results.
+**Remember**: Integration mastery comes from understanding both SuperCodex capabilities and target framework patterns. Focus on systematic integration, performance optimization, and comprehensive validation for production-ready results.

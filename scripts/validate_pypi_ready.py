@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 PyPI Readiness Validation Script
-Checks if SuperGemini project is ready for PyPI publication
+Checks if SuperCodex project is ready for PyPI publication
 """
 
 import sys
@@ -38,14 +38,14 @@ def check_version_consistency() -> bool:
         print(f"❌ Error reading pyproject.toml: {e}")
         return False
     
-    # Check SuperGemini/__init__.py
+    # Check SuperCodex/__init__.py
     try:
         sys.path.insert(0, str(PROJECT_ROOT))
-        from SuperGemini import __version__
-        versions['SuperGemini/__init__.py'] = __version__
-        print(f"📦 Package version: {versions['SuperGemini/__init__.py']}")
+        from SuperCodex import __version__
+        versions['SuperCodex/__init__.py'] = __version__
+        print(f"📦 Package version: {versions['SuperCodex/__init__.py']}")
     except Exception as e:
-        print(f"❌ Error importing SuperGemini version: {e}")
+        print(f"❌ Error importing SuperCodex version: {e}")
         return False
     
     # Check setup/__init__.py
@@ -71,13 +71,13 @@ def check_package_structure() -> bool:
     print("\n🏗️ Checking package structure...")
     
     required_structure = [
-        ("SuperGemini/__init__.py", "Main package __init__.py"),
-        ("SuperGemini/__main__.py", "Main entry point"),
-        ("SuperGemini/Core/__init__.py", "Core module __init__.py"),
-        ("SuperGemini/Commands/__init__.py", "Commands module __init__.py"),
-        ("SuperGemini/Agents/__init__.py", "Agents module __init__.py"),
-        ("SuperGemini/Modes/__init__.py", "Modes module __init__.py"),
-        ("SuperGemini/MCP/__init__.py", "MCP module __init__.py"),
+        ("SuperCodex/__init__.py", "Main package __init__.py"),
+        ("SuperCodex/__main__.py", "Main entry point"),
+        ("SuperCodex/Core/__init__.py", "Core module __init__.py"),
+        ("SuperCodex/Commands/__init__.py", "Commands module __init__.py"),
+        ("SuperCodex/Agents/__init__.py", "Agents module __init__.py"),
+        ("SuperCodex/Modes/__init__.py", "Modes module __init__.py"),
+        ("SuperCodex/MCP/__init__.py", "MCP module __init__.py"),
         ("setup/__init__.py", "Setup package __init__.py"),
     ]
     
@@ -131,8 +131,8 @@ def check_pyproject_config() -> bool:
         
         # Check entry points
         scripts = project.get('scripts', {})
-        if any(name in scripts for name in ['SuperGemini', 'supergemini', 'sg']):
-            for name in ['SuperGemini', 'supergemini', 'sg']:
+        if any(name in scripts for name in ['SuperCodex', 'supercodex', 'sg']):
+            for name in ['SuperCodex', 'supercodex', 'sg']:
                 if name in scripts:
                     print(f"✅ CLI entry point: {name} = {scripts[name]}")
         else:
@@ -158,10 +158,10 @@ def check_import_test() -> bool:
     
     try:
         sys.path.insert(0, str(PROJECT_ROOT))
-        import SuperGemini
-        print(f"✅ SuperGemini import successful")
-        print(f"📦 Version: {SuperGemini.__version__}")
-        print(f"👤 Author: {SuperGemini.__author__}")
+        import SuperCodex
+        print(f"✅ SuperCodex import successful")
+        print(f"📦 Version: {SuperCodex.__version__}")
+        print(f"👤 Author: {SuperCodex.__author__}")
         return True
     except Exception as e:
         print(f"❌ Import failed: {e}")
@@ -169,7 +169,7 @@ def check_import_test() -> bool:
 
 def main():
     """Main validation function"""
-    print("🔍 SuperGemini PyPI Readiness Validation")
+    print("🔍 SuperCodex PyPI Readiness Validation")
     print(f"📁 Project root: {PROJECT_ROOT}")
     print("=" * 50)
     

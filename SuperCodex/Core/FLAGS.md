@@ -1,10 +1,10 @@
-# SuperGemini Framework Flags
+# SuperCodex Framework Flags
 
-Behavioral flags for Gemini CLI to enable specific execution modes and tool selection patterns.
+Behavioral flags for Codex CLI to enable specific execution modes and tool selection patterns.
 
 ## Mode Activation Flags
 
-****
+**--brainstorm**
 - Trigger: Vague project requests, exploration keywords ("maybe", "thinking about", "not sure")
 - Behavior: Activate collaborative discovery mindset, ask probing questions, guide requirement elicitation
 

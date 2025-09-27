@@ -1,4 +1,4 @@
-"""Utility modules for SuperGemini installation system"""
+"""Utility modules for SuperCodex installation system"""
 
 from .ui import ProgressBar, Menu, confirm, Colors
 from .logger import Logger

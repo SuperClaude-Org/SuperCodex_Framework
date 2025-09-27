@@ -1,6 +1,6 @@
-# SuperGemini Optimization Guide
+# SuperCodex Optimization Guide
 
-**Performance Excellence and Efficiency Mastery**: Comprehensive strategies for maximizing SuperGemini performance, resource management, and development efficiency through systematic optimization.
+**Performance Excellence and Efficiency Mastery**: Comprehensive strategies for maximizing SuperCodex performance, resource management, and development efficiency through systematic optimization.
 
 **Focus**: Performance optimization, resource management, troubleshooting patterns, and quality assurance strategies.
 
@@ -300,7 +300,7 @@ Layer 5: /sg:test . --security --vulnerability    # Security validation
 
 ### Testing Excellence Patterns
 
-**Test-Driven Development with SuperGemini:**
+**Test-Driven Development with SuperCodex:**
 ```bash
 # Red Phase: Write failing tests first
 /sg:design "feature specification" --scope module
@@ -720,7 +720,7 @@ Month 4: /sg:evolve practices/ --continuous-improvement --best-practice-developm
 
 ## Next Steps
 
-Optimize your SuperGemini usage with these advanced strategies:
+Optimize your SuperCodex usage with these advanced strategies:
 
 **Immediate Optimization:**
 - Apply scope optimization to your current projects
@@ -744,7 +744,7 @@ Optimize your SuperGemini usage with these advanced strategies:
 - Participate in optimization research and development
 
 **Learn from Others:**
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Community optimization sharing
+- [GitHub Discussions](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions) - Community optimization sharing
 - [Examples Cookbook](examples-cookbook.md) - Optimization examples and patterns
 
 ---

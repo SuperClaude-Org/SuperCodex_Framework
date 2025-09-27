@@ -1,15 +1,15 @@
-# SuperGemini Examples Cookbook
+# SuperCodex Examples Cookbook
 
-**Status**: ✅ **VERIFIED SuperGemini v4.0** - Comprehensive collection of practical SuperGemini usage examples organized by complexity and domain.
+**Status**: ✅ **VERIFIED SuperCodex v4.0** - Comprehensive collection of practical SuperCodex usage examples organized by complexity and domain.
 
-**Focused Recipe Collections**: The SuperGemini Examples Cookbook has been restructured into three focused collections for better usability and progressive learning.
+**Focused Recipe Collections**: The SuperCodex Examples Cookbook has been restructured into three focused collections for better usability and progressive learning.
 
 ## Recipe Collections Overview
 
 ### [Basic Examples Collection](basic-examples.md)
 **Essential commands and single-agent workflows**
 - Copy-paste ready commands for immediate use
-- Essential SuperGemini patterns and fundamentals
+- Essential SuperCodex patterns and fundamentals
 - Common development tasks and troubleshooting
 - Perfect starting point for new users
 
@@ -74,7 +74,7 @@
 
 ## Verified Commands Reference
 
-**Core Commands** (all verified SuperGemini v4.0):
+**Core Commands** (all verified SuperCodex v4.0):
 - `/sg:analyze` - Interactive requirements discovery
 - `/sg:analyze` - Codebase analysis and assessment
 - `/sg:implement` - Feature implementation with best practices
@@ -110,11 +110,11 @@
 1. **Frameworks**: Learn [Framework Integration](integration-patterns.md#framework-integration-patterns)
 2. **Performance**: Master [Optimization Recipes](integration-patterns.md#performance-optimization-recipes)
 3. **Troubleshooting**: Advanced [Debugging Workflows](integration-patterns.md#advanced-troubleshooting-workflows)
-4. **Success**: Can integrate SuperGemini with any development stack
+4. **Success**: Can integrate SuperCodex with any development stack
 
 ### Phase 4: Expertise (Month 3+)
 1. **Architecture**: Design custom integration patterns
-2. **Contribution**: Contribute to SuperGemini framework
+2. **Contribution**: Contribute to SuperCodex framework
 3. **Leadership**: Mentor community and solve complex problems
 4. **Success**: Framework development and community leadership
 
@@ -131,7 +131,7 @@
 ## Success Milestones
 
 ### ✅ Basic Proficiency
-- [ ] Can install and configure SuperGemini
+- [ ] Can install and configure SuperCodex
 - [ ] Comfortable with 5-10 core commands
 - [ ] Can complete simple workflows independently
 - [ ] Understands basic flag usage
@@ -157,8 +157,8 @@
 - [Best Practices](quick-start-practices.md) - Optimization strategies
 
 **Community**:
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Community support
-- [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) - Bug reports and features
+- [GitHub Discussions](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions) - Community support
+- [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues) - Bug reports and features
 - [Contributing Guide](../CONTRIBUTING.md) - Framework contribution
 
 **Advanced**:
@@ -167,6 +167,6 @@
 
 ---
 
-**Your Journey**: Start with [Basic Examples](basic-examples.md), progress through [Advanced Workflows](advanced-workflows.md), and master [Integration Patterns](integration-patterns.md). SuperGemini grows with you from simple commands to sophisticated development orchestration.
+**Your Journey**: Start with [Basic Examples](basic-examples.md), progress through [Advanced Workflows](advanced-workflows.md), and master [Integration Patterns](integration-patterns.md). SuperCodex grows with you from simple commands to sophisticated development orchestration.
 
 **Remember**: Every expert was once a beginner. Focus on practical application, experiment with different approaches, and leverage the community for support and learning.

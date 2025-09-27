@@ -1,7 +1,7 @@
 {
-  "name": "@superclaude-org/supergemini",
+  "name": "@superclaude-org/supercodex",
   "version": "4.0.10",
-  "description": "SuperGemini Framework NPM wrapper - Official Node.js wrapper for the Python Gemini package. Enhances Gemini CLI with specialized commands and AI development tools.",
+  "description": "SuperCodex Framework NPM wrapper - Official Node.js wrapper for the Python Codex package. Enhances Codex CLI with specialized commands and AI development tools.",
   "scripts": {
     "postinstall": "node ./bin/install.js",
     "update": "node ./bin/update.js",
@@ -14,20 +14,20 @@
     "LICENSE"
   ],
   "author": {
-    "name": "SuperGemini Org",
+    "name": "SuperCodex Org",
     "url": "https://github.com/SuperClaude-Org"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SuperClaude-Org/SuperGemini_Framework.git"
+    "url": "git+https://github.com/SuperClaude-Org/SuperCodex_Framework.git"
   },
   "bugs": {
-    "url": "https://github.com/SuperClaude-Org/SuperGemini_Framework/issues"
+    "url": "https://github.com/SuperClaude-Org/SuperCodex_Framework/issues"
   },
-  "homepage": "https://github.com/SuperClaude-Org/SuperGemini_Framework#readme",
+  "homepage": "https://github.com/SuperClaude-Org/SuperCodex_Framework#readme",
   "license": "MIT",
   "keywords": [
-    "supergemini",
+    "supercodex",
     "ai",
     "cli",
     "pypi",

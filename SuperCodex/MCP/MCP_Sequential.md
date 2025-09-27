@@ -28,6 +28,6 @@
 "design a microservices architecture" → Sequential (structured system design)
 "debug this authentication flow" → Sequential (multi-component investigation)
 "analyze security vulnerabilities" → Sequential (comprehensive threat modeling)
-"explain this function" → Native Gemini (simple explanation)
-"fix this typo" → Native Gemini (straightforward change)
+"explain this function" → Native Codex (simple explanation)
+"fix this typo" → Native Codex (straightforward change)
 ```

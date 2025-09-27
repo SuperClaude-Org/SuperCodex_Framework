@@ -1,5 +1,5 @@
 """
-Version management module for SuperGemini Framework
+Version management module for SuperCodex Framework
 Single Source of Truth (SSOT) for version information
 """
 

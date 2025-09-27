@@ -1,5 +1,5 @@
 """
-SuperGemini Uninstall Operation Module
+SuperCodex Uninstall Operation Module
 Enhanced complete deletion system with comprehensive file detection
 """
 
@@ -18,34 +18,34 @@ from ...utils.ui import (
     display_header, display_info, display_success, display_error, 
     display_warning, Menu, confirm, ProgressBar, Colors
 )
-from ...utils.environment import get_supergemini_environment_variables, cleanup_environment_variables
+from ...utils.environment import get_supercodex_environment_variables, cleanup_environment_variables
 from ...utils.logger import get_logger
 from ... import DEFAULT_INSTALL_DIR, PROJECT_ROOT
 from ...utils.paths import get_safe_components_directory
 from ..base import OperationBase
 
 
-class SuperGeminiFileDetector:
-    """Enhanced SuperGemini file detection with multiple identification strategies"""
+class SuperCodexFileDetector:
+    """Enhanced SuperCodex file detection with multiple identification strategies"""
     
     def __init__(self, install_dir: Path):
         self.install_dir = install_dir
         self.logger = get_logger()
         
-        # SuperGemini file signatures for content analysis
-        self.supergemini_signatures = [
-            r'SuperGemini\s+Framework',
+        # SuperCodex file signatures for content analysis
+        self.supercodex_signatures = [
+            r'SuperCodex\s+Framework',
             r'SuperClaude\s+Framework',
             r'@FLAGS\.md',
             r'@PRINCIPLES\.md',
             r'@RULES\.md',
             r'MODE_[A-Z][a-z]+\.md',
             r'MCP_[A-Z][a-z]+\.md',
-            r'## SuperGemini',
-            r'# SuperGemini',
+            r'## SuperCodex',
+            r'# SuperCodex',
             r'claude.*\.ai/code',
-            r'SuperGemini\s+Agent',
-            r'SUPERGEMINI_',
+            r'SuperCodex\s+Agent',
+            r'SUPERCODEX_',
             r'framework.*components',
             r'behavioral.*modes',
             r'orchestration.*mode',
@@ -54,10 +54,10 @@ class SuperGeminiFileDetector:
             r'structured.*thinking',
         ]
         
-        # Known SuperGemini file patterns (exact matches)
-        self.supergemini_files = {
+        # Known SuperCodex file patterns (exact matches)
+        self.supercodex_files = {
             # Core framework files
-            'CLAUDE.md', 'GEMINI.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md',
+            'CLAUDE.md', 'CODEX.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md',
             'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md', 'STRATEGY-MATRIX.md',
             
             # Mode files
@@ -71,34 +71,34 @@ class SuperGeminiFileDetector:
             'MCP_StructuredThinking.md',
         }
         
-        # Directory patterns that contain SuperGemini files
-        self.supergemini_directories = {
+        # Directory patterns that contain SuperCodex files
+        self.supercodex_directories = {
             'commands/sg',
-            'agents/supergemini',
-            'logs/supergemini',
-            'backups/supergemini',
-            'metadata/supergemini',
+            'agents/supercodex',
+            'logs/supercodex',
+            'backups/supercodex',
+            'metadata/supercodex',
         }
 
-    def is_supergemini_file(self, file_path: Path) -> bool:
+    def is_supercodex_file(self, file_path: Path) -> bool:
         """
-        Comprehensive SuperGemini file detection using multiple strategies
+        Comprehensive SuperCodex file detection using multiple strategies
         
         Args:
             file_path: Path to file to check
             
         Returns:
-            True if file is identified as SuperGemini file
+            True if file is identified as SuperCodex file
         """
         try:
             # Strategy 1: Exact filename match
-            if file_path.name in self.supergemini_files:
+            if file_path.name in self.supercodex_files:
                 self.logger.debug(f"Exact match: {file_path}")
                 return True
             
             # Strategy 2: Directory pattern match
             relative_path = file_path.relative_to(self.install_dir)
-            for dir_pattern in self.supergemini_directories:
+            for dir_pattern in self.supercodex_directories:
                 if str(relative_path).startswith(dir_pattern):
                     self.logger.debug(f"Directory pattern match: {file_path}")
                     return True
@@ -115,7 +115,7 @@ class SuperGeminiFileDetector:
                 return True
             
             # Strategy 5: Log file pattern analysis
-            if self._is_supergemini_log(file_path):
+            if self._is_supercodex_log(file_path):
                 self.logger.debug(f"Log file match: {file_path}")
                 return True
                 
@@ -149,13 +149,13 @@ class SuperGeminiFileDetector:
             return False
 
     def _analyze_file_content(self, file_path: Path) -> bool:
-        """Analyze file content for SuperGemini signatures"""
+        """Analyze file content for SuperCodex signatures"""
         try:
             with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read(4096)  # Read first 4KB only for efficiency
                 
-                # Check for SuperGemini signatures
-                for signature in self.supergemini_signatures:
+                # Check for SuperCodex signatures
+                for signature in self.supercodex_signatures:
                     if re.search(signature, content, re.IGNORECASE | re.MULTILINE):
                         return True
                         
@@ -164,14 +164,14 @@ class SuperGeminiFileDetector:
             return False
 
     def _analyze_json_config(self, file_path: Path) -> bool:
-        """Analyze JSON files for SuperGemini configurations"""
+        """Analyze JSON files for SuperCodex configurations"""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 
-                # Check for SuperGemini-specific configuration keys
-                supergemini_keys = [
-                    'supergemini', 'SuperGemini', 'mcp_servers', 'structured-thinking',
+                # Check for SuperCodex-specific configuration keys
+                supercodex_keys = [
+                    'supercodex', 'SuperCodex', 'mcp_servers', 'structured-thinking',
                     'context7', 'sequential-thinking', 'morphllm', 'serena', 'magic',
                     'playwright-mcp'
                 ]
@@ -182,7 +182,7 @@ class SuperGeminiFileDetector:
                     
                     if isinstance(obj, dict):
                         for key, value in obj.items():
-                            if any(sg_key in str(key).lower() for sg_key in supergemini_keys):
+                            if any(sg_key in str(key).lower() for sg_key in supercodex_keys):
                                 return True
                             if isinstance(value, (dict, list)):
                                 if check_keys(value, depth + 1):
@@ -200,14 +200,14 @@ class SuperGeminiFileDetector:
         except Exception:
             return False
 
-    def _is_supergemini_log(self, file_path: Path) -> bool:
-        """Check if file is a SuperGemini log file"""
+    def _is_supercodex_log(self, file_path: Path) -> bool:
+        """Check if file is a SuperCodex log file"""
         try:
             # Check log file patterns
-            if 'supergemini' in file_path.name.lower():
+            if 'supercodex' in file_path.name.lower():
                 return True
             
-            # Check if it's in a logs directory and contains SuperGemini references
+            # Check if it's in a logs directory and contains SuperCodex references
             if 'logs' in str(file_path).lower():
                 if self._analyze_file_content(file_path):
                     return True
@@ -221,13 +221,13 @@ class SuperGeminiFileDetector:
         Scan all files in installation directory
         
         Returns:
-            Tuple of (supergemini_files, preserved_files)
+            Tuple of (supercodex_files, preserved_files)
         """
-        supergemini_files = []
+        supercodex_files = []
         preserved_files = []
         
         if not self.install_dir.exists():
-            return supergemini_files, preserved_files
+            return supercodex_files, preserved_files
         
         try:
             # Use iterative approach to prevent recursion issues
@@ -246,8 +246,8 @@ class SuperGeminiFileDetector:
                 try:
                     for item in current_dir.iterdir():
                         if item.is_file():
-                            if self.is_supergemini_file(item):
-                                supergemini_files.append(item)
+                            if self.is_supercodex_file(item):
+                                supercodex_files.append(item)
                             else:
                                 preserved_files.append(item)
                         elif item.is_dir():
@@ -260,12 +260,12 @@ class SuperGeminiFileDetector:
         except Exception as e:
             self.logger.error(f"Error scanning files: {e}")
         
-        return supergemini_files, preserved_files
+        return supercodex_files, preserved_files
 
 
-def verify_supergemini_file(file_path: Path, component: str) -> bool:
+def verify_supercodex_file(file_path: Path, component: str) -> bool:
     """
-    Enhanced SuperGemini file verification
+    Enhanced SuperCodex file verification
     
     Args:
         file_path: Path to the file to verify
@@ -276,8 +276,8 @@ def verify_supergemini_file(file_path: Path, component: str) -> bool:
     """
     try:
         # Use enhanced detector
-        detector = SuperGeminiFileDetector(file_path.parent)
-        return detector.is_supergemini_file(file_path)
+        detector = SuperCodexFileDetector(file_path.parent)
+        return detector.is_supercodex_file(file_path)
         
     except Exception:
         # If any error occurs in verification, preserve the file
@@ -293,7 +293,7 @@ def verify_directory_safety(directory: Path, component: str) -> bool:
         component: Component name
         
     Returns:
-        True if safe to remove (only if empty or only contains SuperGemini files)
+        True if safe to remove (only if empty or only contains SuperCodex files)
     """
     try:
         if not directory.exists():
@@ -305,12 +305,12 @@ def verify_directory_safety(directory: Path, component: str) -> bool:
             return True
         
         # Use enhanced detector for comprehensive analysis
-        detector = SuperGeminiFileDetector(directory)
+        detector = SuperCodexFileDetector(directory)
         
-        # Check if all contents are SuperGemini files
+        # Check if all contents are SuperCodex files
         for item in contents:
             if item.is_file():
-                if not detector.is_supergemini_file(item):
+                if not detector.is_supercodex_file(item):
                     return False
             elif item.is_dir():
                 # Recursively check subdirectories
@@ -337,14 +337,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "uninstall",
-        help="Remove SuperGemini framework installation",
-        description="Uninstall SuperGemini Framework components with complete file detection",
+        help="Remove SuperCodex framework installation",
+        description="Uninstall SuperCodex Framework components with complete file detection",
         epilog="""
 Examples:
-  SuperGemini uninstall                    # Interactive uninstall with enhanced detection
-  SuperGemini uninstall --components core  # Remove specific components
-  SuperGemini uninstall --complete --force # Complete removal (forced)
-  SuperGemini uninstall --keep-backups     # Keep backup files
+  SuperCodex uninstall                    # Interactive uninstall with enhanced detection
+  SuperCodex uninstall --components core  # Remove specific components
+  SuperCodex uninstall --complete --force # Complete removal (forced)
+  SuperCodex uninstall --keep-backups     # Keep backup files
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -361,7 +361,7 @@ Examples:
     parser.add_argument(
         "--complete",
         action="store_true",
-        help="Complete uninstall (remove all SuperGemini files)"
+        help="Complete uninstall (remove all SuperCodex files)"
     )
     
     # Data preservation options
@@ -394,7 +394,7 @@ Examples:
     parser.add_argument(
         "--cleanup-env",
         action="store_true",
-        help="Remove SuperGemini environment variables"
+        help="Remove SuperCodex environment variables"
     )
     
     parser.add_argument(
@@ -445,10 +445,10 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
         "components": {},
         "directories": [],
         "files": [],
-        "supergemini_files": [],
+        "supercodex_files": [],
         "preserved_files": [],
         "total_size": 0,
-        "supergemini_size": 0
+        "supercodex_size": 0
     }
     
     if not install_dir.exists():
@@ -466,19 +466,19 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
         logger.error(f"Error getting components in get_installation_info: {e}")
         info["components"] = {}
     
-    # Enhanced file scanning with SuperGemini detection
+    # Enhanced file scanning with SuperCodex detection
     try:
-        detector = SuperGeminiFileDetector(install_dir)
-        supergemini_files, preserved_files = detector.scan_all_files()
+        detector = SuperCodexFileDetector(install_dir)
+        supercodex_files, preserved_files = detector.scan_all_files()
         
-        info["supergemini_files"] = supergemini_files
+        info["supercodex_files"] = supercodex_files
         info["preserved_files"] = preserved_files
-        info["files"] = supergemini_files + preserved_files
+        info["files"] = supercodex_files + preserved_files
         
         # Calculate sizes
-        for file_path in supergemini_files:
+        for file_path in supercodex_files:
             try:
-                info["supergemini_size"] += file_path.stat().st_size
+                info["supercodex_size"] += file_path.stat().st_size
             except OSError:
                 pass
         
@@ -488,7 +488,7 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
             except OSError:
                 pass
         
-        info["total_size"] += info["supergemini_size"]
+        info["total_size"] += info["supercodex_size"]
         
         # Find directories
         visited_dirs = set()
@@ -507,13 +507,13 @@ def get_installation_info(install_dir: Path) -> Dict[str, Any]:
 
 
 def display_environment_info() -> Dict[str, str]:
-    """Display SuperGemini environment variables and return them"""
-    env_vars = get_supergemini_environment_variables()
+    """Display SuperCodex environment variables and return them"""
+    env_vars = get_supercodex_environment_variables()
     
     if env_vars:
         print(f"\n{Colors.CYAN}{Colors.BRIGHT}Environment Variables{Colors.RESET}")
         print("=" * 50)
-        print(f"{Colors.BLUE}SuperGemini API key environment variables found:{Colors.RESET}")
+        print(f"{Colors.BLUE}SuperCodex API key environment variables found:{Colors.RESET}")
         for env_var, value in env_vars.items():
             # Show only first few and last few characters for security
             masked_value = f"{value[:4]}...{value[-4:]}" if len(value) > 8 else "***"
@@ -521,7 +521,7 @@ def display_environment_info() -> Dict[str, str]:
         
         print(f"\n{Colors.YELLOW}Note: These environment variables will remain unless you use --cleanup-env{Colors.RESET}")
     else:
-        print(f"\n{Colors.GREEN}No SuperGemini environment variables found{Colors.RESET}")
+        print(f"\n{Colors.GREEN}No SuperCodex environment variables found{Colors.RESET}")
     
     return env_vars
 
@@ -532,7 +532,7 @@ def display_uninstall_info(info: Dict[str, Any]) -> None:
     print("=" * 50)
     
     if not info["exists"]:
-        print(f"{Colors.YELLOW}No SuperGemini installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}No SuperCodex installation found{Colors.RESET}")
         return
     
     print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {info['install_dir']}")
@@ -547,19 +547,19 @@ def display_uninstall_info(info: Dict[str, Any]) -> None:
             print(f"  {component}: v{version_str}")
     
     # Enhanced file information
-    supergemini_count = len(info.get("supergemini_files", []))
+    supercodex_count = len(info.get("supercodex_files", []))
     preserved_count = len(info.get("preserved_files", []))
     
     print(f"{Colors.BLUE}File Analysis:{Colors.RESET}")
-    print(f"  SuperGemini files: {Colors.RED}{supergemini_count}{Colors.RESET} (will be removed)")
+    print(f"  SuperCodex files: {Colors.RED}{supercodex_count}{Colors.RESET} (will be removed)")
     print(f"  Preserved files: {Colors.GREEN}{preserved_count}{Colors.RESET} (will be kept)")
     print(f"  Directories: {len(info['directories'])}")
     
     if info["total_size"] > 0:
         from ...utils.ui import format_size
-        supergemini_size = info.get("supergemini_size", 0)
+        supercodex_size = info.get("supercodex_size", 0)
         print(f"{Colors.BLUE}Size Analysis:{Colors.RESET}")
-        print(f"  SuperGemini data: {Colors.RED}{format_size(supergemini_size)}{Colors.RESET}")
+        print(f"  SuperCodex data: {Colors.RED}{format_size(supercodex_size)}{Colors.RESET}")
         print(f"  Total installation: {format_size(info['total_size'])}")
     
     print()
@@ -596,12 +596,12 @@ def interactive_component_selection(installed_components: Dict[str, str], env_va
     if not installed_components:
         return []
     
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperGemini Uninstall Options{Colors.RESET}")
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperCodex Uninstall Options{Colors.RESET}")
     print("=" * 60)
     
     # Main uninstall type selection
     main_options = [
-        "Complete Uninstall (remove all SuperGemini components)",
+        "Complete Uninstall (remove all SuperCodex components)",
         "Custom Uninstall (choose specific components)",
         "Cancel Uninstall"
     ]
@@ -631,7 +631,7 @@ def _ask_complete_uninstall_options(env_vars: Dict[str, str]) -> Dict[str, bool]
     }
     
     print(f"\n{Colors.YELLOW}{Colors.BRIGHT}Complete Uninstall Options{Colors.RESET}")
-    print("This will remove ALL SuperGemini components.")
+    print("This will remove ALL SuperCodex components.")
     
     if env_vars:
         print(f"\n{Colors.BLUE}Environment variables found:{Colors.RESET}")
@@ -652,18 +652,18 @@ def _ask_complete_uninstall_options(env_vars: Dict[str, str]) -> Dict[str, bool]
 def _custom_component_selection(installed_components: Dict[str, str], env_vars: Dict[str, str]) -> Optional[tuple]:
     """Handle custom component selection with granular options"""
     print(f"\n{Colors.CYAN}{Colors.BRIGHT}Custom Uninstall - Choose Components{Colors.RESET}")
-    print("Select which SuperGemini components to remove:")
+    print("Select which SuperCodex components to remove:")
     
     # Build component options with descriptions
     component_options = []
     component_keys = []
     
     component_descriptions = {
-        'core': 'Core Framework Files (GEMINI.md, FLAGS.md, PRINCIPLES.md, etc.)',
-        'commands': 'SuperGemini Commands (commands/sg/*.md)',
+        'core': 'Core Framework Files (CODEX.md, FLAGS.md, PRINCIPLES.md, etc.)',
+        'commands': 'SuperCodex Commands (commands/sg/*.md)',
         'mcp': 'MCP Server Configurations',
         'mcp_docs': 'MCP Documentation',
-        'modes': 'SuperGemini Modes'
+        'modes': 'SuperCodex Modes'
     }
     
     for component, version in installed_components.items():
@@ -708,7 +708,7 @@ def _ask_mcp_cleanup_options(env_vars: Dict[str, str]) -> Dict[str, bool]:
     cleanup_options = {}
     
     # Ask about MCP server configurations
-    remove_configs = confirm("Remove MCP server configurations from .gemini.json?", default=True)
+    remove_configs = confirm("Remove MCP server configurations from .codex.json?", default=True)
     cleanup_options['remove_mcp_configs'] = remove_configs
     
     # Ask about API key environment variables
@@ -735,7 +735,7 @@ def _ask_mcp_cleanup_options(env_vars: Dict[str, str]) -> Dict[str, bool]:
 
 def interactive_uninstall_selection(installed_components: Dict[str, str]) -> Optional[List[str]]:
     """Legacy function - redirects to enhanced selection"""
-    env_vars = get_supergemini_environment_variables()
+    env_vars = get_supercodex_environment_variables()
     result = interactive_component_selection(installed_components, env_vars)
     
     if result is None:
@@ -750,10 +750,10 @@ def display_preservation_info() -> None:
     """Show what will NOT be removed (user's custom files)"""
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Files that will be preserved:{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sg/){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom .gemini.json configurations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom agents (not SuperCodex agents){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom .codex.json configurations{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom files in shared directories{Colors.RESET}")
-    print(f"{Colors.GREEN}✓ Gemini CLI settings and other tools' configurations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ Codex CLI settings and other tools' configurations{Colors.RESET}")
 
 
 def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str, Any]:
@@ -769,15 +769,15 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
     
     component_paths = {
         'core': {
-            'files': ['GEMINI.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'],
-            'description': 'Core framework files in ~/.gemini/'
+            'files': ['CODEX.md', 'FLAGS.md', 'PRINCIPLES.md', 'RULES.md', 'ORCHESTRATOR.md', 'SESSION_LIFECYCLE.md'],
+            'description': 'Core framework files in ~/.codex/'
         },
         'commands': {
             'files': 'commands/sg/*.md',
-            'description': 'SuperGemini commands in ~/.gemini/commands/sg/'
+            'description': 'SuperCodex commands in ~/.codex/commands/sg/'
         },
         'mcp': {
-            'files': 'MCP server configurations in .gemini.json',
+            'files': 'MCP server configurations in .codex.json',
             'description': 'MCP server configurations'
         },
         'mcp_docs': {
@@ -786,7 +786,7 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
         },
         'modes': {
             'files': 'MODE_*.md',
-            'description': 'SuperGemini operational modes'
+            'description': 'SuperCodex operational modes'
         }
     }
     
@@ -794,8 +794,8 @@ def display_component_details(component: str, info: Dict[str, Any]) -> Dict[str,
         details['description'] = component_paths[component]['description']
         
         # Get actual file count from enhanced detection
-        supergemini_files = info.get("supergemini_files", [])
-        component_file_count = len([f for f in supergemini_files if component in str(f)])
+        supercodex_files = info.get("supercodex_files", [])
+        component_file_count = len([f for f in supercodex_files if component in str(f)])
         details['file_count'] = component_file_count
     
     return details
@@ -809,11 +809,11 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
     print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {info['install_dir']}")
     
     # Show file analysis
-    supergemini_count = len(info.get("supergemini_files", []))
+    supercodex_count = len(info.get("supercodex_files", []))
     preserved_count = len(info.get("preserved_files", []))
     
     print(f"\n{Colors.BLUE}File Analysis:{Colors.RESET}")
-    print(f"{Colors.RED}SuperGemini files to remove: {supergemini_count}{Colors.RESET}")
+    print(f"{Colors.RED}SuperCodex files to remove: {supercodex_count}{Colors.RESET}")
     print(f"{Colors.GREEN}User files to preserve: {preserved_count}{Colors.RESET}")
     
     if components:
@@ -835,10 +835,10 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
     # Show detailed preservation information
     print(f"\n{Colors.GREEN}{Colors.BRIGHT}Enhanced Safety Guarantees - Will Preserve:{Colors.RESET}")
     print(f"{Colors.GREEN}✓ User's custom commands (not in commands/sg/){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's custom agents (not SuperGemini agents){Colors.RESET}")
-    print(f"{Colors.GREEN}✓ User's .gemini.json customizations{Colors.RESET}")
-    print(f"{Colors.GREEN}✓ Gemini CLI settings and other tools' configurations{Colors.RESET}")
-    print(f"{Colors.GREEN}✓ All non-SuperGemini files (verified by content analysis){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's custom agents (not SuperCodex agents){Colors.RESET}")
+    print(f"{Colors.GREEN}✓ User's .codex.json customizations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ Codex CLI settings and other tools' configurations{Colors.RESET}")
+    print(f"{Colors.GREEN}✓ All non-SuperCodex files (verified by content analysis){Colors.RESET}")
     
     # Show additional preserved items
     preserved = []
@@ -854,7 +854,7 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
             print(f"{Colors.GREEN}✓ {item}{Colors.RESET}")
     
     if args.complete:
-        print(f"\n{Colors.RED}⚠️  WARNING: Complete uninstall will remove all {supergemini_count} SuperGemini files{Colors.RESET}")
+        print(f"\n{Colors.RED}⚠️  WARNING: Complete uninstall will remove all {supercodex_count} SuperCodex files{Colors.RESET}")
         print(f"{Colors.GREEN}✓ {preserved_count} user files will be preserved{Colors.RESET}")
     
     # Environment variable cleanup information
@@ -874,7 +874,7 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
     print()
 
 
-def create_uninstall_backup(install_dir: Path, components: List[str], supergemini_files: List[Path]) -> Optional[Path]:
+def create_uninstall_backup(install_dir: Path, components: List[str], supercodex_files: List[Path]) -> Optional[Path]:
     """Create comprehensive backup before uninstall"""
     logger = get_logger()
     
@@ -884,7 +884,7 @@ def create_uninstall_backup(install_dir: Path, components: List[str], supergemin
         backup_dir.mkdir(exist_ok=True)
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_name = f"supergemini_backup_{timestamp}.tar.gz"
+        backup_name = f"supercodex_backup_{timestamp}.tar.gz"
         backup_path = backup_dir / backup_name
         
         import tarfile
@@ -892,8 +892,8 @@ def create_uninstall_backup(install_dir: Path, components: List[str], supergemin
         logger.info(f"Creating comprehensive backup: {backup_path}")
         
         with tarfile.open(backup_path, "w:gz") as tar:
-            # Backup all SuperGemini files
-            for file_path in supergemini_files:
+            # Backup all SuperCodex files
+            for file_path in supercodex_files:
                 try:
                     if file_path.exists():
                         arcname = file_path.relative_to(install_dir)
@@ -910,19 +910,19 @@ def create_uninstall_backup(install_dir: Path, components: List[str], supergemin
 
 
 def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, info: Dict[str, Any], env_vars: Dict[str, str]) -> bool:
-    """Perform the enhanced SuperGemini uninstall with complete file removal"""
+    """Perform the enhanced SuperCodex uninstall with complete file removal"""
     logger = get_logger()
     start_time = time.time()
     
     try:
-        # Get SuperGemini files to remove
-        supergemini_files = info.get("supergemini_files", [])
+        # Get SuperCodex files to remove
+        supercodex_files = info.get("supercodex_files", [])
         preserved_files = info.get("preserved_files", [])
         
-        logger.info(f"Enhanced uninstall: {len(supergemini_files)} SuperGemini files, {len(preserved_files)} preserved files")
+        logger.info(f"Enhanced uninstall: {len(supercodex_files)} SuperCodex files, {len(preserved_files)} preserved files")
         
         # Setup progress tracking
-        total_operations = len(supergemini_files) + len(components) + (1 if args.cleanup_env and env_vars else 0)
+        total_operations = len(supercodex_files) + len(components) + (1 if args.cleanup_env and env_vars else 0)
         progress = ProgressBar(
             total=total_operations,
             prefix="Uninstalling: ",
@@ -931,8 +931,8 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
         
         file_manager = FileService()
         
-        # Phase 1: Remove individual SuperGemini files
-        logger.info("Phase 1: Removing SuperGemini files...")
+        # Phase 1: Remove individual SuperCodex files
+        logger.info("Phase 1: Removing SuperCodex files...")
         removed_files = []
         failed_files = []
         
@@ -945,7 +945,7 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
                 handler.close()
             internal_logger.removeHandler(handler)
         
-        for i, file_path in enumerate(supergemini_files):
+        for i, file_path in enumerate(supercodex_files):
             progress.update(i, f"Removing {file_path.name}")
             
             try:
@@ -995,7 +995,7 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
         failed_components = []
         
         for i, component_name in enumerate(components):
-            progress.update(len(supergemini_files) + i, f"Cleaning {component_name}")
+            progress.update(len(supercodex_files) + i, f"Cleaning {component_name}")
             
             try:
                 if component_name in component_instances:
@@ -1016,7 +1016,7 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
         # Phase 3: Environment variable cleanup
         env_cleanup_success = True
         if args.cleanup_env and env_vars:
-            progress.update(len(supergemini_files) + len(components), "Cleaning environment")
+            progress.update(len(supercodex_files) + len(components), "Cleaning environment")
             logger.info("Phase 3: Cleaning up environment variables...")
             create_restore_script = not args.no_restore_script
             env_cleanup_success = cleanup_environment_variables(env_vars, create_restore_script)
@@ -1039,7 +1039,7 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
         print("=" * 50)
         
         print(f"{Colors.GREEN}Successfully removed:{Colors.RESET}")
-        print(f"  SuperGemini files: {len(removed_files)}")
+        print(f"  SuperCodex files: {len(removed_files)}")
         print(f"  Components: {len(uninstalled_components)}")
         if args.cleanup_env and env_vars and env_cleanup_success:
             print(f"  Environment variables: {len(env_vars)}")
@@ -1056,11 +1056,11 @@ def perform_enhanced_uninstall(components: List[str], args: argparse.Namespace, 
         # Final verification
         remaining_files = verify_complete_removal(args.install_dir)
         if remaining_files:
-            print(f"\n{Colors.YELLOW}Note: {len(remaining_files)} SuperGemini files may still remain{Colors.RESET}")
+            print(f"\n{Colors.YELLOW}Note: {len(remaining_files)} SuperCodex files may still remain{Colors.RESET}")
             logger.warning(f"Incomplete removal: {len(remaining_files)} files remain")
             return False
         else:
-            print(f"\n{Colors.GREEN}✓ Complete removal verified - no SuperGemini files remain{Colors.RESET}")
+            print(f"\n{Colors.GREEN}✓ Complete removal verified - no SuperCodex files remain{Colors.RESET}")
             logger.success(f"Complete uninstall verified in {duration:.1f} seconds")
             return True
         
@@ -1104,14 +1104,14 @@ def cleanup_empty_directories(install_dir: Path, preserve_patterns: Optional[Lis
 
 
 def verify_complete_removal(install_dir: Path) -> List[Path]:
-    """Verify that all SuperGemini files have been removed"""
+    """Verify that all SuperCodex files have been removed"""
     if not install_dir.exists():
         return []
     
     try:
-        detector = SuperGeminiFileDetector(install_dir)
-        supergemini_files, _ = detector.scan_all_files()
-        return supergemini_files
+        detector = SuperCodexFileDetector(install_dir)
+        supercodex_files, _ = detector.scan_all_files()
+        return supercodex_files
     except Exception:
         return []
 
@@ -1127,9 +1127,9 @@ def cleanup_installation_directory(install_dir: Path, args: argparse.Namespace) 
     file_manager = FileService()
     
     try:
-        # Use enhanced detector to identify SuperGemini files
-        detector = SuperGeminiFileDetector(install_dir)
-        supergemini_files, preserved_files = detector.scan_all_files()
+        # Use enhanced detector to identify SuperCodex files
+        detector = SuperCodexFileDetector(install_dir)
+        supercodex_files, preserved_files = detector.scan_all_files()
         
         # Build preserve patterns
         preserve_patterns = []
@@ -1139,11 +1139,11 @@ def cleanup_installation_directory(install_dir: Path, args: argparse.Namespace) 
         if args.keep_logs:
             preserve_patterns.extend(["logs/*", "*.log"])
         if args.keep_settings:
-            preserve_patterns.extend(["settings.json", ".gemini.json", "config/*"])
+            preserve_patterns.extend(["settings.json", ".codex.json", "config/*"])
         
-        # Remove SuperGemini files specifically
-        logger.info(f"Removing {len(supergemini_files)} SuperGemini files...")
-        for file_path in supergemini_files:
+        # Remove SuperCodex files specifically
+        logger.info(f"Removing {len(supercodex_files)} SuperCodex files...")
+        for file_path in supercodex_files:
             try:
                 if file_path.exists():
                     file_manager.remove_file(file_path)
@@ -1153,7 +1153,7 @@ def cleanup_installation_directory(install_dir: Path, args: argparse.Namespace) 
         # Clean up empty directories
         cleanup_empty_directories(install_dir, preserve_patterns)
         
-        logger.info(f"Cleanup complete: removed SuperGemini files, preserved {len(preserved_files)} user files")
+        logger.info(f"Cleanup complete: removed SuperCodex files, preserved {len(preserved_files)} user files")
         
     except Exception as e:
         logger.error(f"Error during enhanced cleanup: {e}")
@@ -1187,23 +1187,23 @@ def run(args: argparse.Namespace) -> int:
         if not args.quiet:
             from setup import __version__
             display_header(
-                f"SuperGemini Enhanced Uninstall v{__version__}",
-                "Complete SuperGemini framework removal with advanced file detection"
+                f"SuperCodex Enhanced Uninstall v{__version__}",
+                "Complete SuperCodex framework removal with advanced file detection"
             )
         
         # Get enhanced installation information
         try:
             info = get_installation_info(args.install_dir)
-            logger.info(f"Enhanced analysis: found {len(info.get('supergemini_files', []))} SuperGemini files, {len(info.get('preserved_files', []))} user files")
+            logger.info(f"Enhanced analysis: found {len(info.get('supercodex_files', []))} SuperCodex files, {len(info.get('preserved_files', []))} user files")
         except RecursionError:
             logger.error("Recursion detected in get_installation_info. Using basic cleanup.")
             # Fallback to basic cleanup
             if args.install_dir.exists():
                 if not args.no_confirm:
-                    if confirm(f"Remove SuperGemini directory {args.install_dir}?", default=False):
+                    if confirm(f"Remove SuperCodex directory {args.install_dir}?", default=False):
                         import shutil
                         shutil.rmtree(args.install_dir)
-                        logger.success("SuperGemini directory removed")
+                        logger.success("SuperCodex directory removed")
                         return 0
             return 1
         
@@ -1214,25 +1214,25 @@ def run(args: argparse.Namespace) -> int:
             except RecursionError:
                 logger.error("Recursion detected in display_uninstall_info")
                 print(f"Installation Directory: {info['install_dir']}")
-                print(f"SuperGemini files: {len(info.get('supergemini_files', []))}")
+                print(f"SuperCodex files: {len(info.get('supercodex_files', []))}")
                 print(f"Preserved files: {len(info.get('preserved_files', []))}")
         
         # Check environment variables
         try:
-            env_vars = display_environment_info() if not args.quiet else get_supergemini_environment_variables()
+            env_vars = display_environment_info() if not args.quiet else get_supercodex_environment_variables()
         except RecursionError:
             logger.error("Recursion detected in environment variable functions")
             env_vars = {}
         
-        # Check if SuperGemini is installed
+        # Check if SuperCodex is installed
         if not info["exists"]:
-            logger.warning(f"No SuperGemini installation found in {args.install_dir}")
+            logger.warning(f"No SuperCodex installation found in {args.install_dir}")
             return 0
         
-        # Check if any SuperGemini files exist
-        supergemini_files = info.get("supergemini_files", [])
-        if not supergemini_files and not info["components"]:
-            logger.info(f"No SuperGemini files or components found in {args.install_dir}")
+        # Check if any SuperCodex files exist
+        supercodex_files = info.get("supercodex_files", [])
+        if not supercodex_files and not info["components"]:
+            logger.info(f"No SuperCodex files or components found in {args.install_dir}")
             
             # Offer to clean up empty directory
             if info["exists"] and (info["files"] or info["directories"]):
@@ -1259,7 +1259,7 @@ def run(args: argparse.Namespace) -> int:
                 logger.info("Uninstall cancelled by user")
                 return 0
             elif not components:
-                # Even if no components, remove SuperGemini files
+                # Even if no components, remove SuperCodex files
                 components = []
         else:
             # Interactive mode
@@ -1269,7 +1269,7 @@ def run(args: argparse.Namespace) -> int:
                 return 0
             elif not result:
                 logger.info("No components selected for uninstall")
-                # Still proceed to remove any SuperGemini files found
+                # Still proceed to remove any SuperCodex files found
                 components = []
                 cleanup_options = {
                     'remove_mcp_configs': False,
@@ -1288,34 +1288,34 @@ def run(args: argparse.Namespace) -> int:
         
         # Enhanced confirmation
         if not args.no_confirm and not args.yes:
-            supergemini_count = len(info.get("supergemini_files", []))
-            if args.complete or supergemini_count > 0:
+            supercodex_count = len(info.get("supercodex_files", []))
+            if args.complete or supercodex_count > 0:
                 if args.complete:
-                    warning_msg = f"This will completely remove {supergemini_count} SuperGemini files. Continue?"
+                    warning_msg = f"This will completely remove {supercodex_count} SuperCodex files. Continue?"
                 else:
-                    warning_msg = f"This will remove {supergemini_count} SuperGemini files and {len(components)} component(s). Continue?"
+                    warning_msg = f"This will remove {supercodex_count} SuperCodex files and {len(components)} component(s). Continue?"
                 
                 if not confirm(warning_msg, default=False):
                     logger.info("Uninstall cancelled by user")
                     return 0
         
         # Create comprehensive backup
-        if not args.dry_run and not args.keep_backups and supergemini_files:
-            create_uninstall_backup(args.install_dir, components, supergemini_files)
+        if not args.dry_run and not args.keep_backups and supercodex_files:
+            create_uninstall_backup(args.install_dir, components, supercodex_files)
         
         # Perform enhanced uninstall
         success = perform_enhanced_uninstall(components, args, info, env_vars)
         
         if success:
             if not args.quiet:
-                display_success("SuperGemini enhanced uninstall completed successfully!")
+                display_success("SuperCodex enhanced uninstall completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Enhanced Uninstall Complete:{Colors.RESET}")
-                    print(f"SuperGemini has been completely removed from {args.install_dir}")
+                    print(f"SuperCodex has been completely removed from {args.install_dir}")
                     print(f"All user files have been preserved")
                     if not args.complete:
-                        print(f"You can reinstall anytime using 'SuperGemini install'")
+                        print(f"You can reinstall anytime using 'SuperCodex install'")
                     
             return 0
         else:

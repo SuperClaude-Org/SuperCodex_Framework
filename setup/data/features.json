@@ -3,7 +3,7 @@
     "core": {
       "name": "core",
       "version": "4.0.2",
-      "description": "SuperGemini framework documentation and core files",
+      "description": "SuperCodex framework documentation and core files",
       "category": "core",
       "dependencies": [],
       "enabled": true,
@@ -12,7 +12,7 @@
     "commands": {
       "name": "commands",
       "version": "4.0.2", 
-      "description": "SuperGemini slash command definitions",
+      "description": "SuperCodex slash command definitions",
       "category": "commands",
       "dependencies": ["core"],
       "enabled": true,
@@ -21,7 +21,7 @@
     "mcp": {
       "name": "mcp",
       "version": "4.0.2",
-      "description": "MCP server configuration management via .gemini.json",
+      "description": "MCP server configuration management via .codex.json",
       "category": "integration",
       "dependencies": ["core"],
       "enabled": true,
@@ -30,7 +30,7 @@
     "modes": {
       "name": "modes",
       "version": "4.0.2",
-      "description": "SuperGemini behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
+      "description": "SuperCodex behavioral modes (Brainstorming, Introspection, Task Management, Token Efficiency)",
       "category": "modes",
       "dependencies": ["core"],
       "enabled": true,

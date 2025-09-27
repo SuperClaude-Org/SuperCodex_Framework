@@ -1,6 +1,6 @@
-# SuperGemini Advanced Patterns
+# SuperCodex Advanced Patterns
 
-**Expert-Level Coordination and Workflow Mastery**: Advanced multi-agent coordination, behavioral mode optimization, and complex project orchestration patterns for experienced SuperGemini users.
+**Expert-Level Coordination and Workflow Mastery**: Advanced multi-agent coordination, behavioral mode optimization, and complex project orchestration patterns for experienced SuperCodex users.
 
 **Focus**: Multi-agent workflows, behavioral mode mastery, complex coordination patterns, and expert-level techniques.
 
@@ -691,7 +691,7 @@ Week 4: /sg:workflow "refined development process for next iteration"
 
 ## Next Steps
 
-Master these advanced patterns to become a SuperGemini expert:
+Master these advanced patterns to become a SuperCodex expert:
 
 **Immediate Application:**
 - Practice multi-agent coordination on your current projects
@@ -705,14 +705,14 @@ Master these advanced patterns to become a SuperGemini expert:
 **Leadership and Mentoring:**
 - Train team members in advanced coordination patterns
 - Develop organization-specific best practices
-- Contribute to SuperGemini framework improvement
+- Contribute to SuperCodex framework improvement
 
 ## Community Contribution
 
 **Share Your Patterns:**
 - Document successful coordination strategies
 - Contribute to [Examples Cookbook](examples-cookbook.md)
-- Share insights in [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions)
+- Share insights in [GitHub Discussions](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions)
 
 **Advanced Learning:**
 - [Contributing Code](../Developer-Guide/contributing-code.md) - Framework development
@@ -722,7 +722,7 @@ Master these advanced patterns to become a SuperGemini expert:
 
 **Your Advanced Journey:**
 
-These patterns represent the cutting edge of SuperGemini capabilities. Master them to achieve enterprise-grade coordination, optimization, and development excellence.
+These patterns represent the cutting edge of SuperCodex capabilities. Master them to achieve enterprise-grade coordination, optimization, and development excellence.
 
 **Mastery Indicators:**
 - **Multi-Agent Fluency**: Seamless coordination across multiple specialists

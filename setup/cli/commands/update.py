@@ -1,5 +1,5 @@
 """
-SuperGemini Update Operation Module
+SuperCodex Update Operation Module
 Refactored from update.py for unified CLI hub
 """
 
@@ -37,14 +37,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "update",
-        help="Update existing SuperGemini installation",
-        description="Update SuperGemini Framework components to latest versions",
+        help="Update existing SuperCodex installation",
+        description="Update SuperCodex Framework components to latest versions",
         epilog="""
 Examples:
-  SuperGemini update                       # Interactive update
-  SuperGemini update --check --verbose     # Check for updates (verbose)
-  SuperGemini update --components core mcp # Update specific components
-  SuperGemini update --backup --force      # Create backup before update (forced)
+  SuperCodex update                       # Interactive update
+  SuperCodex update --check --verbose     # Check for updates (verbose)
+  SuperCodex update --components core mcp # Update specific components
+  SuperCodex update --backup --force      # Create backup before update (forced)
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -87,7 +87,7 @@ Examples:
     return parser
 
 def check_installation_exists(install_dir: Path) -> bool:
-    """Check if SuperGemini installation exists"""
+    """Check if SuperCodex installation exists"""
     settings_manager = SettingsService(install_dir)
 
     return settings_manager.check_installation_exists()
@@ -128,7 +128,7 @@ def display_update_check(installed_components: Dict[str, str], available_updates
     print("=" * 50)
     
     if not installed_components:
-        print(f"{Colors.YELLOW}No SuperGemini installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}No SuperCodex installation found{Colors.RESET}")
         return
     
     print(f"{Colors.BLUE}Currently installed components:{Colors.RESET}")
@@ -407,14 +407,14 @@ def run(args: argparse.Namespace) -> int:
         if not args.quiet:
             from setup import __version__
             display_header(
-                f"SuperGemini Update v{__version__}",
-                "Updating SuperGemini framework components"
+                f"SuperCodex Update v{__version__}",
+                "Updating SuperCodex framework components"
             )
         
-        # Check if SuperGemini is installed
+        # Check if SuperCodex is installed
         if not check_installation_exists(args.install_dir):
-            logger.error(f"SuperGemini installation not found in {args.install_dir}")
-            logger.info("Use 'SuperGemini install' to install SuperGemini first")
+            logger.error(f"SuperCodex installation not found in {args.install_dir}")
+            logger.info("Use 'SuperCodex install' to install SuperCodex first")
             return 1
         
         # Create component registry
@@ -463,11 +463,11 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperGemini update completed successfully!")
+                display_success("SuperCodex update completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")
-                    print(f"1. Restart your Gemini CLI session")
+                    print(f"1. Restart your Codex CLI session")
                     print(f"2. Updated components are now available")
                     print(f"3. Check for any breaking changes in documentation")
                     

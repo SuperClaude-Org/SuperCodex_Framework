@@ -7,7 +7,7 @@ include ROADMAP.md
 include SECURITY.md
 include ARCHITECTURE_OVERVIEW.md
 include pyproject.toml
-recursive-include SuperGemini *
+recursive-include SuperCodex *
 recursive-include setup *
 recursive-include Templates *
 recursive-include Docs *.md

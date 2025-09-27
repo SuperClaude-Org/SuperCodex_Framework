@@ -1,5 +1,5 @@
 """
-SuperGemini Installation Operation Module
+SuperCodex Installation Operation Module
 Refactored from install.py for unified CLI hub
 """
 
@@ -37,14 +37,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "install",
-        help="Install SuperGemini framework components",
-        description="Install SuperGemini Framework with various options and profiles",
+        help="Install SuperCodex framework components",
+        description="Install SuperCodex Framework with various options and profiles",
         epilog="""
 Examples:
-  SuperGemini install                          # Interactive installation
-  SuperGemini install --dry-run                # Dry-run mode  
-  SuperGemini install --components core mcp    # Specific components
-  SuperGemini install --verbose --force        # Verbose with force mode
+  SuperCodex install                          # Interactive installation
+  SuperCodex install --dry-run                # Dry-run mode  
+  SuperCodex install --components core mcp    # Specific components
+  SuperCodex install --verbose --force        # Verbose with force mode
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -94,9 +94,9 @@ Examples:
     )
 
     parser.add_argument(
-        "--skip-gemini-md",
+        "--skip-codex-md",
         action="store_true",
-        help="Skip GEMINI.md management during installation"
+        help="Skip CODEX.md management during installation"
     )
     
     parser.set_defaults(func=run_install)
@@ -248,7 +248,7 @@ def select_mcp_servers(registry: ComponentRegistry) -> List[str]:
     display_info("Stage 1: MCP Server Selection (Optional)")
     display_info("═" * 63)
     display_info("")
-    display_info("MCP servers extend Gemini CLI with specialized capabilities.")
+    display_info("MCP servers extend Codex CLI with specialized capabilities.")
     display_info("Select servers to configure (you can always add more later):")
     display_info("")
     
@@ -514,7 +514,7 @@ def execute_installation(components: List[str], installer: Installer, registry: 
             # Install component
             config = {
                 "force_overwrite": args.force_overwrite,
-                "skip_gemini_md": args.skip_gemini_md,
+                "skip_codex_md": args.skip_codex_md,
                 "dry_run": args.dry_run
             }
             
@@ -574,7 +574,7 @@ def execute_installation(components: List[str], installer: Installer, registry: 
 
 def run_install(args: argparse.Namespace) -> bool:
     """
-    Execute SuperGemini installation operation.
+    Execute SuperCodex installation operation.
     
     Args:
         args: Command line arguments
@@ -589,13 +589,13 @@ def run_install(args: argparse.Namespace) -> bool:
     # Security validation
     from ...utils.security import SecurityValidator
     security = SecurityValidator()
-    if not security.validate_gemini_directory_installation(args.install_dir):
+    if not security.validate_codex_directory_installation(args.install_dir):
         display_error("Security validation failed for installation directory")
         return False
     
     # Display header
-    display_header("SuperGemini Installation v4.0.4", 
-                  "Installing SuperGemini framework components")
+    display_header("SuperCodex Installation v4.0.4", 
+                  "Installing SuperCodex framework components")
     
     # Handle existing installation
     if not handle_existing_installation(args.install_dir, args):
@@ -617,7 +617,7 @@ def run_install(args: argparse.Namespace) -> bool:
 
 def install_with_profile(args: argparse.Namespace) -> bool:
     """
-    Install SuperGemini with a predefined profile.
+    Install SuperCodex with a predefined profile.
     
     Args:
         args: Command line arguments with profile specified
@@ -830,9 +830,9 @@ def execute_install_workflow(args: argparse.Namespace, components: List[str], re
             
             # Display next steps
             display_info("\nNext steps:")
-            display_info("1. Restart your Gemini CLI session")
+            display_info("1. Restart your Codex CLI session")
             display_info(f"2. Framework files are now available in {args.install_dir}")
-            display_info("3. Use SuperGemini commands and features in Gemini CLI")
+            display_info("3. Use SuperCodex commands and features in Codex CLI")
             
             return True
         else:

@@ -1,10 +1,10 @@
-# SuperGemini Troubleshooting Guide
+# SuperCodex Troubleshooting Guide
 
 > **Need a Quick Fix?** For the top 10 most common issues with rapid 2-minute solutions, see the [Common Issues Quick Reference](common-issues.md) first.
 
-> **Command Context**: This guide covers both **Terminal Commands** (for installation issues) and **Gemini CLI Commands** (`/sg:` for development issues). Look for section headers to know which type to use.
+> **Command Context**: This guide covers both **Terminal Commands** (for installation issues) and **Codex CLI Commands** (`/sg:` for development issues). Look for section headers to know which type to use.
 
-**Comprehensive Problem Resolution**: Step-by-step solutions for complex SuperGemini issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
+**Comprehensive Problem Resolution**: Step-by-step solutions for complex SuperCodex issues, from installation problems to advanced configuration challenges. Each solution includes diagnosis steps, resolution procedures, and prevention strategies.
 
 **When to Use This Guide**: Use this comprehensive guide when the [quick fixes](common-issues.md) don't resolve your issue, or when you need detailed diagnosis and prevention strategies.
 
@@ -30,7 +30,7 @@ python3 -m pip debug --verbose
 python3 -m venv fresh-superclaude-env
 source fresh-superclaude-env/bin/activate
 pip install --upgrade pip setuptools wheel
-pip install SuperGemini
+pip install SuperCodex
 
 # Solution 2: Dependency conflict resolution
 pip install pip-tools
@@ -40,7 +40,7 @@ pip-sync requirements.txt
 # Solution 3: System package manager conflicts (Linux)
 # Use pipx for isolated installation
 python3 -m pip install --user pipx
-pipx install SuperGemini
+pipx install SuperCodex
 pipx ensurepath
 
 # Prevention
@@ -53,9 +53,9 @@ pipx ensurepath
 # Symptoms: Some components install, others fail silently
 
 # Advanced Diagnosis
-python3 -m SuperGemini install --dry-run --verbose
-cat ~/.gemini/GEMINI.md | grep -E "@|import"
-ls -la ~/.gemini/
+python3 -m SuperCodex install --dry-run --verbose
+cat ~/.codex/CODEX.md | grep -E "@|import"
+ls -la ~/.codex/
 
 # Component dependency validation
 python3 -c "
@@ -71,9 +71,9 @@ for comp in components:
 # Solution: Incremental installation with validation
 for component in core agents modes mcp; do
     echo "Installing $component..."
-    python3 -m SuperGemini install --components $component
+    python3 -m SuperCodex install --components $component
     # Validate after each component
-    if ! cat ~/.gemini/GEMINI.md | grep -q "@"; then
+    if ! cat ~/.codex/CODEX.md | grep -q "@"; then
         echo "❌ Component $component failed"
         break
     fi
@@ -89,11 +89,11 @@ done
 **Windows Platform Issues:**
 ```cmd
 # Issue: Path separator problems
-ERROR: Cannot find file 'C:\Users\name\.gemini\GEMINI.md'
+ERROR: Cannot find file 'C:\Users\name\.codex\CODEX.md'
 
 # Solution: Use proper Windows paths
-set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.gemini
-python -m SuperGemini install --install-dir "%CLAUDE_CONFIG_DIR%"
+set CLAUDE_CONFIG_DIR=C:\Users\%USERNAME%\.codex
+python -m SuperCodex install --install-dir "%CLAUDE_CONFIG_DIR%"
 
 # Issue: Node.js not found for MCP servers
 # Solution: Install Node.js from official source
@@ -130,17 +130,17 @@ sudo apt install python3-dev python3-pip build-essential
 # CentOS/RHEL
 # Issue: Python 3.8+ not available
 sudo yum install python39 python39-pip
-python3.9 -m pip install SuperGemini
+python3.9 -m pip install SuperCodex
 
 # Arch Linux
 # Issue: Package conflicts
 sudo pacman -S python python-pip
-pip install --user SuperGemini
+pip install --user SuperCodex
 ```
 
 ## Command Issues
 
-> **🚀 Quick Fix**: For command recognition problems, timeouts, or basic execution issues, try the [Common Issues Quick Reference](common-issues.md#4--commands-not-working-in-gemini-code) first.
+> **🚀 Quick Fix**: For command recognition problems, timeouts, or basic execution issues, try the [Common Issues Quick Reference](common-issues.md#4--commands-not-working-in-codex-code) first.
 
 ### Advanced Command Diagnosis
 
@@ -152,7 +152,7 @@ pip install --user SuperGemini
 # Check system resources
 top
 df -h
-ps aux | grep gemini
+ps aux | grep codex
 
 # Solution 1: Reduce scope
 /sg:analyze src/ --scope file    # Instead of entire project
@@ -164,8 +164,8 @@ ps aux | grep gemini
 
 # Solution 3: Clear session data and restart
 # Remove old session files if they exist
-rm -rf ~/.gemini/sessions/old-*
-# Restart Gemini CLI session
+rm -rf ~/.codex/sessions/old-*
+# Restart Codex CLI session
 
 # Prevention
 # Use appropriate scope for large projects
@@ -184,15 +184,15 @@ ls -la
 
 # Solution 1: Reset session context
 /sg:save "backup-session"  # Backup current state
-# Restart Gemini CLI and reload if needed
+# Restart Codex CLI and reload if needed
 
 # Solution 2: Use explicit scope
 /sg:analyze ./specific-folder/  # Explicit path
 /sg:implement "specific task in authentication module"
 
 # Solution 3: Verification check
-# Verify GEMINI.md contains SuperGemini framework instructions
-grep "SuperGemini" ~/.gemini/GEMINI.md
+# Verify CODEX.md contains SuperCodex framework instructions
+grep "SuperCodex" ~/.codex/CODEX.md
 # Check for proper command imports
 
 # Prevention
@@ -258,7 +258,7 @@ grep "SuperGemini" ~/.gemini/GEMINI.md
 
 ## Agent & Mode Issues
 
-> **🚀 Quick Fix**: For basic agent and mode issues, most problems can be resolved by restarting Gemini CLI and checking component installation with `python3 -m SuperGemini install --components agents modes --force`.
+> **🚀 Quick Fix**: For basic agent and mode issues, most problems can be resolved by restarting Codex CLI and checking component installation with `python3 -m SuperCodex install --components agents modes --force`.
 
 ### Advanced Agent Diagnosis
 
@@ -401,7 +401,7 @@ node --version  # Should be 16.0.0 or higher
 npm list -g @context7/mcp-server
 
 # Check server configuration
-cat ~/.gemini/.gemini.json | grep context7
+cat ~/.codex/.codex.json | grep context7
 
 # Solution 1: Install/reinstall Node.js and server
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
@@ -409,7 +409,7 @@ sudo apt-get install -y nodejs
 npm install -g @context7/mcp-server
 
 # Solution 2: Reconfigure MCP servers
-python3 -m SuperGemini install --components mcp --force
+python3 -m SuperCodex install --components mcp --force
 
 # Solution 3: Manual server testing
 node -e "console.log('Node.js working')"
@@ -437,8 +437,8 @@ free -h
 # Solution 1: Reduce operation complexity
 /sg:implement "simpler task breakdown"  # Break complex task into smaller parts
 
-# Solution 2: Restart Gemini CLI session
-# MCP servers restart with Gemini CLI session restart
+# Solution 2: Restart Codex CLI session
+# MCP servers restart with Codex CLI session restart
 
 # Solution 3: Disable problematic server temporarily
 /sg:implement "task" --no-mcp
@@ -457,17 +457,17 @@ ERROR: Sequential reasoning server encountered internal error
 
 # Diagnosis
 # Check Sequential server logs
-tail -f ~/.gemini/logs/sequential-mcp.log
+tail -f ~/.codex/logs/sequential-mcp.log
 
 # Check server installation
 npm list -g @sequential/mcp-server
 
-# Solution 1: Restart Gemini CLI session
+# Solution 1: Restart Codex CLI session
 # This restarts all MCP servers including Sequential
 
 # Solution 2: Use alternative reasoning approach
 /sg:analyze complex-problem
-# Use native Gemini reasoning without MCP servers
+# Use native Codex reasoning without MCP servers
 
 # Solution 3: Reinstall Sequential MCP
 npm uninstall -g @sequential/mcp-server
@@ -487,7 +487,7 @@ npm install -g @sequential/mcp-server@latest
 # Diagnosis
 # Check Magic server installation
 npm list -g @magic/ui-generator
-cat ~/.gemini/config.json | grep -i magic
+cat ~/.codex/config.json | grep -i magic
 
 # Solution 1: Verify Magic server installation
 npm list -g @magic/ui-generator
@@ -534,16 +534,16 @@ npx playwright install-deps
 
 **Issue: Session Context Lost After Restart**
 ```bash
-# Symptoms: Previous work context not available after Gemini CLI restart
+# Symptoms: Previous work context not available after Codex CLI restart
 
 # Diagnosis
 # Check session persistence
-ls ~/.gemini/sessions/
+ls ~/.codex/sessions/
 /sg:load  # Lists available sessions
 
 # Solution 1: Save session before closing
 /sg:save "current-work-session"
-# Before closing Gemini CLI
+# Before closing Codex CLI
 
 # Solution 2: Enable regular session saving
 # Use /sg:save periodically during long sessions
@@ -564,8 +564,8 @@ ERROR: Session data corrupted - cannot restore context
 
 # Diagnosis
 # Check session file integrity
-ls -la ~/.gemini/sessions/
-file ~/.gemini/sessions/session-*.json
+ls -la ~/.codex/sessions/
+file ~/.codex/sessions/session-*.json
 
 # Solution 1: Restore from backup
 /sg:load "backup-session-20241201"  # Use backup session
@@ -580,7 +580,7 @@ file ~/.gemini/sessions/session-*.json
 
 # Prevention
 # Regular session backups with meaningful names
-# Avoid force-closing Gemini CLI during session operations
+# Avoid force-closing Codex CLI during session operations
 ```
 
 **Issue: Cross-Session Context Inconsistency**
@@ -619,19 +619,19 @@ file ~/.gemini/sessions/session-*.json
 
 # Diagnosis
 # Check session size and memory usage
-du -sh ~/.gemini/sessions/
-ls -la ~/.gemini/sessions/
+du -sh ~/.codex/sessions/
+ls -la ~/.codex/sessions/
 
 # Solution 1: Clean old sessions manually
 # Remove old session files manually
-rm ~/.gemini/sessions/old-session-*.json
+rm ~/.codex/sessions/old-session-*.json
 
 # Solution 2: Archive current context and start fresh
 /sg:save "archived-context-$(date +%Y%m%d)"
-# Start a new Gemini CLI session for fresh memory
+# Start a new Codex CLI session for fresh memory
 
 # Solution 3: Regular session maintenance
-# Save important sessions and restart Gemini CLI periodically
+# Save important sessions and restart Codex CLI periodically
 
 # Prevention
 # Regular session maintenance and archiving
@@ -642,31 +642,31 @@ rm ~/.gemini/sessions/old-session-*.json
 
 ### Configuration Problems and Validation
 
-**Issue: GEMINI.md Import Conflicts**
+**Issue: CODEX.md Import Conflicts**
 ```bash
 # Error message
-ERROR: Circular import detected in GEMINI.md
+ERROR: Circular import detected in CODEX.md
 
 # Diagnosis
 # Check import structure
-grep -n "@" ~/.gemini/GEMINI.md
+grep -n "@" ~/.codex/CODEX.md
 # Look for circular references
 
 # Solution 1: Fix circular imports
-# Edit ~/.gemini/GEMINI.md to remove problematic @imports
-# Remove any @GEMINI.md references from imported files
+# Edit ~/.codex/CODEX.md to remove problematic @imports
+# Remove any @CODEX.md references from imported files
 
 # Solution 2: Reset to default configuration
-cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.backup
-python3 -m SuperGemini install --reset-config
+cp ~/.codex/CODEX.md ~/.codex/CODEX.md.backup
+python3 -m SuperCodex install --reset-config
 
 # Solution 3: Manual configuration repair
-cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.backup
-python3 -m SuperGemini install --components core --force
+cp ~/.codex/CODEX.md ~/.codex/CODEX.md.backup
+python3 -m SuperCodex install --components core --force
 
 # Verification
 # Check that imports work correctly
-grep "@" ~/.gemini/GEMINI.md
+grep "@" ~/.codex/CODEX.md
 # Verify no circular references
 ```
 
@@ -676,18 +676,18 @@ grep "@" ~/.gemini/GEMINI.md
 
 # Diagnosis
 # Check component installation status
-cat ~/.gemini/GEMINI.md
-ls ~/.gemini/
+cat ~/.codex/CODEX.md
+ls ~/.codex/
 
 # Solution 1: Reinstall in correct order
-python3 -m SuperGemini install --components core agents modes mcp --force
+python3 -m SuperCodex install --components core agents modes mcp --force
 
 # Solution 2: Fresh installation
-rm -rf ~/.gemini/
-python3 -m SuperGemini install --fresh
+rm -rf ~/.codex/
+python3 -m SuperCodex install --fresh
 
 # Solution 3: Verify installation integrity
-cat ~/.gemini/GEMINI.md | grep -E "@|SuperGemini"
+cat ~/.codex/CODEX.md | grep -E "@|SuperCodex"
 
 # Prevention
 # Install components in dependency order
@@ -696,24 +696,24 @@ cat ~/.gemini/GEMINI.md | grep -E "@|SuperGemini"
 
 **Issue: Custom Configuration Not Loading**
 ```bash
-# Symptoms: Personal customizations in GEMINI.md not taking effect
+# Symptoms: Personal customizations in CODEX.md not taking effect
 
 # Diagnosis
 # Check file syntax and structure
-cat ~/.gemini/GEMINI.md
+cat ~/.codex/CODEX.md
 # Look for syntax errors
 
 # Solution 1: Check configuration syntax
-# Look for syntax errors in GEMINI.md
-cat ~/.gemini/GEMINI.md | grep -E "error|Error|invalid"
+# Look for syntax errors in CODEX.md
+cat ~/.codex/CODEX.md | grep -E "error|Error|invalid"
 
 # Solution 2: Backup and reset
-cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.custom
-python3 -m SuperGemini install --reset-config
+cp ~/.codex/CODEX.md ~/.codex/CODEX.md.custom
+python3 -m SuperCodex install --reset-config
 # Manually merge custom content back
 
 # Solution 3: Step-by-step integration
-python3 -m SuperGemini install --components core  # Base installation
+python3 -m SuperCodex install --components core  # Base installation
 # Add custom content gradually and test
 
 # Prevention
@@ -725,22 +725,22 @@ python3 -m SuperGemini install --components core  # Base installation
 
 **Issue: Complete Configuration Corruption**
 ```bash
-# Symptoms: SuperGemini completely non-functional after configuration changes
+# Symptoms: SuperCodex completely non-functional after configuration changes
 
 # Emergency Recovery Procedure
 # Step 1: Backup current state
-cp -r ~/.gemini ~/.gemini.corrupted.$(date +%Y%m%d)
+cp -r ~/.codex ~/.codex.corrupted.$(date +%Y%m%d)
 
 # Step 2: Complete reset
-rm -rf ~/.gemini/
-python3 -m SuperGemini install --fresh
+rm -rf ~/.codex/
+python3 -m SuperCodex install --fresh
 
 # Step 3: Selective recovery
 # Restore specific custom files from backup if needed
-cp ~/.gemini.corrupted.*/custom-file.md ~/.gemini/
+cp ~/.codex.corrupted.*/custom-file.md ~/.codex/
 
 # Step 4: Gradual reconfiguration
-python3 -m SuperGemini install --components core agents modes
+python3 -m SuperCodex install --components core agents modes
 # Test after each component
 
 # Prevention
@@ -765,8 +765,8 @@ df -h
 iostat 1 5
 
 # Check process resource usage
-ps aux | grep -i gemini
-top | grep -i gemini
+ps aux | grep -i codex
+top | grep -i codex
 
 # Solution 1: Reduce operation scope
 /sg:analyze src/ --scope file          # Instead of entire project
@@ -778,8 +778,8 @@ top | grep -i gemini
 
 # Solution 3: Clear session data and restart
 # Remove old session files if they exist
-rm -rf ~/.gemini/sessions/old-*
-# Restart Gemini CLI session
+rm -rf ~/.codex/sessions/old-*
+# Restart Codex CLI session
 
 # Prevention
 # Monitor system resources before large operations
@@ -799,10 +799,10 @@ ps aux --sort=-%mem | head -10
 /sg:analyze . --scope module  # Instead of entire project
 
 # Solution 2: Clear session cache
-rm -rf ~/.gemini/sessions/old-*
+rm -rf ~/.codex/sessions/old-*
 # Remove old session files
 
-# Solution 3: Restart Gemini CLI session
+# Solution 3: Restart Codex CLI session
 # This clears memory and resets context
 
 # Prevention
@@ -823,7 +823,7 @@ npm list -g | grep -E "context7|sequential|magic|playwright"
 /sg:implement "task" --c7 --seq  # Use only needed servers
 # Instead of --all-mcp
 
-# Solution 2: Restart Gemini CLI session
+# Solution 2: Restart Codex CLI session
 # This restarts all MCP servers
 
 # Solution 3: Local fallback mode
@@ -847,13 +847,13 @@ htop
 iotop
 netstat -i
 
-# Monitor Gemini CLI performance
+# Monitor Codex CLI performance
 time /sg:analyze small-file.py  # Time simple operations
 
 # Analysis and optimization
 # Based on monitoring results:
 # - High CPU: Reduce operation scope with --scope flags
-# - High Memory: Clear old sessions and restart Gemini CLI
+# - High Memory: Clear old sessions and restart Codex CLI
 # - High I/O: Focus on specific files instead of entire projects
 # - High Network: Use --no-mcp for local operations
 ```
@@ -865,14 +865,14 @@ time /sg:analyze small-file.py  # Time simple operations
 **Error: "Command not recognized"**
 ```bash
 # Full error message
-ERROR: Command '/sg:analyze' not recognized by Gemini CLI
+ERROR: Command '/sg:analyze' not recognized by Codex CLI
 
-# Meaning: SuperGemini instructions not loaded into Gemini CLI session
+# Meaning: SuperCodex instructions not loaded into Codex CLI session
 # Resolution:
-1. Verify SuperGemini installation: python3 -m SuperGemini --version
-2. Check ~/.gemini/GEMINI.md exists and contains SuperGemini instructions
-3. Restart Gemini CLI completely
-4. If persistent: python3 -m SuperGemini install --components core --force
+1. Verify SuperCodex installation: python3 -m SuperCodex --version
+2. Check ~/.codex/CODEX.md exists and contains SuperCodex instructions
+3. Restart Codex CLI completely
+4. If persistent: python3 -m SuperCodex install --components core --force
 ```
 
 **Error: "Component dependency not met"**
@@ -882,9 +882,9 @@ ERROR: Component 'mcp' installation failed - dependency 'core' not met
 
 # Meaning: Attempting to install component without required dependencies
 # Resolution:
-1. Install dependencies first: python3 -m SuperGemini install --components core
-2. Then install desired component: python3 -m SuperGemini install --components mcp
-3. Or reinstall completely: python3 -m SuperGemini install --fresh
+1. Install dependencies first: python3 -m SuperCodex install --components core
+2. Then install desired component: python3 -m SuperCodex install --components mcp
+3. Or reinstall completely: python3 -m SuperCodex install --fresh
 ```
 
 **Error: "MCP server connection failed"**
@@ -895,7 +895,7 @@ ERROR: MCP server 'context7' connection failed - server not responding
 # Meaning: MCP server unavailable or misconfigured
 # Resolution:
 1. Check Node.js installation: node --version (should be 16+)
-2. Reinstall MCP servers: python3 -m SuperGemini install --components mcp --force
+2. Reinstall MCP servers: python3 -m SuperCodex install --components mcp --force
 3. Check server installation: npm list -g | grep -E "context7|sequential|magic"
 4. Test without MCP: /sg:command --no-mcp
 ```
@@ -953,14 +953,14 @@ ERROR: MCP context7 connection failed - timeout after 30s [E001]
 **Required Information for Bug Reports:**
 ```bash
 # Essential diagnostic information
-python3 -m SuperGemini --version        # Version information
+python3 -m SuperCodex --version        # Version information
 uname -a                                 # System information  
 python3 --version                        # Python version
 node --version                           # Node.js version (if using MCP)
 
-# SuperGemini-specific diagnostics
-ls -la ~/.gemini/
-cat ~/.gemini/GEMINI.md | head -20
+# SuperCodex-specific diagnostics
+ls -la ~/.codex/
+cat ~/.codex/CODEX.md | head -20
 
 # Error reproduction
 # 1. Exact command that caused the issue
@@ -973,13 +973,13 @@ cat ~/.gemini/GEMINI.md | head -20
 ```markdown
 ## Bug Report
 
-**SuperGemini Version:** [Output of `python3 -m SuperGemini --version`]
+**SuperCodex Version:** [Output of `python3 -m SuperCodex --version`]
 
 **Environment:**
 - OS: [Linux/macOS/Windows + version]
 - Python: [Output of `python --version`]
 - Node.js: [Output of `node --version`] (if using MCP servers)
-- Gemini CLI Version: [Output of `gemini --version`]
+- Codex CLI Version: [Output of `codex --version`]
 
 **Description:**
 [Clear description of the issue]
@@ -1001,7 +1001,7 @@ cat ~/.gemini/GEMINI.md | head -20
 ```
 
 **Debug Information:**
-[Attach output of `ls -la ~/.gemini/` and first 20 lines of GEMINI.md]
+[Attach output of `ls -la ~/.codex/` and first 20 lines of CODEX.md]
 
 **Additional Context:**
 [Any other relevant information]
@@ -1012,12 +1012,12 @@ cat ~/.gemini/GEMINI.md | head -20
 **Primary Support Channels:**
 
 1. **GitHub Issues** (Technical Problems)
-   - URL: https://github.com/SuperGemini-Org/SuperGemini_Framework/issues
+   - URL: https://github.com/SuperCodex-Org/SuperCodex_Framework/issues
    - Use for: Bug reports, installation issues, feature requests
    - Response time: 24-48 hours for critical issues
 
 2. **GitHub Discussions** (General Help)
-   - URL: https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions
+   - URL: https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions
    - Use for: Usage questions, best practices, community support
    - Response time: Community-driven, usually <24 hours
 
@@ -1033,23 +1033,23 @@ cat ~/.gemini/GEMINI.md | head -20
 
 **Enterprise Support:**
 - Available for organizations requiring dedicated support
-- Contact: [GitHub repository maintainers](https://github.com/SuperGemini-Org/SuperGemini_Framework)
+- Contact: [GitHub repository maintainers](https://github.com/SuperCodex-Org/SuperCodex_Framework)
 
 ## Frequently Asked Questions
 
 ### Installation and Setup
 
-**Q: Can I use SuperGemini without Node.js?**
-A: Yes, but with limited functionality. Core SuperGemini works with Python only. MCP servers (Context7, Magic, Sequential) require Node.js 16+ for enhanced capabilities.
+**Q: Can I use SuperCodex without Node.js?**
+A: Yes, but with limited functionality. Core SuperCodex works with Python only. MCP servers (Context7, Magic, Sequential) require Node.js 16+ for enhanced capabilities.
 
-**Q: Does SuperGemini work on Windows?**
-A: Yes, SuperGemini supports Windows 10/11. Use PowerShell or Command Prompt for installation. Some features may require WSL for optimal compatibility.
+**Q: Does SuperCodex work on Windows?**
+A: Yes, SuperCodex supports Windows 10/11. Use PowerShell or Command Prompt for installation. Some features may require WSL for optimal compatibility.
 
-**Q: How much disk space does SuperGemini require?**
+**Q: How much disk space does SuperCodex require?**
 A: Core installation: ~50MB. With all MCP servers: ~200MB. Session storage grows over time but can be managed with cleanup commands.
 
-**Q: Can I install SuperGemini in a virtual environment?**
-A: Yes, recommended for isolation. Use `python -m venv superclaude-env && source superclaude-env/bin/activate && pip install SuperGemini`.
+**Q: Can I install SuperCodex in a virtual environment?**
+A: Yes, recommended for isolation. Use `python -m venv superclaude-env && source superclaude-env/bin/activate && pip install SuperCodex`.
 
 ### Usage and Features
 
@@ -1068,12 +1068,12 @@ A: Modes control behavior style (brainstorming, task management, etc.). Agents p
 ### Troubleshooting
 
 **Q: Commands are slow or hanging - what should I do?**
-A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Focus on specific tasks, 4) Restart Gemini CLI session to clear cache.
+A: 1) Check system resources with `top`, 2) Reduce scope with `--scope file`, 3) Focus on specific tasks, 4) Restart Codex CLI session to clear cache.
 
-**Q: How do I reset SuperGemini to default configuration?**
-A: `cp ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.backup && python3 -m SuperGemini install --reset-config` creates backup and resets to defaults.
+**Q: How do I reset SuperCodex to default configuration?**
+A: `cp ~/.codex/CODEX.md ~/.codex/CODEX.md.backup && python3 -m SuperCodex install --reset-config` creates backup and resets to defaults.
 
-**Q: Can I contribute to SuperGemini development?**
+**Q: Can I contribute to SuperCodex development?**
 A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for development setup and contribution process.
 
 ## System Diagnostics
@@ -1082,14 +1082,14 @@ A: Yes! See [Contributing Guide](../Developer-Guide/contributing-code.md) for de
 
 **Comprehensive System Health Check:**
 ```bash
-# Complete SuperGemini diagnostics
-python3 -m SuperGemini --version
-ls -la ~/.gemini/
-cat ~/.gemini/GEMINI.md | head -10
+# Complete SuperCodex diagnostics
+python3 -m SuperCodex --version
+ls -la ~/.codex/
+cat ~/.codex/CODEX.md | head -10
 
 # Verify core functionality
-grep "SuperGemini" ~/.gemini/GEMINI.md
-# Should show SuperGemini framework instructions
+grep "SuperCodex" ~/.codex/CODEX.md
+# Should show SuperCodex framework instructions
 
 # Check MCP server installations (if using)
 node --version
@@ -1099,25 +1099,25 @@ npm list -g | grep -E "context7|sequential|magic|playwright"
 **Quick Health Verification:**
 ```bash
 # Basic functionality test
-python3 -m SuperGemini --version        # Version verification
-ls ~/.gemini/                           # Check installation
-cat ~/.gemini/GEMINI.md | grep "@"      # Check imports
+python3 -m SuperCodex --version        # Version verification
+ls ~/.codex/                           # Check installation
+cat ~/.codex/CODEX.md | grep "@"      # Check imports
 
-# Test core functionality in Gemini CLI
+# Test core functionality in Codex CLI
 # Try: /sg:analyze README.md
 ```
 
 **Component-Specific Diagnostics:**
 ```bash
 # Test specific components
-cat ~/.gemini/GEMINI.md | grep -E "FLAGS|RULES|PRINCIPLES"  # Core components
-cat ~/.gemini/GEMINI.md | grep -E "MODE_|MCP_"              # Modes and MCP
+cat ~/.codex/CODEX.md | grep -E "FLAGS|RULES|PRINCIPLES"  # Core components
+cat ~/.codex/CODEX.md | grep -E "MODE_|MCP_"              # Modes and MCP
 
 # Check MCP server installations
 npm list -g | grep -E "context7|sequential|magic|playwright"
 
 # Test session functionality
-ls ~/.gemini/sessions/ 2>/dev/null || echo "No sessions directory found"
+ls ~/.codex/sessions/ 2>/dev/null || echo "No sessions directory found"
 ```
 
 ### System Requirement Validation
@@ -1126,15 +1126,15 @@ ls ~/.gemini/sessions/ 2>/dev/null || echo "No sessions directory found"
 ```bash
 # System requirements validation
 python3 --version  # Should be 3.8+
-which gemini       # Should return path to Gemini CLI
+which codex       # Should return path to Codex CLI
 df -h ~            # Check disk space (50MB+ available)
-touch ~/.gemini/test && rm ~/.gemini/test  # Test write permissions
+touch ~/.codex/test && rm ~/.codex/test  # Test write permissions
 
 # Expected validations:
 # ✅ Python 3.8+ detected
-# ✅ Gemini CLI installation verified  
+# ✅ Codex CLI installation verified  
 # ✅ Sufficient disk space (50MB minimum)
-# ✅ Write permissions to ~/.gemini directory
+# ✅ Write permissions to ~/.codex directory
 # ⚠️  Node.js 16+ recommended for MCP servers
 ```
 
@@ -1144,13 +1144,13 @@ touch ~/.gemini/test && rm ~/.gemini/test  # Test write permissions
 python3 --version
 # Should be 3.8.0 or higher
 
-# Gemini CLI availability
-gemini --version
+# Codex CLI availability
+codex --version
 # Should return version number without error
 
 # Directory permissions
-ls -la ~/.gemini/
-touch ~/.gemini/test-write && rm ~/.gemini/test-write
+ls -la ~/.codex/
+touch ~/.codex/test-write && rm ~/.codex/test-write
 # Should succeed without permission errors
 
 # Optional: Node.js for MCP servers
@@ -1165,7 +1165,7 @@ free -h                    # Check available memory (1GB+ recommended)
 **Performance Baseline Testing:**
 ```bash
 # Establish performance baselines
-time python3 -m SuperGemini --version    # Basic command speed
+time python3 -m SuperCodex --version    # Basic command speed
 time /sg:analyze README.md               # Simple analysis speed test  
 
 # Test with different scopes
@@ -1206,8 +1206,8 @@ time /sg:analyze . --scope module        # Module-scoped analysis
 - [Testing & Debugging](../Developer-Guide/testing-debugging.md) - Advanced debugging techniques and testing procedures
 
 **Community Support:**
-- [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) - Bug reports and technical support
-- [GitHub Discussions](https://github.com/SuperGemini-Org/SuperGemini_Framework/discussions) - Community help and best practices
+- [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues) - Bug reports and technical support
+- [GitHub Discussions](https://github.com/SuperCodex-Org/SuperCodex_Framework/discussions) - Community help and best practices
 - [Contributing Guidelines](../CONTRIBUTING.md) - How to contribute fixes and improvements
 
 ### Quick Reference Links
@@ -1226,14 +1226,14 @@ time /sg:analyze . --scope module        # Module-scoped analysis
 ---
 
 **Emergency Recovery:**
-If SuperGemini is completely non-functional:
-1. Backup current configuration: `cp -r ~/.gemini ~/.gemini.backup`
-2. Complete reset: `rm -rf ~/.gemini && python3 -m SuperGemini install --fresh`
+If SuperCodex is completely non-functional:
+1. Backup current configuration: `cp -r ~/.codex ~/.codex.backup`
+2. Complete reset: `rm -rf ~/.codex && python3 -m SuperCodex install --fresh`
 3. Restore custom configurations gradually from backup
-4. If issues persist, report to [GitHub Issues](https://github.com/SuperGemini-Org/SuperGemini_Framework/issues) with diagnostic information
+4. If issues persist, report to [GitHub Issues](https://github.com/SuperCodex-Org/SuperCodex_Framework/issues) with diagnostic information
 
 **Verification Steps:**
 After every solution, verify with these commands:
-- ✅ `python3 -m SuperGemini --version` - Should return version number
-- ✅ `cat ~/.gemini/GEMINI.md | grep SuperGemini` - Should show framework content
-- ✅ Try `/sg:analyze README.md` in Gemini CLI - Should work without errors
+- ✅ `python3 -m SuperCodex --version` - Should return version number
+- ✅ `cat ~/.codex/CODEX.md | grep SuperCodex` - Should show framework content
+- ✅ Try `/sg:analyze README.md` in Codex CLI - Should work without errors

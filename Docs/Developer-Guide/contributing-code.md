@@ -1,8 +1,8 @@
-# Contributing Code to SuperGemini Framework 🛠️
+# Contributing Code to SuperCodex Framework 🛠️
 
-Welcome to SuperGemini Framework development! This guide provides everything you need to contribute to the meta-programming framework that transforms Gemini Code into a structured development platform.
+Welcome to SuperCodex Framework development! This guide provides everything you need to contribute to the meta-programming framework that transforms Codex Code into a structured development platform.
 
-**Project Purpose**: SuperGemini enhances Gemini Code through behavioral instruction injection, intelligent agent coordination, and MCP server integration. We're building the next generation of AI-assisted development tools.
+**Project Purpose**: SuperCodex enhances Codex Code through behavioral instruction injection, intelligent agent coordination, and MCP server integration. We're building the next generation of AI-assisted development tools.
 
 **Community Approach**: Open collaboration focused on expanding capabilities, improving user experience, and maintaining high-quality code standards. Every contribution, from bug fixes to new features, helps advance AI-assisted development.
 
@@ -34,7 +34,7 @@ Welcome to SuperGemini Framework development! This guide provides everything you
 **Required:**
 - Python 3.8+ with pip
 - Git for version control
-- Gemini Code installed and working
+- Codex Code installed and working
 - Node.js 16+ (for MCP server development)
 
 **Recommended:**
@@ -52,7 +52,7 @@ Before starting development, validate your environment meets all requirements:
 #!/bin/bash
 # validate_environment.sh
 
-echo "🔍 Validating SuperGemini Development Environment..."
+echo "🔍 Validating SuperCodex Development Environment..."
 
 # Check Python version
 python_version=$(python3 --version 2>&1 | grep -o '[0-9]\+\.[0-9]\+')
@@ -85,13 +85,13 @@ else
     exit 1
 fi
 
-# Check Gemini Code
-if command -v gemini-code >/dev/null 2>&1; then
-    echo "✅ Gemini Code available in PATH (OK)"
-elif [ -f "$HOME/.vscode/extensions" ] && ls "$HOME/.vscode/extensions" | grep -q gemini; then
-    echo "✅ Gemini Code VS Code extension detected (OK)"
+# Check Codex Code
+if command -v codex-code >/dev/null 2>&1; then
+    echo "✅ Codex Code available in PATH (OK)"
+elif [ -f "$HOME/.vscode/extensions" ] && ls "$HOME/.vscode/extensions" | grep -q codex; then
+    echo "✅ Codex Code VS Code extension detected (OK)"
 else
-    echo "⚠️ Gemini Code not detected - verify installation"
+    echo "⚠️ Codex Code not detected - verify installation"
 fi
 
 # Check disk space (requires at least 2GB)
@@ -132,9 +132,9 @@ python3 --version    # Should be 3.8+
 node --version       # Should be 16+
 git --version        # Any recent version
 
-# Verify Gemini Code is properly installed and working
-# Check if Gemini Code CLI is available in PATH
-which gemini-code || echo "Gemini Code not found in PATH"
+# Verify Codex Code is properly installed and working
+# Check if Codex Code CLI is available in PATH
+which codex-code || echo "Codex Code not found in PATH"
 # Or verify through IDE integration (VS Code extension, etc.)
 ```
 
@@ -142,9 +142,9 @@ which gemini-code || echo "Gemini Code not found in PATH"
 
 **1. Fork and Clone Repository:**
 ```bash
-# Fork SuperGemini_Framework on GitHub first
-git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git
-cd SuperGemini_Framework
+# Fork SuperCodex_Framework on GitHub first
+git clone https://github.com/YOUR_USERNAME/SuperCodex_Framework.git
+cd SuperCodex_Framework
 ```
 
 **2. Set Up Python Environment:**
@@ -221,7 +221,7 @@ CMD ["/bin/bash"]
 **VS Code DevContainer Setup:**
 ```json
 {
-  "name": "SuperGemini Development",
+  "name": "SuperCodex Development",
   "dockerFile": "../docker/Dockerfile.dev",
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind",
@@ -241,20 +241,20 @@ CMD ["/bin/bash"]
 ```bash
 # Set up development configuration
 export SUPERCLAUDE_DEV=true
-export CLAUDE_CONFIG_DIR=~/.gemini
+export CLAUDE_CONFIG_DIR=~/.codex
 
 # Create development configuration directory if it doesn't exist
-mkdir -p ~/.gemini
+mkdir -p ~/.codex
 
-# Copy core configuration files to Gemini config directory
-cp -r SuperGemini/Core/* ~/.gemini/
+# Copy core configuration files to Codex config directory
+cp -r SuperCodex/Core/* ~/.codex/
 ```
 
 **4. Verify Installation:**
 ```bash
 # Test installation
-python3 -m SuperGemini --version
-python3 -m SuperGemini install --dry-run --install-dir ~/.gemini
+python3 -m SuperCodex --version
+python3 -m SuperCodex install --dry-run --install-dir ~/.codex
 
 # Run tests
 python3 -m pytest tests/
@@ -279,13 +279,13 @@ cp .vscode/settings.json.template .vscode/settings.json
 
 ### Core Components
 
-**SuperGemini Framework Structure:**
+**SuperCodex Framework Structure:**
 
-**Accessibility Description**: This is a hierarchical directory tree showing the organization of SuperGemini Framework components. The main directory contains four major subdirectories: SuperGemini (framework components), setup (installation system), documentation directories, and tests.
+**Accessibility Description**: This is a hierarchical directory tree showing the organization of SuperCodex Framework components. The main directory contains four major subdirectories: SuperCodex (framework components), setup (installation system), documentation directories, and tests.
 
 ```
-SuperGemini_Framework/
-├── SuperGemini/                 # Framework components
+SuperCodex_Framework/
+├── SuperCodex/                 # Framework components
 │   ├── Core/                   # Core behavioral instructions
 │   │   ├── FLAGS.md            # Behavioral flags system
 │   │   ├── RULES.md            # Development rules
@@ -314,7 +314,7 @@ SuperGemini_Framework/
 ```
 
 **Key Architectural Concepts:**
-- **Meta-Framework**: Enhances Gemini Code through configuration injection
+- **Meta-Framework**: Enhances Codex Code through configuration injection
 - **Component System**: Modular installation with dependency resolution
 - **Behavioral Programming**: AI behavior modification through .md files
 - **Intelligent Orchestration**: Dynamic coordination of agents and tools
@@ -335,7 +335,7 @@ SuperGemini_Framework/
 from setup.components.base import BaseComponent
 
 class AgentComponent(BaseComponent):
-    """Base class for SuperGemini agent components"""
+    """Base class for SuperCodex agent components"""
     
     def get_agent_definitions(self):
         return {
@@ -369,7 +369,7 @@ class AgentComponent(BaseComponent):
 - Manual flags: --custom-mode, --cm
 
 ## Behavioral Changes
-- **Change 1**: Description and impact on Gemini Code behavior
+- **Change 1**: Description and impact on Codex Code behavior
 - **Change 2**: Description and impact on tool selection
 
 ## Outcomes
@@ -434,7 +434,7 @@ class MCPComponent(BaseComponent):
 `code` for inline code and commands
 ```code blocks``` for examples
 **Flags**: Use consistent flag notation (--flag-name)
-**Commands**: Use consistent command notation (SuperGemini command)
+**Commands**: Use consistent command notation (SuperCodex command)
 ```
 
 **Code Example Standards:**
@@ -493,11 +493,11 @@ changes
 ```bash
 # 1. Fork repository on GitHub
 # 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git
-cd SuperGemini_Framework
+git clone https://github.com/YOUR_USERNAME/SuperCodex_Framework.git
+cd SuperCodex_Framework
 
 # 3. Add upstream remote
-git remote add upstream https://github.com/SuperGemini-Org/SuperGemini_Framework.git
+git remote add upstream https://github.com/SuperCodex-Org/SuperCodex_Framework.git
 
 # 4. Create feature branch
 git checkout -b feature/your-feature-name
@@ -520,7 +520,7 @@ python3 -m pytest tests/
 python3 scripts/validate_pypi_ready.py
 
 # 3. Test installation
-python3 -m SuperGemini install --dry-run --components your-component
+python3 -m SuperCodex install --dry-run --components your-component
 
 # 4. Run linting and formatting
 python3 -m black .
@@ -609,22 +609,22 @@ Brief description of changes and motivation
 
 **🎯 Skill Level: Beginner to Intermediate**
 
-Complete this checklist to ensure you're ready to contribute effectively to SuperGemini Framework:
+Complete this checklist to ensure you're ready to contribute effectively to SuperCodex Framework:
 
 #### Phase 1: Environment Setup ⏱️ **15 minutes**
 - [ ] **Prerequisites Validated**
   - [ ] Python 3.8+ installed and accessible
   - [ ] Node.js 16+ installed for MCP development
   - [ ] Git configured with your name and email
-  - [ ] Gemini Code installed and working
+  - [ ] Codex Code installed and working
   - [ ] 8GB+ RAM available for development
   - [ ] 2GB+ disk space available
 
 - [ ] **Repository Setup**
   - [ ] GitHub account configured with SSH key
-  - [ ] SuperGemini_Framework repository forked to your account
-  - [ ] Local clone created: `git clone https://github.com/YOUR_USERNAME/SuperGemini_Framework.git`
-  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperGemini-Org/SuperGemini_Framework.git`
+  - [ ] SuperCodex_Framework repository forked to your account
+  - [ ] Local clone created: `git clone https://github.com/YOUR_USERNAME/SuperCodex_Framework.git`
+  - [ ] Upstream remote added: `git remote add upstream https://github.com/SuperCodex-Org/SuperCodex_Framework.git`
   - [ ] Development branch created: `git checkout -b feature/your-first-contribution`
 
 - [ ] **Development Environment**
@@ -643,8 +643,8 @@ Complete this checklist to ensure you're ready to contribute effectively to Supe
 - [ ] **Component System Knowledge**
   - [ ] Review component installation system in `setup/components/`
   - [ ] Understand dependency resolution patterns
-  - [ ] Examine existing agent definitions in `SuperGemini/Agents/`
-  - [ ] Review behavioral mode files in `SuperGemini/Modes/`
+  - [ ] Examine existing agent definitions in `SuperCodex/Agents/`
+  - [ ] Review behavioral mode files in `SuperCodex/Modes/`
 
 - [ ] **Development Patterns**
   - [ ] Review contribution guidelines in this document
@@ -671,7 +671,7 @@ Choose your contribution path based on interest and skill level:
 
 #### 🤖 **Agent Development Path** - *Intermediate Level*
 **Time Investment: 2-4 hours**
-- [ ] Study existing agent patterns in `SuperGemini/Agents/`
+- [ ] Study existing agent patterns in `SuperCodex/Agents/`
 - [ ] Review agent activation triggers and capabilities
 - [ ] Understand agent coordination protocols
 - [ ] **First Contribution Ideas:**
@@ -682,7 +682,7 @@ Choose your contribution path based on interest and skill level:
 #### 🎯 **Behavioral Mode Path** - *Intermediate Level*  
 **Time Investment: 1-3 hours**
 - [ ] Understand mode activation triggers and behavioral changes
-- [ ] Review existing modes in `SuperGemini/Modes/`
+- [ ] Review existing modes in `SuperCodex/Modes/`
 - [ ] Study mode integration with other systems
 - [ ] **First Contribution Ideas:**
   - [ ] Create specialized behavioral mode (research, academic)
@@ -776,7 +776,7 @@ git commit -m "docs: improve onboarding example for new contributors
 Closes #XXX (if applicable)"
 ```
 
-**🎉 Welcome to the SuperGemini Framework contributor community!**
+**🎉 Welcome to the SuperCodex Framework contributor community!**
 
 ## 📈 Performance Testing Requirements
 
@@ -951,7 +951,7 @@ Maintain backward compatibility to ensure smooth upgrades for existing users:
 ```python
 # setup/core/compatibility.py
 class CompatibilityManager:
-    """Manages backward compatibility for SuperGemini Framework"""
+    """Manages backward compatibility for SuperCodex Framework"""
     
     SUPPORTED_VERSIONS = ['3.0', '3.1', '3.2', '4.0-beta']
     MIGRATION_PATHS = {
@@ -1061,7 +1061,7 @@ git push upstream v4.0.1
 
 **Release Branches:**
 - **master**: Stable releases
-- **SuperGemini_V4_Beta**: V4 Beta releases and development
+- **SuperCodex_V4_Beta**: V4 Beta releases and development
 - **hotfix/***: Critical fixes for production
 
 ### Enhanced Release Process Documentation ⏱️ **45-60 minutes**
@@ -1073,7 +1073,7 @@ git push upstream v4.0.1
 **Code Quality Gates:**
 - [ ] All tests pass with >95% coverage: `python3 -m pytest tests/ --cov=setup --cov-fail-under=95`
 - [ ] Installation validation passes: `python3 scripts/validate_pypi_ready.py`
-- [ ] Security scan passes: `python3 -m bandit -r setup/ SuperGemini/`
+- [ ] Security scan passes: `python3 -m bandit -r setup/ SuperCodex/`
 - [ ] Performance benchmarks within thresholds: `python3 scripts/performance_regression.py`
 - [ ] Documentation builds without errors: `python3 scripts/build_docs.py`
 - [ ] Linting and formatting clean: `python3 -m black --check . && python3 -m pylint setup/`
@@ -1105,7 +1105,7 @@ set -e  # Exit on any error
 VERSION=${1:?"Version parameter required (e.g., 4.0.1)"}
 RELEASE_TYPE=${2:-"patch"}  # major, minor, patch
 
-echo "🚀 Starting SuperGemini Framework Release Pipeline v${VERSION}"
+echo "🚀 Starting SuperCodex Framework Release Pipeline v${VERSION}"
 
 # Step 1: Validate environment
 echo "📋 Step 1: Environment Validation"
@@ -1115,7 +1115,7 @@ python3 scripts/validate_release_environment.py --version ${VERSION}
 echo "🧪 Step 2: Comprehensive Testing"
 python3 -m pytest tests/ --cov=setup --cov-fail-under=95 --junit-xml=test-results.xml
 python3 scripts/performance_regression.py
-python3 -m bandit -r setup/ SuperGemini/ -f json -o security-report.json
+python3 -m bandit -r setup/ SuperCodex/ -f json -o security-report.json
 
 # Step 3: Version management
 echo "📦 Step 3: Version Management"
@@ -1165,7 +1165,7 @@ def update_version(version: str, release_type: str):
     
     files_to_update = [
         'setup.py',
-        'SuperGemini/__init__.py',
+        'SuperCodex/__init__.py',
         'setup/core/__init__.py',
         'docs/conf.py'
     ]
@@ -1247,7 +1247,7 @@ class ReleaseNotesGenerator:
         return '\n\n'.join(filter(None, sections))
     
     def _generate_header(self) -> str:
-        return f"""# SuperGemini Framework {self.version}
+        return f"""# SuperCodex Framework {self.version}
 
 **Release Date**: {datetime.now().strftime('%Y-%m-%d')}
 **Previous Version**: {self.previous_version}
@@ -1313,7 +1313,7 @@ class ReleaseNotesGenerator:
 
 VERSION=${1:?"Version parameter required"}
 
-echo "🚀 Deploying SuperGemini Framework v${VERSION} to Production"
+echo "🚀 Deploying SuperCodex Framework v${VERSION} to Production"
 
 # Final safety checks
 read -p "⚠️  Are you sure you want to deploy v${VERSION} to production? (yes/no): " confirm
@@ -1333,7 +1333,7 @@ npm publish
 # Update GitHub release
 echo "📝 Creating GitHub release..."
 gh release create v${VERSION} \
-    --title "SuperGemini Framework v${VERSION}" \
+    --title "SuperCodex Framework v${VERSION}" \
     --notes-file RELEASE_NOTES.md \
     --latest
 
@@ -1354,7 +1354,7 @@ echo "📢 Sending release notifications..."
 python3 scripts/notify_release.py --version ${VERSION}
 
 echo "✅ Production deployment completed successfully!"
-echo "🎉 SuperGemini Framework v${VERSION} is now live!"
+echo "🎉 SuperCodex Framework v${VERSION} is now live!"
 ```
 
 #### Post-Release Monitoring
@@ -1398,7 +1398,7 @@ class ReleaseMonitor:
     def _check_pypi_availability(self) -> dict:
         """Check if package is available on PyPI"""
         try:
-            response = requests.get(f"https://pypi.org/project/SuperGemini/{self.version}/")
+            response = requests.get(f"https://pypi.org/project/SuperCodex/{self.version}/")
             return {
                 'status': 'available' if response.status_code == 200 else 'unavailable',
                 'response_time': response.elapsed.total_seconds()
@@ -1591,7 +1591,7 @@ class SessionEnhancement:
 **MCP Server Development Process:**
 1. **Capability Definition**: Clear server purpose and functions
 2. **Protocol Implementation**: Standard MCP protocol compliance
-3. **SuperGemini Integration**: Auto-activation and coordination
+3. **SuperCodex Integration**: Auto-activation and coordination
 4. **Testing**: Server functionality and integration testing
 5. **Documentation**: Usage patterns and examples
 
@@ -1639,25 +1639,25 @@ class DatabaseAnalyzerMCPComponent(BaseComponent):
 
 **Installation Problems:**
 
-*Issue: `ModuleNotFoundError: No module named 'SuperGemini'`*
+*Issue: `ModuleNotFoundError: No module named 'SuperCodex'`*
 ```bash
 # Solution: Install in development mode
 python3 -m pip install -e ".[dev]"
 
 # Verify installation
-python3 -c "import SuperGemini; print(SuperGemini.__version__)"
+python3 -c "import SuperCodex; print(SuperCodex.__version__)"
 ```
 
 *Issue: `Permission denied` when copying configuration files*
 ```bash
 # Solution: Check directory permissions
-ls -la ~/.gemini/
-mkdir -p ~/.gemini
-chmod 755 ~/.gemini
+ls -la ~/.codex/
+mkdir -p ~/.codex
+chmod 755 ~/.codex
 
 # Copy with explicit permissions
-cp -r SuperGemini/Core/* ~/.gemini/
-chmod -R 644 ~/.gemini/*.md
+cp -r SuperCodex/Core/* ~/.codex/
+chmod -R 644 ~/.codex/*.md
 ```
 
 *Issue: `pytest` command not found*
@@ -1670,16 +1670,16 @@ python3 -m pip install pytest
 
 **Configuration Issues:**
 
-*Issue: Gemini Code not detecting SuperGemini configuration*
+*Issue: Codex Code not detecting SuperCodex configuration*
 ```bash
 # Verify configuration location
 echo $CLAUDE_CONFIG_DIR
-ls -la ~/.gemini/
+ls -la ~/.codex/
 
 # Verify files are in correct format
 python3 -c "
 import os
-claude_dir = os.path.expanduser('~/.gemini')
+claude_dir = os.path.expanduser('~/.codex')
 files = os.listdir(claude_dir)
 print('Configuration files:', files)
 "
@@ -1689,12 +1689,12 @@ print('Configuration files:', files)
 ```bash
 # Check Node.js and server paths
 node --version
-ls -la SuperGemini/MCP/configs/
+ls -la SuperCodex/MCP/configs/
 
 # Verify MCP server configuration
 python3 -c "
 import json
-with open('SuperGemini/MCP/configs/mcp_servers.json') as f:
+with open('SuperCodex/MCP/configs/mcp_servers.json') as f:
     config = json.load(f)
     print('MCP servers configured:', list(config.keys()))
 "
@@ -1729,7 +1729,7 @@ python3 -m pip install twine check-manifest
 #!/bin/bash
 # debug_environment.sh
 
-echo "🔍 SuperGemini Development Environment Diagnostics"
+echo "🔍 SuperCodex Development Environment Diagnostics"
 echo "================================================"
 
 echo "📍 Current Directory: $(pwd)"
@@ -1751,22 +1751,22 @@ fi
 echo -e "\n📋 Environment Variables:"
 env | grep -E "(CLAUDE|SUPERCLAUDE|PYTHON)" | sort
 
-echo -e "\n🎯 SuperGemini Installation:"
+echo -e "\n🎯 SuperCodex Installation:"
 python3 -c "
 try:
-    import SuperGemini
-    print(f'✅ SuperGemini {SuperGemini.__version__} installed')
-    print(f'📁 Location: {SuperGemini.__file__}')
+    import SuperCodex
+    print(f'✅ SuperCodex {SuperCodex.__version__} installed')
+    print(f'📁 Location: {SuperCodex.__file__}')
 except ImportError as e:
-    print(f'❌ SuperGemini not found: {e}')
+    print(f'❌ SuperCodex not found: {e}')
 "
 
 echo -e "\n🗂️ Configuration Files:"
-if [ -d ~/.gemini ]; then
-    echo "✅ Config directory exists: ~/.gemini"
-    ls -la ~/.gemini/ | head -5
+if [ -d ~/.codex ]; then
+    echo "✅ Config directory exists: ~/.codex"
+    ls -la ~/.codex/ | head -5
 else
-    echo "❌ Config directory not found: ~/.gemini"
+    echo "❌ Config directory not found: ~/.codex"
 fi
 
 echo -e "\n🧪 Test Environment:"
@@ -1806,7 +1806,7 @@ ps aux | grep python3 | head -5
 #!/bin/bash
 # reset_dev_environment.sh
 
-echo "🔄 Resetting SuperGemini Development Environment..."
+echo "🔄 Resetting SuperCodex Development Environment..."
 
 # Remove virtual environment
 rm -rf venv/
@@ -1819,8 +1819,8 @@ find . -name "*.pyc" -delete
 rm -rf build/ dist/ *.egg-info/
 
 # Reset configuration
-rm -rf ~/.gemini/
-mkdir -p ~/.gemini
+rm -rf ~/.codex/
+mkdir -p ~/.codex
 
 # Recreate virtual environment
 python3 -m venv venv
@@ -1831,7 +1831,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install -e ".[dev]"
 
 # Recopy configuration
-cp -r SuperGemini/Core/* ~/.gemini/
+cp -r SuperCodex/Core/* ~/.codex/
 
 echo "✅ Development environment reset complete!"
 ```
@@ -1839,7 +1839,7 @@ echo "✅ Development environment reset complete!"
 **Backup and Restore Configuration:**
 ```bash
 # Backup current configuration
-tar -czf superclaude_config_backup_$(date +%Y%m%d_%H%M%S).tar.gz ~/.gemini/
+tar -czf superclaude_config_backup_$(date +%Y%m%d_%H%M%S).tar.gz ~/.codex/
 
 # Restore from backup
 tar -xzf superclaude_config_backup_*.tar.gz -C /
@@ -1853,7 +1853,7 @@ tar -xzf superclaude_config_backup_*.tar.gz -C /
 python3 -c "
 import sys, platform, subprocess, os
 
-print('# SuperGemini Development Environment Report')
+print('# SuperCodex Development Environment Report')
 print(f'**Date:** {__import__('datetime').datetime.now().isoformat()}')
 print(f'**Platform:** {platform.platform()}')
 print(f'**Python:** {sys.version.split()[0]}')
@@ -1868,10 +1868,10 @@ print(f'**Working Directory:** {os.getcwd()}')
 print(f'**Virtual Environment:** {os.environ.get("VIRTUAL_ENV", "None")}')
 
 try:
-    import SuperGemini
-    print(f'**SuperGemini Version:** {SuperGemini.__version__}')
+    import SuperCodex
+    print(f'**SuperCodex Version:** {SuperCodex.__version__}')
 except:
-    print('**SuperGemini Version:** Not installed')
+    print('**SuperCodex Version:** Not installed')
 "
 ```
 
@@ -1947,7 +1947,7 @@ echo "**/.env*" >> .gitignore
 **Automated Security Checks:**
 ```bash
 # Add to CI/CD pipeline
-python3 -m bandit -r setup/ SuperGemini/
+python3 -m bandit -r setup/ SuperCodex/
 python3 -m pip-audit
 python3 -m safety check
 ```
@@ -1996,7 +1996,7 @@ python3 -m safety check
 python3 -m pip install -e ".[dev]"
 
 # Test specific component
-python3 -m SuperGemini install --dry-run --components your-component
+python3 -m SuperCodex install --dry-run --components your-component
 
 # Run test suite
 python3 -m pytest tests/test_your_component.py
@@ -2005,7 +2005,7 @@ python3 -m pytest tests/test_your_component.py
 **Q: Where should I add my custom agent?**
 ```
 # Agent files go in:
-SuperGemini/Agents/AGENT_YourAgent.md
+SuperCodex/Agents/AGENT_YourAgent.md
 
 # Component definition goes in:
 setup/components/your_agent.py
@@ -2029,7 +2029,7 @@ def get_metadata(self) -> Dict[str, Any]:
 ```
 
 **Q: What's the difference between agents and MCP servers?**
-- **Agents**: Behavioral specializations within Gemini Code
+- **Agents**: Behavioral specializations within Codex Code
 - **MCP Servers**: External tools that extend capabilities
 - **Agents** coordinate; **MCP servers** provide enhanced functionality
 
@@ -2048,10 +2048,10 @@ Check:
 
 ## 📄 License
 
-**MIT License**: SuperGemini Framework is licensed under the MIT License, providing maximum freedom for use, modification, and distribution.
+**MIT License**: SuperCodex Framework is licensed under the MIT License, providing maximum freedom for use, modification, and distribution.
 
 **Contribution License Agreement:**
-By contributing to SuperGemini Framework, you agree that your contributions will be licensed under the same MIT License. You retain copyright to your contributions while granting the project perpetual rights to use, modify, and distribute your code.
+By contributing to SuperCodex Framework, you agree that your contributions will be licensed under the same MIT License. You retain copyright to your contributions while granting the project perpetual rights to use, modify, and distribute your code.
 
 **Third-Party Dependencies:**
 Ensure any dependencies you add are compatible with MIT License. Common compatible licenses: MIT, Apache 2.0, BSD. Avoid GPL and other copyleft licenses.
@@ -2065,7 +2065,7 @@ Ensure any dependencies you add are compatible with MIT License. Common compatib
 - Testing and quality assurance
 
 **Community Impact:**
-SuperGemini Framework exists because of the collaborative effort of developers, users, and contributors who believe in advancing AI-assisted development. Every bug report, feature suggestion, documentation improvement, and code contribution makes the framework better for everyone.
+SuperCodex Framework exists because of the collaborative effort of developers, users, and contributors who believe in advancing AI-assisted development. Every bug report, feature suggestion, documentation improvement, and code contribution makes the framework better for everyone.
 
 **Special Recognition:**
 - **Early Adopters**: Testing and feedback during beta development
@@ -2077,7 +2077,7 @@ SuperGemini Framework exists because of the collaborative effort of developers, 
 All contributors are recognized in our GitHub contributors page and release notes. Significant contributions may be highlighted in project announcements and community updates.
 
 **Join the Community:**
-Your expertise and perspective make SuperGemini Framework better. Whether you're fixing typos, adding features, or helping other users, every contribution advances the goal of more effective AI-assisted development.
+Your expertise and perspective make SuperCodex Framework better. Whether you're fixing typos, adding features, or helping other users, every contribution advances the goal of more effective AI-assisted development.
 
 **Thank you for contributing to the future of AI-enhanced development tools! 🚀**
 
@@ -2085,27 +2085,27 @@ Your expertise and perspective make SuperGemini Framework better. Whether you're
 
 ## Glossary
 
-**For Screen Readers**: This glossary contains alphabetically ordered technical terms used throughout SuperGemini Framework documentation. Each term includes a clear definition and relevant context.
+**For Screen Readers**: This glossary contains alphabetically ordered technical terms used throughout SuperCodex Framework documentation. Each term includes a clear definition and relevant context.
 
 ### A
 
-**Agent**: A specialized AI persona with domain expertise (e.g., system-architect, security-engineer) that coordinates with other agents to solve complex development tasks. Agents have defined roles, triggers, and capabilities within the SuperGemini orchestration system.
+**Agent**: A specialized AI persona with domain expertise (e.g., system-architect, security-engineer) that coordinates with other agents to solve complex development tasks. Agents have defined roles, triggers, and capabilities within the SuperCodex orchestration system.
 
 **Agent Coordination**: The intelligent orchestration of multiple specialized AI agents working together on complex tasks, with clear communication patterns, decision hierarchies, and collaborative synthesis.
 
-**Architecture Overview**: A high-level view of SuperGemini's system design, including the meta-framework approach, component relationships, and orchestration patterns.
+**Architecture Overview**: A high-level view of SuperCodex's system design, including the meta-framework approach, component relationships, and orchestration patterns.
 
 ### B
 
-**Behavioral Programming**: AI behavior modification through structured configuration files (.md files) that inject instructions into Gemini Code without requiring code changes.
+**Behavioral Programming**: AI behavior modification through structured configuration files (.md files) that inject instructions into Codex Code without requiring code changes.
 
 **Behavioral Modes**: Meta-cognitive frameworks that modify interaction patterns (e.g., brainstorming, introspection, task-management) and influence communication style and tool selection.
 
 ### C
 
-**Gemini Code**: The base AI development assistant that SuperGemini enhances through instruction injection and orchestration capabilities.
+**Codex Code**: The base AI development assistant that SuperCodex enhances through instruction injection and orchestration capabilities.
 
-**Component System**: Modular installation architecture with dependency resolution, allowing selective installation and configuration of SuperGemini features.
+**Component System**: Modular installation architecture with dependency resolution, allowing selective installation and configuration of SuperCodex features.
 
 **Configuration-Driven Behavior**: System behavior modification through structured configuration files rather than code changes, enabling flexible AI customization.
 
@@ -2123,7 +2123,7 @@ Your expertise and perspective make SuperGemini Framework better. Whether you're
 
 ### F
 
-**Framework Components**: Modular parts of SuperGemini including Core (behavioral instructions), Modes (interaction patterns), MCP integrations, Commands, and Agents.
+**Framework Components**: Modular parts of SuperCodex including Core (behavioral instructions), Modes (interaction patterns), MCP integrations, Commands, and Agents.
 
 ### I
 
@@ -2135,9 +2135,9 @@ Your expertise and perspective make SuperGemini Framework better. Whether you're
 
 **MCP Integration**: Model Context Protocol server coordination and management, enabling external tool integration and enhanced capabilities.
 
-**MCP Servers**: External tools that extend Gemini Code capabilities (e.g., context7 for documentation, sequential for analysis, magic for UI generation).
+**MCP Servers**: External tools that extend Codex Code capabilities (e.g., context7 for documentation, sequential for analysis, magic for UI generation).
 
-**Meta-Framework**: Enhancement layer for Gemini Code through instruction injection rather than code modification, maintaining compatibility while adding orchestration capabilities.
+**Meta-Framework**: Enhancement layer for Codex Code through instruction injection rather than code modification, maintaining compatibility while adding orchestration capabilities.
 
 ### O
 
@@ -2163,7 +2163,7 @@ Your expertise and perspective make SuperGemini Framework better. Whether you're
 
 **Session Management**: Context preservation and cross-session learning capabilities that maintain project memory and enable intelligent adaptation over time.
 
-**System Architecture**: The overall design of SuperGemini Framework including detection engine, orchestration layer, execution framework, and foundation components.
+**System Architecture**: The overall design of SuperCodex Framework including detection engine, orchestration layer, execution framework, and foundation components.
 
 ### T
 
@@ -2173,11 +2173,11 @@ Your expertise and perspective make SuperGemini Framework better. Whether you're
 
 ### U
 
-**User Experience**: Design focus on making SuperGemini accessible to developers of all skill levels through clear documentation, intuitive workflows, and comprehensive support resources.
+**User Experience**: Design focus on making SuperCodex accessible to developers of all skill levels through clear documentation, intuitive workflows, and comprehensive support resources.
 
 ### V
 
-**V4 Architecture**: The latest SuperGemini Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, and enhanced orchestration capabilities.
+**V4 Architecture**: The latest SuperCodex Framework version featuring 13 specialized agents, 6 MCP servers, 5 behavioral modes, and enhanced orchestration capabilities.
 
 **Validation Gates**: Automated quality checkpoints throughout development workflows that ensure code quality, security compliance, and performance standards.
 
