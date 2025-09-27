@@ -1,0 +1,14 @@
+{
+  "morphllm-fast-apply": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@morph-llm/morph-fast-apply",
+      "/home/"
+    ],
+    "env": {
+      "MORPH_API_KEY": "",
+      "ALL_TOOLS": "true"
+    }
+  }
+}

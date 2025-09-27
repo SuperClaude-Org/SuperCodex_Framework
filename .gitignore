@@ -1,0 +1,237 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyPI Publishing
+*.whl
+*.tar.gz
+twine.log
+.twine/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node.js (if any frontend components)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# Gemini CLI
+.gemini/
+GEMINI.md
+
+# SuperGemini specific
+.serena/
+.supergemini/
+*.backup
+*.bak
+SuperGemini/Agents/
+AGENTS.md
+
+# Project specific
+Tests/
+GeminiDocs/
+temp/
+tmp/
+.cache/
+
+# Build artifacts
+*.tar.gz
+*.zip
+*.dmg
+*.pkg
+*.deb
+*.rpm
+
+# Documentation builds
+docs/_build/
+site/
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+
+# Security & API Keys
+.env
+.env.local
+.env.*.local
+.pypirc
+secrets/
+private/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# PyPI & Package Management
+uv.lock
+Pipfile.lock
+poetry.lock
+requirements-dev.txt
+requirements-test.txt
+
+# Development Tools
+.mypy_cache/
+.ruff_cache/
+.black/
+.isort.cfg
+.flake8
+pyrightconfig.json
+.pylintrc
+
+# Publishing & Release
+PYPI_SETUP_COMPLETE.md
+release-notes/
+changelog-temp/
+CHANGELOG.md
+
+# Build artifacts (additional)
+*.deb
+*.rpm
+*.dmg
+*.pkg
+*.msi
+*.exe
+
+# IDE & Editor specific
+.vscode/settings.json
+.vscode/launch.json
+.idea/workspace.xml
+.idea/tasks.xml
+*.sublime-project
+*.sublime-workspace
+
+# System & OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# TypeScript (from .npmignore)
+*.ts
+!*.d.ts
+tsconfig.json
+tslint.json
+
+# Code quality tools (from .npmignore)
+.prettierrc
+.eslintrc*
+
+# Test files (from .npmignore)
+test/
+tests/
+!tests/
+!tests/test_mcp_prerequisites.py
+*.test.js
+*.test.ts
+
+# Build tools and frameworks (from .npmignore)
+.parcel-cache
+.next
+.nuxt
+.vuepress/dist
+.serverless
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
+
+# Node.js specific (from .npmignore)
+.node_repl_history
+*.tgz
+.yarn-integrity
+.npm
+
+# Coverage tools (from .npmignore)
+coverage/
+*.lcov
+/tools/README_완전삭제가이드.md
+/MIGRATION_GUIDE.md.claude/

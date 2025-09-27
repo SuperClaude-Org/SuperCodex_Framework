@@ -1,0 +1,18 @@
+include VERSION
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include ROADMAP.md
+include SECURITY.md
+include ARCHITECTURE_OVERVIEW.md
+include pyproject.toml
+recursive-include SuperGemini *
+recursive-include setup *
+recursive-include Templates *
+recursive-include Docs *.md
+recursive-include profiles *
+recursive-include config *
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
